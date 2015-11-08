@@ -1,0 +1,275 @@
+{
+    "className": "14te",
+    "titles": [
+        "Måndag 2/11",
+        "Tisdag 3/11",
+        "Onsdag 4/11",
+        "Torsdag 5/11",
+        "Fredag 6/11"
+    ],
+    "lessons": [
+        {
+            "startTime": "08:30",
+            "endTime": "09:30",
+            "rows": [
+                "SVESVE02",
+                "SVESVE02-14TE",
+                "Hl  C111"
+            ],
+            "location": "C111",
+            "day": 0
+        },
+        {
+            "startTime": "09:40",
+            "endTime": "10:45",
+            "rows": [
+                "ENGENG06",
+                "ENGENG06-14TE",
+                "Bw  A25"
+            ],
+            "location": "A25",
+            "day": 0
+        },
+        {
+            "startTime": "11:00",
+            "endTime": "12:05",
+            "rows": [
+                "FYSFYS01a",
+                "FYSFYS01a-14TE:a,",
+                "FYSFYS01a-14TE:b",
+                "Mon  B38"
+            ],
+            "location": "B38",
+            "day": 0
+        },
+        {
+            "startTime": "12:55",
+            "endTime": "14:10",
+            "rows": [
+                "MATMAT03c",
+                "MATMAT03c-14TE",
+                "Mon  B43"
+            ],
+            "location": "B43",
+            "day": 0
+        },
+        {
+            "startTime": "14:20",
+            "endTime": "15:30",
+            "rows": [
+                "MODDEU04 MODDEU04-15Spr2:b",
+                "Bg",
+                "A21",
+                "MODFRA04 MODFRA04-15Spr2:a",
+                "A32",
+                "Hgm",
+                "MODSPA04 MODSPA04-15Spr2:e",
+                "Dto",
+                "A23",
+                "MODSPA04 MODSPA04-15Spr2:g",
+                "Bam",
+                "A13"
+            ],
+            "location": "A13",
+            "day": 0
+        },
+        {
+            "startTime": "10:15",
+            "endTime": "12:15",
+            "rows": [
+                "TISDAG",
+                "TISDAG-14TE",
+                "Hl,Vs  A0"
+            ],
+            "location": "A0",
+            "day": 1
+        },
+        {
+            "startTime": "13:15",
+            "endTime": "15:15",
+            "rows": [
+                "TISDAG",
+                "TISDAG-14TE",
+                "Hl,Vs  A0"
+            ],
+            "location": "A0",
+            "day": 1
+        },
+        {
+            "startTime": "15:30",
+            "endTime": "17:00",
+            "rows": [
+                "TISDAG",
+                "TISDAG-14TE",
+                "Hl,Vs  A0"
+            ],
+            "location": "A0",
+            "day": 1
+        },
+        {
+            "startTime": "09:15",
+            "endTime": "10:50",
+            "rows": [
+                "MATMAT03c",
+                "MATMAT03c-14TE",
+                "Mon  A25"
+            ],
+            "location": "A25",
+            "day": 2
+        },
+        {
+            "startTime": "11:30",
+            "endTime": "12:30",
+            "rows": [
+                "IDRIDR01",
+                "IDRIDR01-14TE",
+                "Sk"
+            ],
+            "location": "Sk",
+            "day": 2
+        },
+        {
+            "startTime": "13:45",
+            "endTime": "14:45",
+            "rows": [
+                "SVESVE02",
+                "SVESVE02-14TE",
+                "Hl  C111"
+            ],
+            "location": "C111",
+            "day": 2
+        },
+        {
+            "startTime": "14:55",
+            "endTime": "16:30",
+            "rows": [
+                "TEKTEK01",
+                "TEKTEK01-14TE:a,",
+                "TEKTEK01-14TE:b",
+                "Sy  B43"
+            ],
+            "location": "B43",
+            "day": 2
+        },
+        {
+            "startTime": "08:30",
+            "endTime": "09:45",
+            "rows": [
+                "MODDEU04 MODDEU04-15Spr2:b",
+                "Bg",
+                "A21",
+                "MODFRA04 MODFRA04-15Spr2:a",
+                "Hgm",
+                "A32",
+                "MODSPA04 MODSPA04-15Spr2:e",
+                "A23",
+                "Dto",
+                "MODSPA04 MODSPA04-15Spr2:g",
+                "A13",
+                "Bam"
+            ],
+            "location": "Bam",
+            "day": 3
+        },
+        {
+            "startTime": "09:55",
+            "endTime": "11:05",
+            "rows": [
+                "MATMAT03c",
+                "MATMAT03c-14TE",
+                "Mon  A24"
+            ],
+            "location": "A24",
+            "day": 3
+        },
+        {
+            "startTime": "11:15",
+            "endTime": "12:20",
+            "rows": [
+                "ENGENG06",
+                "ENGENG06-14TE",
+                "Bw  D102"
+            ],
+            "location": "D102",
+            "day": 3
+        },
+        {
+            "startTime": "13:25",
+            "endTime": "14:40",
+            "rows": [
+                "FYSFYS01a",
+                "FYSFYS01a-14TE:a,",
+                "FYSFYS01a-14TE:b",
+                "Mon  B38"
+            ],
+            "location": "B38",
+            "day": 3
+        },
+        {
+            "startTime": "15:15",
+            "endTime": "17:00",
+            "rows": [
+                "FYSFYS01a",
+                "FYSFYS01a-14TE:a",
+                "Mon  B34"
+            ],
+            "location": "B34",
+            "day": 3
+        },
+        {
+            "startTime": "08:30",
+            "endTime": "10:15",
+            "rows": [
+                "FYSFYS01a",
+                "FYSFYS01a-14TE:b",
+                "Mon  B34"
+            ],
+            "location": "B34",
+            "day": 4
+        },
+        {
+            "startTime": "10:25",
+            "endTime": "12:30",
+            "rows": [
+                "PRRPRR01",
+                "PRRPRR01-14TE:a  vakda",
+                "B45"
+            ],
+            "location": "B45",
+            "day": 4
+        },
+        {
+            "startTime": "10:25",
+            "endTime": "12:30",
+            "rows": [
+                "WEBWEU02",
+                "WEBWEU02-14TE:b  Bc",
+                "B42"
+            ],
+            "location": "B42",
+            "day": 4
+        },
+        {
+            "startTime": "13:25",
+            "endTime": "15:30",
+            "rows": [
+                "PRRPRR01",
+                "PRRPRR01-14TE:b  vakda",
+                "B45"
+            ],
+            "location": "B45",
+            "day": 4
+        },
+        {
+            "startTime": "13:25",
+            "endTime": "15:30",
+            "rows": [
+                "WEBWEU02",
+                "WEBWEU02-14TE:a  Bc",
+                "B42"
+            ],
+            "location": "B42",
+            "day": 4
+        }
+    ]
+}

@@ -1,0 +1,231 @@
+{
+    "className": "13sad",
+    "titles": [
+        "Måndag 2/11",
+        "Tisdag 3/11",
+        "Onsdag 4/11",
+        "Torsdag 5/11",
+        "Fredag 6/11"
+    ],
+    "lessons": [
+        {
+            "startTime": "11:50",
+            "endTime": "13:00",
+            "rows": [
+                "SVESVE03",
+                "SVESVE03-13SAD",
+                "Fo  A12"
+            ],
+            "location": "A12",
+            "day": 0
+        },
+        {
+            "startTime": "13:25",
+            "endTime": "15:30",
+            "rows": [
+                "RELREL01",
+                "RELREL01-13SAD",
+                "Bjk  C113"
+            ],
+            "location": "C113",
+            "day": 0
+        },
+        {
+            "startTime": "10:15",
+            "endTime": "12:15",
+            "rows": [
+                "TISDAG",
+                "TISDAG-13SAD",
+                "Gim  A0"
+            ],
+            "location": "A0",
+            "day": 1
+        },
+        {
+            "startTime": "13:15",
+            "endTime": "15:15",
+            "rows": [
+                "TISDAG",
+                "TISDAG-13SAD",
+                "Gim  A0"
+            ],
+            "location": "A0",
+            "day": 1
+        },
+        {
+            "startTime": "15:30",
+            "endTime": "17:00",
+            "rows": [
+                "TISDAG",
+                "TISDAG-13SAD",
+                "Gim  A0"
+            ],
+            "location": "A0",
+            "day": 1
+        },
+        {
+            "startTime": "08:30",
+            "endTime": "10:30",
+            "rows": [
+                "ENGENG07 ENGENG07-15IndO:a",
+                "A14",
+                "Oln",
+                "MATMAT03b MATMAT03b-15IndO",
+                "C112",
+                "Mts",
+                "TEASCE01 TEASCE01-15IndO",
+                "Ön",
+                "B51-SKRIVSALEN"
+            ],
+            "location": "SKRIVSALEN",
+            "day": 2
+        },
+        {
+            "startTime": "10:45",
+            "endTime": "11:40",
+            "rows": [
+                "SOISOO0",
+                "SOISOO0-13SAD",
+                "Sch  C112"
+            ],
+            "location": "C112",
+            "day": 2
+        },
+        {
+            "startTime": "14:15",
+            "endTime": "15:30",
+            "rows": [
+                "GYARSA",
+                "GYARSA-13SAD",
+                "Gim  A33"
+            ],
+            "location": "A33",
+            "day": 2
+        },
+        {
+            "startTime": "15:35",
+            "endTime": "16:50",
+            "rows": [
+                "GYARSA",
+                "GYARSA-13SAD",
+                "Mlr  A33"
+            ],
+            "location": "A33",
+            "day": 2
+        },
+        {
+            "startTime": "11:20",
+            "endTime": "12:20",
+            "rows": [
+                "SOISOO0",
+                "SOISOO0-13SAD",
+                "Sch  A15"
+            ],
+            "location": "A15",
+            "day": 3
+        },
+        {
+            "startTime": "12:25",
+            "endTime": "12:55",
+            "rows": [
+                "MENTORSRÅD",
+                "MENTORSRÅD-13SAD  Gim",
+                "A15"
+            ],
+            "location": "A15",
+            "day": 3
+        },
+        {
+            "startTime": "15:00",
+            "endTime": "17:00",
+            "rows": [
+                "ENGENG07 ENGENG07-15IndT:c",
+                "A32",
+                "Hgm",
+                "FÖRFÖR01 FÖRFÖR01-15IndT",
+                "Vk",
+                "A35",
+                "HUMHUM00S HUMHUM00S2-15IndT",
+                "C112",
+                "Ed",
+                "JURPRI0 JURPRI0-15IndT",
+                "Wmn",
+                "C213",
+                "SVERET0 SVERET0-15IndT",
+                "Wm",
+                "C211",
+                "MATMAT03b MATMAT03b-15IndT",
+                "C111",
+                "Brd"
+            ],
+            "location": "Brd",
+            "day": 3
+        },
+        {
+            "startTime": "08:30",
+            "endTime": "09:30",
+            "rows": [
+                "SVESVE03",
+                "SVESVE03-13EKSA",
+                "Fo  A12"
+            ],
+            "location": "A12",
+            "day": 4
+        },
+        {
+            "startTime": "09:40",
+            "endTime": "10:40",
+            "rows": [
+                "SVESVE03",
+                "SVESVE03-13SAD",
+                "Fo  A12"
+            ],
+            "location": "A12",
+            "day": 4
+        },
+        {
+            "startTime": "10:50",
+            "endTime": "11:55",
+            "rows": [
+                "PSKPSY02a",
+                "PSKPSY02a-13SAD",
+                "Bjk  C113"
+            ],
+            "location": "C113",
+            "day": 4
+        },
+        {
+            "startTime": "12:00",
+            "endTime": "13:00",
+            "rows": [
+                "PSKPSY02b",
+                "PSKPSY02b-13SAD",
+                "Bjk  C113"
+            ],
+            "location": "C113",
+            "day": 4
+        },
+        {
+            "startTime": "14:00",
+            "endTime": "15:20",
+            "rows": [
+                "NAKNAK02",
+                "NAKNAK02-13SAD:a",
+                "Ae  B37"
+            ],
+            "location": "B37",
+            "day": 4
+        },
+        {
+            "startTime": "15:40",
+            "endTime": "17:00",
+            "rows": [
+                "NAKNAK02",
+                "NAKNAK02-13SAD:b",
+                "Ae  B37"
+            ],
+            "location": "B37",
+            "day": 4
+        }
+    ]
+}
