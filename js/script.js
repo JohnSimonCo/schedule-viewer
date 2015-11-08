@@ -1,5 +1,6 @@
 var subjects = {
 'FYSFYS01' 	: 'Fysik 1',
+'FYSFYS01a' 	: 'Fysik 1a',
 'FYSFYS02' 	: 'Fysik 2',
 'MATMAT01b' 	: 'Matematik 1b',
 'MATMAT01c' 	: 'Matematik 1c',
@@ -44,18 +45,30 @@ var subjects = {
 'IDRIDR02'	: 'Idrott 2',
 'MODITA01'	: 'Moderna Språk 1 (Italenska)',
 'MODDEU01'	: 'Moderna Språk 1 (Tyska)',
+'MODDEU02'	: 'Moderna Språk 2 (Tyska)',
 'MODFRA03'	: 'Moderna Språk 3 (Franska)',
 'MODFSPA3'	: 'Moderna Språk 3 (Spanska)',
 'MODDEU03'	: 'Moderna Språk 3 (Tyska)',
 'MODFRA04'	: 'Moderna Språk 4 (Franska)',
-'MODFSPA4'	: 'Moderna Språk 4 (Spanska)',
+'MODSPA04'	: 'Moderna Språk 4 (Spanska)',
 'MODDEU04'	: 'Moderna Språk 4 (Tyska)',
-'JURRÄT'		: 'XXX',
-'SOISOO0'		: 'XXX',
-'LEDLED0'		: 'XXX',
-'PEDKOU0'		: 'XXX',
-'NAKNAK01b'	: 'XXX',
-'TISDAG'	: 'Tisdagslektion'
+'TISDAG'	: 'Tisdagslektion',
+'FOTFOT01'	: 'Fotografi 1',
+'JURRÄT'		: 'JURRÄT',
+'SOISOO0'		: 'SOISOO0',
+'LEDLED0'		: 'LEDLED0',
+'PEDKOU0'		: 'PEDKOU0',
+'NAKNAK01b'	: 'NAKNAK01b',
+'NAKNAK02'	: 'NAKNAK02',
+'SVERET0'	: 'Retorik',
+'HUMHUM00S'	: 'HUMHUM00S',
+'HUMHUM00S2'	: 'HUMHUM00S2',
+'KOSFIL0'	: 'KOSFIL0',
+'FÖRENT0'	: 'FÖRENT0',
+'FÖRFÖR00S'	: 'FÖRFÖR00S',
+'MERMEE01'	: 'MERMEE01',
+'SVASVA02'	: 'SVASVA02',
+
 };
 
 $.ajaxSetup ({
@@ -158,6 +171,26 @@ function handleData(data) {
 			lesson.rows[0] = subjects[lesson.rows[0]];
 		}
 
+		if (lesson.rows.length > 4) {
+			//Skulle kunna vara individuellt val, rensa alla korta
+			for (var k = 0; k < lesson.rows.length; k++) {
+				if (lesson.rows[k].length < 5) {
+					lesson.rows.splice(lesson.rows.indexOf(lesson.rows[k]), 1);
+					k--;
+				}
+			}
+
+			//Nu är det rensat, nu byter vi ut namnen
+			for (var k = 0; k < lesson.rows.length; k++) {
+				var keys = Object.keys(subjects);
+				for (var a = 0; a < keys.length; a++) {
+					if (lesson.rows[k].indexOf(keys[a]) > -1) {
+						lesson.rows[k] = subjects[keys[a]];
+					}
+				}
+			}
+		}
+
 		for (var k = 0; k < lesson.rows.length; k++) {
 			var rowElement = $('<div>');
 			rowElement.attr('class', 'row');
@@ -249,12 +282,10 @@ function getConcurrentLessons(current, all) {
 		if (tStart < cStart) {
 			if (tEnd > cStart) {
 				concurrent++;
-				break;
 			}
 		} else {
 			if (tStart < cEnd) {
 				concurrent++;
-				break;
 			}
 		}
 	}
@@ -270,25 +301,35 @@ function resizeEvent() {
 
 	var classes = $('.class');
 
+	var shrunkClasses = [];
+
 	for (var i = 0; i < classes.length; i++) {
 		var size = 15;
+
 		while (true) {
 			$(classes[i]).css('font-size', size + 'px');
 			if ($(classes[i]).find('.info').find('.center-holder').height() <
-				$(classes[i]).height() - ($(classes[i]).find('.start').height() * 2)) {
+				$(classes[i]).height() - ($(classes[i]).find('.start').height())) {
 				break;
 			} else {
 				if (size < 6) {
+					shrunkClasses.push($(classes[i]));
 					break;
 				} else {
+					shrunkClasses.push($(classes[i]));
 					size--;
 				}
 			}
 		}
 	}
+
+	for (var i = 0; i < shrunkClasses.length; i++) {
+		shrunkClasses[i].find('.info').find('center-holder').css('top', 'calc(50% +' + '10px);');
+	}
+
 }
 
 function changeClass(classSelected) {
     localStorage.setItem('class', classSelected);
-	fetchData(classSelected);
+ 	fetchData(classSelected);
 }
