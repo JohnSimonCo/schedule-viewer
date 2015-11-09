@@ -1,0 +1,525 @@
+{
+	"className": "15EKC",
+	"parseError": false,
+	"titles": [
+		"Måndag 9/11",
+		"Tisdag 10/11",
+		"Onsdag 11/11",
+		"Torsdag 12/11",
+		"Fredag 13/11"
+	],
+	"lessons": [
+		{
+			"fill": {
+				"x": 4.813,
+				"y": 6.875,
+				"w": 18.391,
+				"h": 5.688,
+				"clr": 24
+			},
+			"startTime": "08:30",
+			"endTime": "09:40",
+			"rows": [
+				"SVESVE01",
+				"SVESVE01-15EKC",
+				"Sl  A13"
+			],
+			"location": "A13",
+			"day": 0
+		},
+		{
+			"fill": {
+				"x": 4.813,
+				"y": 13.375,
+				"w": 18.391,
+				"h": 5.25,
+				"clr": 1
+			},
+			"startTime": "09:50",
+			"endTime": "10:55",
+			"rows": [
+				"FÖRFÖR01",
+				"FÖRFÖR01-15EKC",
+				"Vn  A33"
+			],
+			"location": "A33",
+			"day": 0
+		},
+		{
+			"fill": {
+				"oc": "#ff8040",
+				"x": 4.813,
+				"y": 19.438,
+				"w": 18.391,
+				"h": 5.688,
+				"clr": -1
+			},
+			"startTime": "11:05",
+			"endTime": "12:15",
+			"rows": [
+				"MATMAT01b",
+				"MATMAT01b-15EKC",
+				"Mts  C112"
+			],
+			"location": "C112",
+			"day": 0
+		},
+		{
+			"fill": {
+				"oc": "#ffffdd",
+				"x": 4.813,
+				"y": 30,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": -1
+			},
+			"startTime": "13:15",
+			"endTime": "14:15",
+			"rows": [
+				"HISHIS01b",
+				"HISHIS01b-15EKC",
+				"Ay  C212"
+			],
+			"location": "C212",
+			"day": 0
+		},
+		{
+			"fill": {
+				"oc": "#ffd0d0",
+				"x": 4.813,
+				"y": 35.688,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": -1
+			},
+			"startTime": "14:25",
+			"endTime": "15:25",
+			"rows": [
+				"SAMSAM01b",
+				"SAMSAM01b-15EKC",
+				"Ay  C212"
+			],
+			"location": "C212",
+			"day": 0
+		},
+		{
+			"fill": {
+				"x": 23.203,
+				"y": 15.438,
+				"w": 18.391,
+				"h": 9.688,
+				"clr": 1
+			},
+			"startTime": "10:15",
+			"endTime": "12:15",
+			"rows": [
+				"TISDAG",
+				"TISDAG-15EKC",
+				"Mts,Tn  A0"
+			],
+			"location": "A0",
+			"day": 1
+		},
+		{
+			"fill": {
+				"x": 23.203,
+				"y": 30,
+				"w": 18.391,
+				"h": 9.75,
+				"clr": 1
+			},
+			"startTime": "13:15",
+			"endTime": "15:15",
+			"rows": [
+				"TISDAG",
+				"TISDAG-15EKC",
+				"Mts,Tn  A0"
+			],
+			"location": "A0",
+			"day": 1
+		},
+		{
+			"fill": {
+				"x": 23.203,
+				"y": 40.938,
+				"w": 18.391,
+				"h": 7.313,
+				"clr": 1
+			},
+			"startTime": "15:30",
+			"endTime": "17:00",
+			"rows": [
+				"TISDAG",
+				"TISDAG-15EKC",
+				"Mts,Tn  A0"
+			],
+			"location": "A0",
+			"day": 1
+		},
+		{
+			"fill": {
+				"x": 41.594,
+				"y": 6.875,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": 1
+			},
+			"startTime": "08:30",
+			"endTime": "09:30",
+			"rows": [
+				"JURPRI0",
+				"JURPRI0-15EKC",
+				"Oo  C114"
+			],
+			"location": "C114",
+			"day": 2
+		},
+		{
+			"fill": {
+				"x": 41.594,
+				"y": 13.375,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": 1
+			},
+			"startTime": "09:50",
+			"endTime": "10:50",
+			"rows": [
+				"FÖRFÖR01",
+				"FÖRFÖR01-15EKC",
+				"Vn  C212"
+			],
+			"location": "C212",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 41.594,
+				"y": 19.063,
+				"w": 18.391,
+				"h": 5.688,
+				"clr": -1
+			},
+			"startTime": "11:00",
+			"endTime": "12:10",
+			"rows": [
+				"MODDEU01 MODDEU01-15Spr1",
+				"Tn",
+				"A11",
+				"MODDEU03 MODDEU03-15Spr1:b",
+				"Har",
+				"A12",
+				"MODSPA03 MODSPA03-15Spr1:c",
+				"Oa",
+				"A25"
+			],
+			"location": "A25",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 41.594,
+				"y": 27.188,
+				"w": 18.391,
+				"h": 6.063,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:55",
+			"rows": [
+				"MODDEU03 MODDEU03-15Spr1:a",
+				"Har",
+				"A12",
+				"MODFRA03 MODFRA03-15Spr1:d",
+				"A14",
+				"Tn",
+				"MODITA01 MODITA01-15Spr1",
+				"Fo",
+				"A11",
+				"MODSPA03 MODSPA03-15Spr1:f",
+				"A13",
+				"Bam"
+			],
+			"location": "Bam",
+			"day": 2
+		},
+		{
+			"fill": {
+				"x": 41.594,
+				"y": 34.063,
+				"w": 9.109,
+				"h": 5.688,
+				"clr": 1
+			},
+			"startTime": "14:05",
+			"endTime": "15:15",
+			"rows": [
+				"ENGENG05",
+				"ENGENG05-15EKCSAAB  Asn",
+				"A11"
+			],
+			"location": "A11",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#00ff40",
+				"x": 50.703,
+				"y": 34.063,
+				"w": 9.281,
+				"h": 4.875,
+				"clr": -1
+			},
+			"startTime": "14:05",
+			"endTime": "15:05",
+			"rows": [
+				"ENGENG05",
+				"ENGENG05-15EKC  Sch",
+				"A13"
+			],
+			"location": "A13",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ff8040",
+				"x": 41.594,
+				"y": 40.563,
+				"w": 18.391,
+				"h": 3.625,
+				"clr": -1
+			},
+			"startTime": "15:25",
+			"endTime": "16:10",
+			"rows": [
+				"MATMAT01b",
+				"MATMAT01b-15EKBC:l",
+				"Mts  A11"
+			],
+			"location": "A11",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffd0d0",
+				"x": 59.984,
+				"y": 8.125,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": -1
+			},
+			"startTime": "08:45",
+			"endTime": "09:45",
+			"rows": [
+				"SAMSAM01b",
+				"SAMSAM01b-15EKC",
+				"Ay  C113"
+			],
+			"location": "C113",
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ff8040",
+				"x": 59.984,
+				"y": 13.813,
+				"w": 18.391,
+				"h": 5.25,
+				"clr": -1
+			},
+			"startTime": "09:55",
+			"endTime": "11:00",
+			"rows": [
+				"MATMAT01b",
+				"MATMAT01b-15EKC",
+				"Mts  A25"
+			],
+			"location": "A25",
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 59.984,
+				"y": 19.063,
+				"w": 18.391,
+				"h": 2.438,
+				"clr": 1
+			},
+			"startTime": "11:00",
+			"endTime": "11:30",
+			"rows": [
+				"MENTORSRÅD",
+				"MENTORSRÅD-15EKC  Tn,",
+				"Mts  A25"
+			],
+			"location": "A25",
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ff8080",
+				"x": 59.984,
+				"y": 27.188,
+				"w": 18.391,
+				"h": 4.813,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:40",
+			"rows": [
+				"IDRIDR01",
+				"IDRIDR01-15EKC",
+				"Fg"
+			],
+			"location": "Fg",
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 59.984,
+				"y": 33.625,
+				"w": 18.391,
+				"h": 5.688,
+				"clr": 24
+			},
+			"startTime": "14:00",
+			"endTime": "15:10",
+			"rows": [
+				"SVESVE01",
+				"SVESVE01-15EKC",
+				"Sl  A13"
+			],
+			"location": "A13",
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 78.375,
+				"y": 6.875,
+				"w": 9.109,
+				"h": 5.688,
+				"clr": 1
+			},
+			"startTime": "08:30",
+			"endTime": "09:40",
+			"rows": [
+				"ENGENG05",
+				"ENGENG05-15EKCSAAB  Asn",
+				"A11"
+			],
+			"location": "A11",
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#00ff40",
+				"x": 87.484,
+				"y": 6.875,
+				"w": 9.281,
+				"h": 5.313,
+				"clr": -1
+			},
+			"startTime": "08:30",
+			"endTime": "09:35",
+			"rows": [
+				"ENGENG05",
+				"ENGENG05-15EKC  Sch",
+				"A14"
+			],
+			"location": "A14",
+			"day": 4
+		},
+		{
+			"fill": {
+				"x": 78.375,
+				"y": 13.375,
+				"w": 18.391,
+				"h": 4.438,
+				"clr": 1
+			},
+			"startTime": "09:50",
+			"endTime": "10:45",
+			"rows": [
+				"JURPRI0",
+				"JURPRI0-15EKC",
+				"Oo  C212"
+			],
+			"location": "C212",
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 78.375,
+				"y": 19.063,
+				"w": 18.391,
+				"h": 5.688,
+				"clr": -1
+			},
+			"startTime": "11:00",
+			"endTime": "12:10",
+			"rows": [
+				"MODDEU03 MODDEU03-15Spr1:a",
+				"Har",
+				"A12",
+				"MODFRA03 MODFRA03-15Spr1:d",
+				"Tn",
+				"A14",
+				"MODITA01 MODITA01-15Spr1",
+				"A11",
+				"Fo",
+				"MODSPA03 MODSPA03-15Spr1:f",
+				"Bam",
+				"A13"
+			],
+			"location": "A13",
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 78.375,
+				"y": 27.188,
+				"w": 18.391,
+				"h": 6.063,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:55",
+			"rows": [
+				"MODDEU01 MODDEU01-15Spr1",
+				"A11",
+				"Tn",
+				"MODDEU03 MODDEU03-15Spr1:b",
+				"A12",
+				"Har",
+				"MODSPA03 MODSPA03-15Spr1:c",
+				"Oa",
+				"A25"
+			],
+			"location": "A25",
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffffdd",
+				"x": 78.375,
+				"y": 34.063,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": -1
+			},
+			"startTime": "14:05",
+			"endTime": "15:05",
+			"rows": [
+				"HISHIS01b",
+				"HISHIS01b-15EKC",
+				"Ay  A22"
+			],
+			"location": "A22",
+			"day": 4
+		}
+	]
+}

@@ -1,0 +1,529 @@
+{
+	"className": "15NAC-IHL",
+	"parseError": false,
+	"titles": [
+		"Måndag 9/11",
+		"Tisdag 10/11",
+		"Onsdag 11/11",
+		"Torsdag 12/11",
+		"Fredag 13/11"
+	],
+	"lessons": [
+		{
+			"fill": {
+				"x": 4.813,
+				"y": 6.875,
+				"w": 18.391,
+				"h": 4.063,
+				"clr": 1
+			},
+			"startTime": "08:30",
+			"endTime": "09:20",
+			"rows": [
+				"TRNTRN01",
+				"TRNTRN01-15NAC",
+				"Fg  A32"
+			],
+			"location": "A32",
+			"day": 0
+		},
+		{
+			"fill": {
+				"oc": "#ff8080",
+				"x": 4.813,
+				"y": 12.563,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": -1
+			},
+			"startTime": "09:40",
+			"endTime": "10:40",
+			"rows": [
+				"IDRIDR01",
+				"IDRIDR01-15NAC",
+				"Fg"
+			],
+			"location": "Fg",
+			"day": 0
+		},
+		{
+			"fill": {
+				"oc": "#ff8040",
+				"x": 4.813,
+				"y": 19.438,
+				"w": 18.391,
+				"h": 4.5,
+				"clr": -1
+			},
+			"startTime": "11:05",
+			"endTime": "12:00",
+			"rows": [
+				"MATMAT01c",
+				"MATMAT01c-15NAC",
+				"Eö  A22"
+			],
+			"location": "A22",
+			"day": 0
+		},
+		{
+			"fill": {
+				"oc": "#00ff40",
+				"x": 4.813,
+				"y": 28.813,
+				"w": 18.391,
+				"h": 5.25,
+				"clr": -1
+			},
+			"startTime": "13:00",
+			"endTime": "14:05",
+			"rows": [
+				"ENGENG05",
+				"ENGENG05-15NAC",
+				"Wm  A22"
+			],
+			"location": "A22",
+			"day": 0
+		},
+		{
+			"fill": {
+				"oc": "#80ff80",
+				"x": 4.813,
+				"y": 35.25,
+				"w": 18.391,
+				"h": 2.875,
+				"clr": -1
+			},
+			"startTime": "14:20",
+			"endTime": "14:55",
+			"rows": [
+				"KEMKEM01",
+				"KEMKEM01-15NAC:a,",
+				"KEMKEM01-15NAC:b  Rag",
+				"B36"
+			],
+			"location": "B36",
+			"day": 0
+		},
+		{
+			"fill": {
+				"x": 4.813,
+				"y": 38.125,
+				"w": 18.391,
+				"h": 2.813,
+				"clr": 10
+			},
+			"startTime": "14:55",
+			"endTime": "15:30",
+			"rows": [
+				"BIOBIO01",
+				"BIOBIO01-15NAC:a,",
+				"BIOBIO01-15NAC:b  Rag  B36"
+			],
+			"location": "B36",
+			"day": 0
+		},
+		{
+			"fill": {
+				"x": 23.203,
+				"y": 15.438,
+				"w": 18.391,
+				"h": 9.688,
+				"clr": 1
+			},
+			"startTime": "10:15",
+			"endTime": "12:15",
+			"rows": [
+				"TISDAG",
+				"TISDAG-15NAC",
+				"Fg,Rag  A0"
+			],
+			"location": "A0",
+			"day": 1
+		},
+		{
+			"fill": {
+				"x": 23.203,
+				"y": 30,
+				"w": 18.391,
+				"h": 9.75,
+				"clr": 1
+			},
+			"startTime": "13:15",
+			"endTime": "15:15",
+			"rows": [
+				"TISDAG",
+				"TISDAG-15NAC",
+				"Fg,Rag  A0"
+			],
+			"location": "A0",
+			"day": 1
+		},
+		{
+			"fill": {
+				"x": 23.203,
+				"y": 40.938,
+				"w": 18.391,
+				"h": 7.313,
+				"clr": 1
+			},
+			"startTime": "15:30",
+			"endTime": "17:00",
+			"rows": [
+				"TISDAG",
+				"TISDAG-15NAC",
+				"Fg,Rag  A0"
+			],
+			"location": "A0",
+			"day": 1
+		},
+		{
+			"fill": {
+				"x": 41.594,
+				"y": 6.875,
+				"w": 18.391,
+				"h": 5.313,
+				"clr": 24
+			},
+			"startTime": "08:30",
+			"endTime": "09:35",
+			"rows": [
+				"SVESVE01",
+				"SVESVE01-15NAC",
+				"Smn  A23"
+			],
+			"location": "A23",
+			"day": 2
+		},
+		{
+			"fill": {
+				"x": 41.594,
+				"y": 13,
+				"w": 18.391,
+				"h": 5.25,
+				"clr": 1
+			},
+			"startTime": "09:45",
+			"endTime": "10:50",
+			"rows": [
+				"TRNTRN01",
+				"TRNTRN01-15NAC",
+				"Fg  A23"
+			],
+			"location": "A23",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 41.594,
+				"y": 19.063,
+				"w": 18.391,
+				"h": 5.688,
+				"clr": -1
+			},
+			"startTime": "11:00",
+			"endTime": "12:10",
+			"rows": [
+				"MODDEU01 MODDEU01-15Spr1",
+				"Tn",
+				"A11",
+				"MODDEU03 MODDEU03-15Spr1:b",
+				"A12",
+				"Har",
+				"MODSPA03 MODSPA03-15Spr1:b",
+				"A24",
+				"Joh"
+			],
+			"location": "Joh",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 41.594,
+				"y": 27.188,
+				"w": 9.109,
+				"h": 6.063,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:55",
+			"rows": [
+				"MODFRA03",
+				"MODFRA03-15Spr1:b  Ei",
+				"A35"
+			],
+			"location": "A35",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 50.703,
+				"y": 27.188,
+				"w": 9.281,
+				"h": 6.063,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:55",
+			"rows": [
+				"MODSPA03",
+				"MODSPA03-15Spr1:e",
+				"Dto  A23"
+			],
+			"location": "A23",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ff8040",
+				"x": 41.594,
+				"y": 34.063,
+				"w": 18.391,
+				"h": 6.063,
+				"clr": -1
+			},
+			"startTime": "14:05",
+			"endTime": "15:20",
+			"rows": [
+				"MATMAT01c",
+				"MATMAT01c-15NAC",
+				"Eö  A22"
+			],
+			"location": "A22",
+			"day": 2
+		},
+		{
+			"fill": {
+				"x": 41.594,
+				"y": 40.938,
+				"w": 18.391,
+				"h": 7.313,
+				"clr": 10
+			},
+			"startTime": "15:30",
+			"endTime": "17:00",
+			"rows": [
+				"BIOBIO01",
+				"BIOBIO01-15NAC:b",
+				"Rag  B35"
+			],
+			"location": "B35",
+			"day": 2
+		},
+		{
+			"fill": {
+				"x": 59.984,
+				"y": 6.875,
+				"w": 18.391,
+				"h": 7.313,
+				"clr": 10
+			},
+			"startTime": "08:30",
+			"endTime": "10:00",
+			"rows": [
+				"BIOBIO01",
+				"BIOBIO01-15NAC:a",
+				"Rag  B35"
+			],
+			"location": "B35",
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ff8040",
+				"x": 59.984,
+				"y": 15,
+				"w": 18.391,
+				"h": 7.313,
+				"clr": -1
+			},
+			"startTime": "10:10",
+			"endTime": "11:40",
+			"rows": [
+				"MATMAT01c",
+				"MATMAT01c-15NAC",
+				"Eö  A22"
+			],
+			"location": "A22",
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#80ff80",
+				"x": 59.984,
+				"y": 27.188,
+				"w": 18.391,
+				"h": 4.438,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:35",
+			"rows": [
+				"KEMKEM01",
+				"KEMKEM01-15NAC:a,",
+				"KEMKEM01-15NAC:b",
+				"Rag  B36"
+			],
+			"location": "B36",
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 59.984,
+				"y": 31.625,
+				"w": 18.391,
+				"h": 3.625,
+				"clr": 10
+			},
+			"startTime": "13:35",
+			"endTime": "14:20",
+			"rows": [
+				"BIOBIO01",
+				"BIOBIO01-15NAC:a,",
+				"BIOBIO01-15NAC:b",
+				"Rag  B36"
+			],
+			"location": "B36",
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 59.984,
+				"y": 35.25,
+				"w": 18.391,
+				"h": 2.438,
+				"clr": 1
+			},
+			"startTime": "14:20",
+			"endTime": "14:50",
+			"rows": [
+				"MENTORSRÅD",
+				"MENTORSRÅD-15NAC  Fg,",
+				"Rag  B36"
+			],
+			"location": "B36",
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 59.984,
+				"y": 39.313,
+				"w": 18.391,
+				"h": 6.063,
+				"clr": 24
+			},
+			"startTime": "15:10",
+			"endTime": "16:25",
+			"rows": [
+				"SVESVE01",
+				"SVESVE01-15NAC",
+				"Smn  C113"
+			],
+			"location": "C113",
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#00ff40",
+				"x": 78.375,
+				"y": 6.875,
+				"w": 18.391,
+				"h": 4.063,
+				"clr": -1
+			},
+			"startTime": "08:30",
+			"endTime": "09:20",
+			"rows": [
+				"ENGENG05",
+				"ENGENG05-15NAC",
+				"Wm  A22"
+			],
+			"location": "A22",
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ff8040",
+				"x": 78.375,
+				"y": 11.75,
+				"w": 18.391,
+				"h": 6.5,
+				"clr": -1
+			},
+			"startTime": "09:30",
+			"endTime": "10:50",
+			"rows": [
+				"MATMAT01c",
+				"MATMAT01c-15NAC",
+				"Eö  A22"
+			],
+			"location": "A22",
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 78.375,
+				"y": 19.063,
+				"w": 9.109,
+				"h": 5.688,
+				"clr": -1
+			},
+			"startTime": "11:00",
+			"endTime": "12:10",
+			"rows": [
+				"MODFRA03",
+				"MODFRA03-15Spr1:b  Ei",
+				"A35"
+			],
+			"location": "A35",
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 87.484,
+				"y": 19.063,
+				"w": 9.281,
+				"h": 5.688,
+				"clr": -1
+			},
+			"startTime": "11:00",
+			"endTime": "12:10",
+			"rows": [
+				"MODSPA03",
+				"MODSPA03-15Spr1:e",
+				"Dto  A23"
+			],
+			"location": "A23",
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 78.375,
+				"y": 27.188,
+				"w": 18.391,
+				"h": 6.063,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:55",
+			"rows": [
+				"MODDEU01 MODDEU01-15Spr1",
+				"Tn",
+				"A11",
+				"MODDEU03 MODDEU03-15Spr1:b",
+				"Har",
+				"A12",
+				"MODSPA03 MODSPA03-15Spr1:b",
+				"Joh",
+				"A24"
+			],
+			"location": "A24",
+			"day": 4
+		}
+	]
+}
