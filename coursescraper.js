@@ -15,7 +15,7 @@ var subjects = {
 };
 
 var languages = [
-	['SPA', 'Spanska]'],
+	['SPA', 'Spanska'],
 	['FRA', 'Franska'],
 	['DEU', 'Tyska'],
 	['ITA', 'Italenska']
@@ -38,6 +38,9 @@ for (var i = 0; i < keys.length; i++) {
 	res += keys[i];
 	res += '":"';
 	res += subjects[keys[i]];
-	res += '",'
+	res += '"'
+	if (i != keys.length - 1) {
+		res += ','
+	}
 }
 console.log(res);
