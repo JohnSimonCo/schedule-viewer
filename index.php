@@ -44,7 +44,7 @@
                 array_push($schedules, $matches[1]);
             }
 
-            foreach($schedules as $schedule) {?>
+            foreach($schedules as $schedule) { ?>
                 <option value="<?php echo $schedule ?>"><?php echo $schedule ?></option>
             <?php } ?>
         </select>
