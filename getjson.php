@@ -1,9 +1,9 @@
 <?php
 
-include_once "cors.php";
+include "cors.php";
 
 $className = $_GET["className"];
 
-$json = file_get_contents("scheman/".$className.".json");
+$json = file_get_contents("schedules/".$className.".json");
 
 echo $json;

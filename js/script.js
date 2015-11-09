@@ -77,7 +77,7 @@ $.ajaxSetup ({
 });
 
 $(function() {
-    var selectedClass = localStorage.getItem('class') || '13te';
+    var selectedClass = localStorage.getItem('class') || '13TE';
     $('#classSelect').val(selectedClass);
     $('#className').text(selectedClass);
 
@@ -85,7 +85,8 @@ $(function() {
 });
 
 function fetchData(className) {
-    $.getJSON('http://vgy.rocks/johnrs/schema/getjson.php?className=' + className, handleData);
+    //$.getJSON('http://vgy.rocks/johnrs/schema/getjson.php?className=' + className, handleData);
+    $.getJSON('http://localhost/schema/getjson.php?className=' + className, handleData);
 }
 
 function handleData(data) {
