@@ -85,8 +85,8 @@ $(function() {
 });
 
 function fetchData(className) {
-    //$.getJSON('http://vgy.rocks/johnrs/schema/getjson.php?className=' + className, handleData);
-    $.getJSON('http://localhost/schema/getjson.php?className=' + className, handleData);
+    $.getJSON('http://vgy.rocks/johnrs/schema/getjson.php?className=' + className, handleData);
+    //$.getJSON('http://localhost/schema/getjson.php?className=' + className, handleData);
 }
 
 function handleData(data) {

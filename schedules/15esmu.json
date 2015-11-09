@@ -1,0 +1,1108 @@
+{
+	"className": "15ESMU",
+	"parseError": true,
+	"titles": [
+		"Måndag 9/11",
+		"Tisdag 10/11",
+		"Onsdag 11/11",
+		"Torsdag 12/11",
+		"Fredag 13/11"
+	],
+	"lessons": [
+		{
+			"fill": {
+				"x": 4.813,
+				"y": 6.875,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": 24
+			},
+			"startTime": "08:30",
+			"endTime": "09:30",
+			"rows": [
+				"SVESVE01",
+				"SVESVE01-15ESMU",
+				"Vs  A21"
+			],
+			"location": "A21",
+			"day": 0
+		},
+		{
+			"fill": {
+				"oc": "#ffd0d0",
+				"x": 4.813,
+				"y": 12.188,
+				"w": 18.391,
+				"h": 4.438,
+				"clr": -1
+			},
+			"startTime": "09:35",
+			"endTime": "10:30",
+			"rows": [
+				"SAMSAM01b",
+				"SAMSAM01b-15ESMU",
+				"Jln  A21"
+			],
+			"location": "A21",
+			"day": 0
+		},
+		{
+			"fill": {
+				"oc": "#ff8080",
+				"x": 4.813,
+				"y": 17.813,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": -1
+			},
+			"startTime": "10:45",
+			"endTime": "11:45",
+			"rows": [
+				"IDRIDR01",
+				"IDRIDR01-15ESMU",
+				"Ols"
+			],
+			"location": "Ols",
+			"day": 0
+		},
+		{
+			"fill": {
+				"x": 4.813,
+				"y": 28,
+				"w": 18.391,
+				"h": 2.375,
+				"clr": 1
+			},
+			"startTime": "12:50",
+			"endTime": "13:20",
+			"rows": [
+				"MENTORSRÅD",
+				"MENTORSRÅD-15ESMU  Er,",
+				"Kc  C22"
+			],
+			"location": "C22",
+			"day": 0
+		},
+		{
+			"fill": {
+				"x": 4.813,
+				"y": 30.375,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": 1
+			},
+			"startTime": "13:20",
+			"endTime": "14:20",
+			"rows": [
+				"ESTEST01",
+				"ESTEST01-15ESMU",
+				"Kc  C22,C41"
+			],
+			"location": "C41",
+			"day": 0
+		},
+		{
+			"fill": {
+				"oc": "#ff8040",
+				"x": 4.813,
+				"y": 36.063,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": -1
+			},
+			"startTime": "14:30",
+			"endTime": "15:30",
+			"rows": [
+				"MATMAT01b",
+				"MATMAT01b-15ESMU:l",
+				"Ct  C22"
+			],
+			"location": "C22",
+			"day": 0
+		},
+		{
+			"fill": {
+				"x": 23.203,
+				"y": 15.438,
+				"w": 18.391,
+				"h": 9.688,
+				"clr": 1
+			},
+			"startTime": "10:15",
+			"endTime": "12:15",
+			"rows": [
+				"TISDAG",
+				"TISDAG-15ESMU",
+				"Er,Kc  A0"
+			],
+			"location": "A0",
+			"day": 1
+		},
+		{
+			"fill": {
+				"x": 23.203,
+				"y": 30,
+				"w": 18.391,
+				"h": 9.75,
+				"clr": 1
+			},
+			"startTime": "13:15",
+			"endTime": "15:15",
+			"rows": [
+				"TISDAG",
+				"TISDAG-15ESMU",
+				"Er,Kc  A0"
+			],
+			"location": "A0",
+			"day": 1
+		},
+		{
+			"fill": {
+				"x": 23.203,
+				"y": 40.938,
+				"w": 18.391,
+				"h": 7.313,
+				"clr": 1
+			},
+			"startTime": "15:30",
+			"endTime": "17:00",
+			"rows": [
+				"TISDAG",
+				"TISDAG-15ESMU",
+				"Er,Kc  A0"
+			],
+			"location": "A0",
+			"day": 1
+		},
+		{
+			"fill": {
+				"oc": "#ffd0d0",
+				"x": 41.594,
+				"y": 8.5,
+				"w": 18.391,
+				"h": 5.313,
+				"clr": -1
+			},
+			"startTime": "08:50",
+			"endTime": "09:55",
+			"rows": [
+				"SAMSAM01b",
+				"SAMSAM01b-15ESMU",
+				"Jln  A33"
+			],
+			"location": "A33",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 41.594,
+				"y": 14.188,
+				"w": 3.609,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "10:00",
+			"endTime": "10:40",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 45.203,
+				"y": 14.188,
+				"w": 3.609,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "10:00",
+			"endTime": "10:40",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 48.813,
+				"y": 14.188,
+				"w": 3.781,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "10:00",
+			"endTime": "10:40",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 52.594,
+				"y": 14.188,
+				"w": 3.609,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "10:00",
+			"endTime": "10:40",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 56.203,
+				"y": 14.188,
+				"w": 3.781,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "10:00",
+			"endTime": "10:20",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 56.203,
+				"y": 15.813,
+				"w": 3.781,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "10:20",
+			"endTime": "10:40",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 41.594,
+				"y": 17.438,
+				"w": 9.109,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "10:40",
+			"endTime": "11:00",
+			"rows": [
+				"MUSINS01",
+				"MUSINS01-15PIAbMoLu  Wn",
+				"A16"
+			],
+			"location": "A16",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 53.797,
+				"y": 17.813,
+				"w": 6.188,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "10:45",
+			"endTime": "11:05",
+			"rows": [
+				"MUSINS01S",
+				"MUSINS01S-15SSWNaSh",
+				"Rp"
+			],
+			"location": "Rp",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 41.594,
+				"y": 19.063,
+				"w": 6.016,
+				"h": 5.688,
+				"clr": -1
+			},
+			"startTime": "11:00",
+			"endTime": "12:10",
+			"rows": [
+				"MODDEU03",
+				"MODDEU03-15Spr1:b",
+				"Har  A12"
+			],
+			"location": "A12",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 47.609,
+				"y": 19.063,
+				"w": 6.188,
+				"h": 5.688,
+				"clr": -1
+			},
+			"startTime": "11:00",
+			"endTime": "12:10",
+			"rows": [
+				"MODFRA03",
+				"MODFRA03-15Spr1:c",
+				"Ei  A35"
+			],
+			"location": "A35",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 53.797,
+				"y": 19.875,
+				"w": 6.188,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "11:10",
+			"endTime": "11:30",
+			"rows": [
+				"MUSINS01S",
+				"MUSINS01S-15SSWChTj",
+				"Rp"
+			],
+			"location": "Rp",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 53.797,
+				"y": 21.875,
+				"w": 6.188,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "11:35",
+			"endTime": "11:55",
+			"rows": [
+				"MUSINS01S",
+				"MUSINS01S-15SSWAnMa",
+				"Rp"
+			],
+			"location": "Rp",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 53.797,
+				"y": 23.938,
+				"w": 6.188,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "12:00",
+			"endTime": "12:20",
+			"rows": [
+				"MUSINS01",
+				"MUSINS01-15PIAbAlJo",
+				"Wn  C22"
+			],
+			"location": "C22",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 41.594,
+				"y": 25.125,
+				"w": 6.016,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "12:15",
+			"endTime": "12:55",
+			"rows": [
+				"MUSINS01S",
+				"MUSINS01S-15SSWStLu",
+				"Rp"
+			],
+			"location": "Rp",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 50.703,
+				"y": 25.563,
+				"w": 9.281,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "12:20",
+			"endTime": "12:40",
+			"rows": [
+				"MUSINS01",
+				"MUSINS01-15PIAbMaMa",
+				"Wn  C22"
+			],
+			"location": "C22",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 50.703,
+				"y": 27.188,
+				"w": 4.641,
+				"h": 6.063,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:55",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 55.344,
+				"y": 27.188,
+				"w": 4.641,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:00",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 41.594,
+				"y": 28.813,
+				"w": 4.469,
+				"h": 3.188,
+				"clr": -1
+			},
+			"startTime": "13:00",
+			"endTime": "13:40",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 46.063,
+				"y": 30.375,
+				"w": 4.641,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "13:20",
+			"endTime": "14:00",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 41.594,
+				"y": 32,
+				"w": 4.469,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "13:40",
+			"endTime": "14:00",
+			"rows": [],
+			"location": null,
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#00ff40",
+				"x": 41.594,
+				"y": 34.063,
+				"w": 18.391,
+				"h": 4.875,
+				"clr": -1
+			},
+			"startTime": "14:05",
+			"endTime": "15:05",
+			"rows": [
+				"ENGENG05",
+				"ENGENG05-15ESMU",
+				"And  A31"
+			],
+			"location": "A31",
+			"day": 2
+		},
+		{
+			"fill": {
+				"oc": "#ff8040",
+				"x": 41.594,
+				"y": 39.75,
+				"w": 18.391,
+				"h": 6.063,
+				"clr": -1
+			},
+			"startTime": "15:15",
+			"endTime": "16:30",
+			"rows": [
+				"MATMAT01b",
+				"MATMAT01b-15ESMU",
+				"Ct  A21"
+			],
+			"location": "A21",
+			"day": 2
+		},
+		{
+			"fill": {
+				"x": 59.984,
+				"y": 6.5,
+				"w": 9.109,
+				"h": 6.5,
+				"clr": 24
+			},
+			"startTime": "08:25",
+			"endTime": "09:45",
+			"rows": [
+				"MUIGEH01",
+				"MUIGEH01-15ESMU:a",
+				"Wn  C22,C21"
+			],
+			"location": "C21",
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 69.094,
+				"y": 6.5,
+				"w": 9.281,
+				"h": 6.5,
+				"clr": 24
+			},
+			"startTime": "08:25",
+			"endTime": "09:45",
+			"rows": [
+				"MUIGEH01",
+				"MUIGEH01-15ESMU:b",
+				"Cn  C21,C22"
+			],
+			"location": "C22",
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 59.984,
+				"y": 13.375,
+				"w": 2.922,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "09:50",
+			"endTime": "10:30",
+			"rows": [],
+			"location": null,
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 62.906,
+				"y": 13.375,
+				"w": 3.094,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "09:50",
+			"endTime": "10:30",
+			"rows": [],
+			"location": null,
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 66,
+				"y": 13.375,
+				"w": 3.094,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "09:50",
+			"endTime": "10:30",
+			"rows": [],
+			"location": null,
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 72.188,
+				"y": 14.188,
+				"w": 3.094,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "10:00",
+			"endTime": "10:20",
+			"rows": [],
+			"location": null,
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 74.594,
+				"y": 15.813,
+				"w": 3.781,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "10:20",
+			"endTime": "10:40",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"x": 59.984,
+				"y": 19.063,
+				"w": 4.469,
+				"h": 7.688,
+				"clr": 24
+			},
+			"startTime": "11:00",
+			"endTime": "12:35",
+			"rows": [],
+			"location": null,
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 64.453,
+				"y": 19.063,
+				"w": 4.641,
+				"h": 7.688,
+				"clr": 24
+			},
+			"startTime": "11:00",
+			"endTime": "12:35",
+			"rows": [],
+			"location": null,
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 69.094,
+				"y": 19.063,
+				"w": 4.641,
+				"h": 7.688,
+				"clr": 24
+			},
+			"startTime": "11:00",
+			"endTime": "12:35",
+			"rows": [],
+			"location": null,
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 73.734,
+				"y": 19.063,
+				"w": 4.641,
+				"h": 7.688,
+				"clr": 24
+			},
+			"startTime": "11:00",
+			"endTime": "12:35",
+			"rows": [],
+			"location": null,
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 59.984,
+				"y": 30.375,
+				"w": 9.109,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "13:20",
+			"endTime": "14:00",
+			"rows": [
+				"MUSINS01S",
+				"MUSINS01S-15SNGAlJo  Ön"
+			],
+			"location": "n",
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 69.094,
+				"y": 31.188,
+				"w": 9.281,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "13:30",
+			"endTime": "13:50",
+			"rows": [
+				"MUSINS01",
+				"MUSINS01-15PIAbMaSt",
+				"Wn  C22"
+			],
+			"location": "C22",
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ff8040",
+				"x": 59.984,
+				"y": 34.438,
+				"w": 18.391,
+				"h": 5.688,
+				"clr": -1
+			},
+			"startTime": "14:10",
+			"endTime": "15:20",
+			"rows": [
+				"MATMAT01b",
+				"MATMAT01b-15ESMU",
+				"Ct  A21"
+			],
+			"location": "A21",
+			"day": 3
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 59.984,
+				"y": 40.938,
+				"w": 18.391,
+				"h": 7.313,
+				"clr": -1
+			},
+			"startTime": "15:30",
+			"endTime": "17:00",
+			"rows": [
+				"MUS",
+				"MUSENS0-1415rep",
+				"C41,C21"
+			],
+			"location": "C21",
+			"day": 3
+		},
+		{
+			"fill": {
+				"x": 78.375,
+				"y": 6.875,
+				"w": 18.391,
+				"h": 6.125,
+				"clr": 24
+			},
+			"startTime": "08:30",
+			"endTime": "09:45",
+			"rows": [
+				"SVESVE01",
+				"SVESVE01-15ESMU",
+				"Vs  A21"
+			],
+			"location": "A21",
+			"day": 4
+		},
+		{
+			"fill": {
+				"x": 78.375,
+				"y": 13.813,
+				"w": 18.391,
+				"h": 3.625,
+				"clr": 24
+			},
+			"startTime": "09:55",
+			"endTime": "10:40",
+			"rows": [
+				"MUSENS0",
+				"MUSENS0-131415ESMUkö",
+				"Jbn,Ön  C21,C41"
+			],
+			"location": "C41",
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 78.375,
+				"y": 19.063,
+				"w": 4.469,
+				"h": 5.688,
+				"clr": -1
+			},
+			"startTime": "11:00",
+			"endTime": "12:20",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 92.125,
+				"y": 19.875,
+				"w": 4.641,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "11:10",
+			"endTime": "11:50",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 82.844,
+				"y": 20.688,
+				"w": 4.641,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "11:20",
+			"endTime": "11:40",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 87.484,
+				"y": 21.5,
+				"w": 4.641,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "11:30",
+			"endTime": "12:10",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 82.844,
+				"y": 22.313,
+				"w": 4.641,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "11:40",
+			"endTime": "12:20",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 92.125,
+				"y": 23.125,
+				"w": 4.641,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "11:50",
+			"endTime": "12:30",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 78.375,
+				"y": 25.563,
+				"w": 3.609,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "12:20",
+			"endTime": "13:00",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 81.984,
+				"y": 25.563,
+				"w": 3.609,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "12:20",
+			"endTime": "13:00",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 85.594,
+				"y": 26.75,
+				"w": 3.781,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "12:35",
+			"endTime": "12:55",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 89.375,
+				"y": 27.188,
+				"w": 3.609,
+				"h": 6.063,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:55",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 92.984,
+				"y": 27.188,
+				"w": 3.781,
+				"h": 6.063,
+				"clr": -1
+			},
+			"startTime": "12:40",
+			"endTime": "13:55",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 85.594,
+				"y": 28.375,
+				"w": 3.781,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "12:55",
+			"endTime": "12:15",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 78.375,
+				"y": 28.813,
+				"w": 3.609,
+				"h": 3.188,
+				"clr": -1
+			},
+			"startTime": "13:00",
+			"endTime": "13:40",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 81.984,
+				"y": 30,
+				"w": 3.609,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "13:15",
+			"endTime": "13:35",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 85.594,
+				"y": 30.375,
+				"w": 3.781,
+				"h": 3.25,
+				"clr": -1
+			},
+			"startTime": "12:20",
+			"endTime": "12:00",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#ffff00",
+				"x": 81.984,
+				"y": 31.625,
+				"w": 3.609,
+				"h": 1.625,
+				"clr": -1
+			},
+			"startTime": "13:35",
+			"endTime": "12:00",
+			"rows": [],
+			"location": null,
+			"day": 4
+		},
+		{
+			"fill": {
+				"oc": "#00ff40",
+				"x": 78.375,
+				"y": 34.063,
+				"w": 18.391,
+				"h": 4.438,
+				"clr": -1
+			},
+			"startTime": "14:05",
+			"endTime": "15:00",
+			"rows": [
+				"ENGENG05",
+				"ENGENG05-15ESMU",
+				"And  A31"
+			],
+			"location": "A31",
+			"day": 4
+		}
+	]
+}
