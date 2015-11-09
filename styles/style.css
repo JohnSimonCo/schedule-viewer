@@ -64,6 +64,10 @@ body, html {
 	cursor: pointer;
 }
 
+#weekSelectNow {
+
+}
+
 #schedule {
 	height: calc(100vh - 125px);
 	position: relative;

@@ -54,7 +54,7 @@
 
         <div class="weekSelect">
             <div onclick="weekBack()" class="weekSelectArrow"><</div>
-            <div class="weekSelectNow">46</div>
+            <div id="weekSelectNow"></div>
             <div onclick="weekForward()" class="weekSelectArrow">></div>
         </div>
     </div>
