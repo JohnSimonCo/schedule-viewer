@@ -126,12 +126,13 @@ function handleData(data) {
 		}
 	}
 
-	//Set data about concurrent and simultaneous lessons
+	//Set data about simultaneous lessons
 	for (var i = 0; i < data.lessons.length; i++) {
 		var lesson = data.lessons[i];
 
-		lesson.concurrentLessons = 1;//getConcurrentLessons(lesson, lessonsDays[lesson.day]);
-		lesson.simultaneousLessons = 1;//getSimultaneousLessons(lesson, lessonsDays[lesson.day]);
+		var simLessons = getSimultaneousLessons(lesson, lessonsDays[lesson.day], [lesson]);
+		lesson.simultaneousLessons = removeDuplicates(simLessons).length;
+		lesson.concurrentLessons = getConcurrentLessons(lesson, lessonsDays[lesson.day]);
 	}
 
 	for (var i = 0; i < data.lessons.length; i++) {
@@ -143,8 +144,8 @@ function handleData(data) {
 		if (lesson.simultaneousLessons != 1) {
 			if (lesson.left == null) {
 				lesson.left = 0;
-				for (var a = 0; a < lesson.simultaneousLessons; a++) {
-					data.lessons[i + a].left = (18.6 / data.lessons[i + 1].simultaneousLessons) * (a);
+				for (var a = 1; a < lesson.simultaneousLessons; a++) {
+					data.lessons[i + a].left = (18.6 / data.lessons[i + 1].concurrentLessons);
 				}
 			}
 		} else {
@@ -300,29 +301,33 @@ function getConcurrentLessons(current, all) {
 
 //Returns the amount of lessons that take place sometime in the timeframe of this lesson.
 //For example; half the class has biology and the other half have first physics then
-//chemistry. This function will return 3 even though there are a maximum of 3 concurrent lessons
-function getSimultaneousLessons(current, all) {
+//chemistry. This function will return 3 even though there are a maximum of 2 concurrent lessons
+function getSimultaneousLessons(current, all, previous) {
 	var cStart = getTimeSinceStart(current.startTime);
 	var cEnd = getTimeSinceStart(current.endTime);
 
 	var simultaneous = 1;
 	
 	for (var i = 0; i < all.length; i++) {
-		var tStart = getTimeSinceStart(all[i].startTime);
-		var tEnd = getTimeSinceStart(all[i].endTime);
+		if (current != all[i] && previous.indexOf(all[i]) == -1) {
+			var tStart = getTimeSinceStart(all[i].startTime);
+			var tEnd = getTimeSinceStart(all[i].endTime);
 
-		if (tStart < cStart) {
-			if (tEnd > cStart) {
-				simultaneous++;
-			}
-		} else {
-			if (tStart < cEnd) {
-				simultaneous++;
+			if (tStart < cStart) {
+				if (tEnd > cStart) {
+					previous.push(all[i]);
+					previous = previous.concat(getSimultaneousLessons(all[i], all, previous));
+				}
+			} else {
+				if (tStart < cEnd) {
+					previous.push(all[i]);
+					previous = previous.concat(getSimultaneousLessons(all[i], all, previous));
+				}
 			}
 		}
 	}
 
-	return simultaneous;
+	return previous;
 }
 
 $(window).resize(function() {
@@ -366,4 +371,15 @@ function resizeEvent() {
 function changeClass(classSelected) {
     localStorage.setItem('class', classSelected);
  	fetchData(classSelected);
+}
+
+//Might get to the bottom of this problem someday, not today though
+function removeDuplicates(lessons) {
+	var newLessonList = [];
+	for (var i = 0; i < lessons.length; i++) {
+		if (newLessonList.indexOf(lessons[i]) == -1) {
+			newLessonList.push(lessons[i]);
+		}
+	}
+	return newLessonList;
 }
