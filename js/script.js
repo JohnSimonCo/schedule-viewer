@@ -44,7 +44,7 @@ function handleData(data) {
 		dayHeaderElement.append(dayTitleElement);
 	}
 
-	//preprocessing, do serverside later
+	//START preprocessing, do serverside later
 	var lessonsDays = [];
 
 	//Add all lesson days
@@ -75,6 +75,13 @@ function handleData(data) {
 		lesson.concurrentLessons = conLessons;
 	}
 
+	//Go through all lessons and set their width
+	for (var i = 0; i < data.lessons.length; i++) {
+		data.lessons[i].width = getDayWidthPercent() / data.lessons[i].concurrentLessonsCount;
+	}
+
+	//END preprocessing
+
 	//Go through all lessons and create a HTMLElement for it
 	for (var i = 0; i < data.lessons.length; i++) {
 		var lesson = data.lessons[i];
@@ -82,15 +89,33 @@ function handleData(data) {
 		var yStart = getYStartPercent(lesson.startTime);
 		var lessonHeight = getLessonHeightPercent(lesson.startTime, lesson.endTime);
 
-		//Shift simultaneous lessons to the right
-		//TODO SHOULD BE CONCURRENT
-		if (lesson.simultaneousLessonsCount != 1) {
-			if (lesson.left == null) {
-				lesson.left = 0;
-				for (var a = 1; a < lesson.simultaneousLessonsCount; a++) {
-		//			if (lesson.concurrentLessons.indexOf(data.lessons[i + a]) > -1) {
-						data.lessons[i + a].left = (getDayWidthPercent() / data.lessons[i + 1].concurrentLessonsCount);
-		//			}
+		//We want to concurrent lessons so they don't interfere
+		//Check if a lesson takes place at the same time as another lesson
+		if (lesson.concurrentLessonsCount != 1) {
+
+			//We set up a array "busy" with all the offsets already offupied
+			var busy = [];
+
+			// We iterate through all possible offsets...
+			for (var k = 0; k < getDayWidthPercent(); k += lesson.width) {
+				for (var j = 0; j < lesson.concurrentLessonsCount; j++) {
+					//...and see if they're taken...
+					if (lesson.concurrentLessons[j].left === k) {
+						//...if so; we put them in busy
+						busy.push(k);
+					}
+				}
+			}
+
+			//We remove the duplicates of "busy"
+			busy = removeDuplicates(busy);
+
+			//And test all possible offsets...
+			for (var k = 0; k < getDayWidthPercent(); k += lesson.width) {
+				//...until we find one that's not taken...
+				if (busy.indexOf(k) == -1) {
+					//...and use it ourselves
+					lesson.left = k;
 				}
 			}
 		} else {
@@ -103,7 +128,7 @@ function handleData(data) {
 		mainElement.css('top', yStart + '%');
 		mainElement.css('height', lessonHeight + '%');
 		mainElement.css('background', getColor(lesson.rows[0]));
-		mainElement.css('width', getDayWidthPercent() / lesson.concurrentLessonsCount + '%');
+		mainElement.css('width', lesson.width + '%');
 
 		mainElement.css('left', ((lesson.day * getMaxDayWidthPercent()) + lesson.left) + '%');
 
@@ -164,7 +189,6 @@ function handleData(data) {
 		mainElement.append(endTimeElement);
 
 		scheduleElement.append(mainElement);
-		
 	}
 
 	resizeEvent();
