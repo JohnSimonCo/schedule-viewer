@@ -39,6 +39,28 @@ body, html {
 	background-color: #263238;
 }
 
+.weekSelect {
+	font-size: 22px;
+	float: right;
+	margin-top: 10px;
+}
+
+.weekSelectBack {
+	float: left;
+	padding-right: 10px;
+	cursor: pointer;
+}
+
+.weekSelectNow {
+	float: left;
+}
+
+.weekSelectForward {
+	padding-left: 10px;
+	float: left;
+	cursor: pointer;
+}
+
 #schedule {
 	height: calc(100vh - 125px);
 	position: relative;
