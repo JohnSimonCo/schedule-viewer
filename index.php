@@ -49,10 +49,13 @@
             <?php } ?>
         </select>
 
+        <div id="parseErrorMessage"></div>
+        <div id="parseErrorMessageSmall"></div>
+
         <div class="weekSelect">
-            <div class="weekSelectBack"><</div>
+            <div onclick="weekBack()" class="weekSelectArrow"><</div>
             <div class="weekSelectNow">46</div>
-            <div class="weekSelectForward">></div>
+            <div onclick="weekForward()" class="weekSelectArrow">></div>
         </div>
     </div>
 

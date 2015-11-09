@@ -21,9 +21,13 @@ function fetchData(className) {
 }
 
 function handleData(data) {
-
 	if (data.parseError) {
-		alert("Error parsing schedule");
+		$('#parseErrorMessage').text('Ett fel uppstod vid inläsning av schemat, viss data kan vara felaktig');
+		$('#parseErrorMessageSmall').text('Fel vid inläsning');
+	} else {
+		$('#parseErrorMessage').text('');
+		$('#parseErrorMessageSmall').text('');
+
 	}
 
 	var scheduleElement = $('#schedule');
@@ -97,7 +101,7 @@ function handleData(data) {
 		mainElement.css('background', getColor(lesson.rows[0]));
 		mainElement.css('width', 18.6 / lesson.concurrentLessons + '%');
 
-		mainElement.css('left', ((lesson.day * 20) + lesson.left) + '%');
+		mainElement.css('left', ((lesson.day * getMaxDayWidthPercent()) + lesson.left) + '%');
 
 		var startTimeElement = $('<div>');
 		startTimeElement.attr('class', 'start');
@@ -156,12 +160,9 @@ function handleData(data) {
 	}
 
 	resizeEvent();
-};
+}
 
 var schoolEnd = getTimeSinceStart('17:30');
-
-var sizeToHeight = [21, 17, 15, 14, 13, 13, 11, 10, 9, 8, 6];
-var fontSizes = [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5];
 
 var color = -1;
 var palette = ['#F44336', '#3F51B5', '#009688', '#607D8B', '#FF5722', '#9C27B0', '#4CAF50', '#2196F3', '#34495e', '#27ae60'];
@@ -252,8 +253,6 @@ function getSimultaneousLessons(current, all, previous) {
 	var cStart = getTimeSinceStart(current.startTime);
 	var cEnd = getTimeSinceStart(current.endTime);
 
-	var simultaneous = 1;
-	
 	for (var i = 0; i < all.length; i++) {
 		if (current != all[i] && previous.indexOf(all[i]) == -1) {
 			var tStart = getTimeSinceStart(all[i].startTime);
@@ -328,4 +327,12 @@ function removeDuplicates(lessons) {
 		}
 	}
 	return newLessonList;
+}
+
+function weekBack() {
+
+}
+
+function weekForward() {
+
 }
