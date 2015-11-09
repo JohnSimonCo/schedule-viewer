@@ -107,16 +107,11 @@ function handleData(data) {
 		dayHeaderElement.append(dayTitleElement);
 	}
 
+	//preprocessing, do serverside later
+	var lessonsDays = [];
+
+	//Add all lesson days
 	for (var i = 0; i < data.lessons.length; i++) {
-		var lesson = data.lessons[i];
-
-		var yStart = getYStartPercent(lesson.startTime);
-		var lessonHeight = getLessonHeightPercent(lesson.startTime, lesson.endTime);
-		var lessonFontSize = getLessonFontSize(lessonHeight, lesson.rows.length);
-
-		//TODO Do serverside
-		var lessonsDays = [];
-
 		for (var j = 0; j < data.titles.length; j++) {
 			var lessonsToday = [];
 
@@ -128,15 +123,27 @@ function handleData(data) {
 
 			lessonsDays.push(lessonsToday);
 		}
+	}
+
+	//Set data about concurrent and simultaneous lessons
+	for (var i = 0; i < data.lessons.length; i++) {
+		var lesson = data.lessons[i];
 
 		lesson.concurrentLessons = getConcurrentLessons(lesson, lessonsDays[lesson.day]);
-		//ENDTODO
+		lesson.simultaneousLessons = getSimultaneousLessons(lesson, lessonsDays[lesson.day]);
+	}
 
-		if (lesson.concurrentLessons != 1) {
+	for (var i = 0; i < data.lessons.length; i++) {
+		var lesson = data.lessons[i];
+
+		var yStart = getYStartPercent(lesson.startTime);
+		var lessonHeight = getLessonHeightPercent(lesson.startTime, lesson.endTime);
+
+		if (lesson.simultaneousLessons != 1) {
 			if (lesson.left == null) {
 				lesson.left = 0;
-				for (var a = 0; a < lesson.concurrentLessons; a++) {
-					data.lessons[i + a].left = (18.6 / lesson.concurrentLessons) * (a);
+				for (var a = 0; a < lesson.simultaneousLessons; a++) {
+					data.lessons[i + a].left = (18.6 / data.lessons[i + 1].simultaneousLessons) * (a);
 				}
 			}
 		} else {
@@ -238,27 +245,17 @@ function nextColor() {
 	return palette[color];
 }
 
+
 function getLessonHeightPercent(start, end) {
 	var tot = getTimeSinceStart(end) - getTimeSinceStart(start);
 	return (tot / schoolEnd) * 100;
 }
 
-function getLessonFontSize(height, rows) {
-	height -= 70;
-
-	for (var i = 0; i < sizeToHeight.length; i++) {
-		if (height - (sizeToHeight[i] * rows) > 0) {
-			return fontSizes[i];
-		}
-	}
-
-	return 5;
-}
-
+//This function says how far into the day the lesson is in percent
 function getYStartPercent(time) {
 	return (getTimeSinceStart(time) / schoolEnd) * 100;
 }
-
+//This function return the time in hours since 8 am
 function getTimeSinceStart(time) {
 	var h = parseFloat(time.substring(0, 2));
 	var m = parseFloat(time.substring(3, 5));
@@ -270,36 +267,67 @@ function getTimeSinceStart(time) {
 	return tot;
 }
 
+//Returns the maximum amount of lesson which take place at the same time as the current lesson
 function getConcurrentLessons(current, all) {
 	var cStart = getTimeSinceStart(current.startTime);
 	var cEnd = getTimeSinceStart(current.endTime);
 
-	var concurrent = 1;
+	var maxConcurrent = 1;
 
+	for (var time = cStart; time < cEnd; time += 0.01) {
+
+		var concurrent = 1;
+
+		for (var i = 0; i < all.length; i++) {
+			var tStart = getTimeSinceStart(all[i].startTime);
+			var tEnd = getTimeSinceStart(all[i].endTime);
+
+			if (tStart < time && tEnd > time) {
+				concurrent++;
+			}
+		}
+
+		if (concurrent > maxConcurrent) {
+			maxConcurrent = concurrent;
+		}
+	}
+
+	return maxConcurrent;
+}
+
+//Returns the amount of lessons that take place sometime in the timeframe of this lesson.
+//For example; half the class has biology and the other half have first physics then
+//chemistry. This function will return 3 even though there are a maximum of 3 concurrent lessons
+function getSimultaneousLessons(current, all) {
+	var cStart = getTimeSinceStart(current.startTime);
+	var cEnd = getTimeSinceStart(current.endTime);
+
+	var simultaneous = 1;
+	
 	for (var i = 0; i < all.length; i++) {
 		var tStart = getTimeSinceStart(all[i].startTime);
 		var tEnd = getTimeSinceStart(all[i].endTime);
 
 		if (tStart < cStart) {
 			if (tEnd > cStart) {
-				concurrent++;
+				simultaneous++;
 			}
 		} else {
 			if (tStart < cEnd) {
-				concurrent++;
+				simultaneous++;
 			}
 		}
 	}
 
-	return concurrent;
+	return simultaneous;
 }
 
 $(window).resize(function() {
 	resizeEvent();
 });
 
+//This function makes sure text is readble regardless of window size
 function resizeEvent() {
-
 	var classes = $('.class');
 
 	var shrunkClasses = [];
@@ -330,6 +358,8 @@ function resizeEvent() {
 
 }
 
+//This function is called by the spinner in the top panel to change
+//the active schedule
 function changeClass(classSelected) {
     localStorage.setItem('class', classSelected);
  	fetchData(classSelected);
