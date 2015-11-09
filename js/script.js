@@ -85,8 +85,8 @@ $(function() {
 });
 
 function fetchData(className) {
-    //$.getJSON('http://vgy.rocks/johnrs/schema/getjson.php?className=' + className, handleData);
-    $.getJSON('http://localhost/schema/getjson.php?className=' + className, handleData);
+    $.getJSON('http://vgy.rocks/johnrs/schema/getjson.php?className=' + className.toUpperCase(), handleData);
+    //$.getJSON('http://localhost/schema/getjson.php?className=' + className, handleData);
 }
 
 function handleData(data) {
@@ -135,17 +135,19 @@ function handleData(data) {
 		lesson.concurrentLessons = getConcurrentLessons(lesson, lessonsDays[lesson.day]);
 	}
 
+	//Go through all lessons and create a HTMLElement for it
 	for (var i = 0; i < data.lessons.length; i++) {
 		var lesson = data.lessons[i];
 
 		var yStart = getYStartPercent(lesson.startTime);
 		var lessonHeight = getLessonHeightPercent(lesson.startTime, lesson.endTime);
 
+		//Shift simultaneous lessons to the right
 		if (lesson.simultaneousLessons != 1) {
 			if (lesson.left == null) {
 				lesson.left = 0;
 				for (var a = 1; a < lesson.simultaneousLessons; a++) {
-					data.lessons[i + a].left = (18.6 / data.lessons[i + 1].concurrentLessons);
+					data.lessons[i + a].left = (getDayWidthPercent() / data.lessons[i + 1].concurrentLessons);
 				}
 			}
 		} else {
@@ -247,6 +249,15 @@ function nextColor() {
 	return palette[color];
 }
 
+//TODO Generate response
+function getDayWidthPercent() {
+	return 18.6;
+}
+
+//TODO Generate response
+function getMaxDayWidthPercent() {
+	return 20;
+}
 
 function getLessonHeightPercent(start, end) {
 	var tot = getTimeSinceStart(end) - getTimeSinceStart(start);
