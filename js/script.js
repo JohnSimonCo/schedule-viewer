@@ -91,6 +91,10 @@ function fetchData(className) {
 
 function handleData(data) {
 
+	if (data.parseError) {
+		alert("Error parsing schedule");
+	}
+
 	var scheduleElement = $('#schedule');
 	var dayHeaderElement = $('#dayHeader');
 	var classNameElement = $('#className');

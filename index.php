@@ -48,6 +48,8 @@
                 <option value="<?php echo $schedule ?>"><?php echo $schedule ?></option>
             <?php } ?>
         </select>
+
+        <div class="weekSelect"></div>
     </div>
 
     <div id="dayHeader"></div>
