@@ -4,7 +4,14 @@ var thElements = document.querySelectorAll('.searchresult > tbody th');
 var tdElements = document.querySelectorAll('.searchresult > tbody td');
 
 var subjects = {
-'DAODAO'	: 'Datakunskap'
+'DAODAO'	: 'Datakunskap',
+'MENTORSRÅD': 'Mentorsråd',
+'GYARTE'	: 'Gymnasiearbete',
+'GYAREK'	: 'Gymnasiearbete',
+'GYARES'	: 'Gymnasiearbete',
+'GYARNA'	: 'Gymnasiearbete',
+'GYARSA'	: 'Gymnasiearbete',
+'TISDAG'	: 'Tisdagslektion'
 };
 
 var languages = [
