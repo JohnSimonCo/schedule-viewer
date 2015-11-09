@@ -129,8 +129,8 @@ function handleData(data) {
 	for (var i = 0; i < data.lessons.length; i++) {
 		var lesson = data.lessons[i];
 
-		lesson.concurrentLessons = getConcurrentLessons(lesson, lessonsDays[lesson.day]);
-		lesson.simultaneousLessons = getSimultaneousLessons(lesson, lessonsDays[lesson.day]);
+		lesson.concurrentLessons = 1;//getConcurrentLessons(lesson, lessonsDays[lesson.day]);
+		lesson.simultaneousLessons = 1;//getSimultaneousLessons(lesson, lessonsDays[lesson.day]);
 	}
 
 	for (var i = 0; i < data.lessons.length; i++) {
@@ -279,11 +279,13 @@ function getConcurrentLessons(current, all) {
 		var concurrent = 1;
 
 		for (var i = 0; i < all.length; i++) {
-			var tStart = getTimeSinceStart(all[i].startTime);
-			var tEnd = getTimeSinceStart(all[i].endTime);
+			if (current != all[i]) {
+				var tStart = getTimeSinceStart(all[i].startTime);
+				var tEnd = getTimeSinceStart(all[i].endTime);
 
-			if (tStart < time && tEnd > time) {
-				concurrent++;
+				if (tStart < time && tEnd > time) {
+					concurrent++;
+				}
 			}
 		}
 
