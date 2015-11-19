@@ -5,7 +5,14 @@
       <paths name="XAMPP Apache">
         <serverdata>
           <mappings>
-            <mapping deploy="/schema" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/schedule" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="vgy.rocks/johnrs">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/schedule" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
@@ -13,3 +20,4 @@
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
+
