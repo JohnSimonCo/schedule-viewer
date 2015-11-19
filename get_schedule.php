@@ -11,8 +11,7 @@ if(file_exists("schedules/$week")) {
         echo file_get_contents($file);
         exit();
     } else {
-        echo "Class not found";
-        die(500);
+        not_found();
     }
 }
 
@@ -26,6 +25,7 @@ $response = \Httpful\Request::get("http://jrp.se:8080/schedule/$week")
 //$response = file_get_contents("data.json");
 
 $schedules = json_decode($response, true);
+$schedule_found = false;
 
 mkdir("schedules/$week", 0777, true);
 foreach($schedules as $schedule) {
@@ -35,6 +35,15 @@ foreach($schedules as $schedule) {
     file_put_contents($file, $json);
 
     if($name == $className) {
+        $schedule_found = true;
         echo $json;
     }
+}
+if(!$schedule_found) {
+    not_found();
+}
+
+function not_found() {
+    echo "Schedule not found";
+    die(500);
 }
