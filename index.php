@@ -52,6 +52,16 @@
         <div id="parseErrorMessage"></div>
         <div id="parseErrorMessageSmall"></div>
 
+        <div id="changeView" onclick="changeView()">
+            <svg id="viewWeek" style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#fff" d="M16,5V18H21V5M4,18H9V5H4M10,18H15V5H10V18Z" />
+            </svg>
+
+            <svg id="viewDay" style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#fff" d="M20,3H3A1,1 0 0,0 2,4V10A1,1 0 0,0 3,11H20A1,1 0 0,0 21,10V4A1,1 0 0,0 20,3M20,13H3A1,1 0 0,0 2,14V20A1,1 0 0,0 3,21H20A1,1 0 0,0 21,20V14A1,1 0 0,0 20,13Z" />
+            </svg>
+        </div>
+
         <div class="weekSelect">
             <div onclick="weekBack()" class="weekSelectArrow"><</div>
             <div id="weekSelectNow"></div>
@@ -62,7 +72,15 @@
     <div id="dayHeader"></div>
 </header>
 
-<div id="schedule"></div>
+<div class="schedule-container">
+    <div id="dayChangeLeft" class="day-changer" onclick="changeDay(0)">
+        <span id="dayChangeLeftText" class="day-changer-span"><</span>
+    </div>
+    <div id="schedule"></div>
+    <div id="dayChangeRight" class="day-changer" onclick="changeDay(1)">
+        <span id="dayChangeRightText" class="day-changer-span">></span>
+    </div>
+</div>
 
 <script type="text/javascript" src="js/lib.js"></script>
 <script type="text/javascript" src="js/script.js"></script>

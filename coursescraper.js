@@ -43,4 +43,5 @@ for (var i = 0; i < keys.length; i++) {
 		res += ','
 	}
 }
+
 console.log(res);
