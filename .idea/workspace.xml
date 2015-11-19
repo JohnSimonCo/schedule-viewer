@@ -58,8 +58,8 @@
       <file leaf-file-name="get_schedule.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/get_schedule.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82051283" vertical-offset="255" max-vertical-offset="918">
-              <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.4871795" vertical-offset="0" max-vertical-offset="952">
+              <caret line="19" column="72" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -710,8 +710,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/get_schedule.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82051283" vertical-offset="255" max-vertical-offset="918">
-          <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.4871795" vertical-offset="0" max-vertical-offset="952">
+          <caret line="19" column="72" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
           <folding />
         </state>
       </provider>

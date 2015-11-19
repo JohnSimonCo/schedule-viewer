@@ -17,10 +17,12 @@ if(file_exists("schedules/$week")) {
 
 include('./httpful.phar');
 
-$response = \Httpful\Request::get("http://jrp.se:8080/schedule/$week")
-    ->expectsJson()
+$response = \Httpful\Request::get("http://jrp.se:8080/s/schedule/$week")
     ->send();
 
+if($response->code != 200) {
+    not_found();
+}
 
 //$response = file_get_contents("data.json");
 
