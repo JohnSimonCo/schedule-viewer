@@ -45,5 +45,5 @@ if(!$schedule_found) {
 
 function not_found() {
     echo "Schedule not found";
-    die(500);
+    die(400);
 }
