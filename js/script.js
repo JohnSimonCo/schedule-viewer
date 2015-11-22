@@ -64,6 +64,8 @@ function handleData(data) {
         $('#parseErrorMessageSmall').text('');
 	}
 
+    $('#className').text(data.className);
+
 	//START preprocessing, do serverside later
 	var lessonsDays = [];
 
