@@ -27,7 +27,7 @@ if($response->code != 200) {
 
 //$response = file_get_contents("data.json");
 
-$schedules = $response->body;
+$schedules = json_decode($response, true);
 $schedule_found = false;
 
 mkdir("schedules/$week", 0777, true);
