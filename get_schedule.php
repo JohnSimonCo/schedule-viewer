@@ -17,7 +17,8 @@ if(file_exists("schedules/$week")) {
 
 include('./httpful.phar');
 
-$response = \Httpful\Request::get("http://jrp.se:8080/s/schedule/$week")
+//$response = \Httpful\Request::get("http://jrp.se:8080/s/schedule/$week")
+$response = \Httpful\Request::get("http://jrp.se:8080/s/schedule/withtuesday/$week")
     ->send();
 
 if($response->code != 200) {
