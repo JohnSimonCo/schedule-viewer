@@ -12,12 +12,14 @@ if (getCurrentView() == undefined) {
 }
 
 var schoolEnd = getTimeSinceStart('17:30');
+var lastLessonTime = getTimeSinceStart('17:00');
 
 var color = -1;
 
 var palette = ['#F44336', '#3F51B5', '#009688', '#607D8B', '#FF5722', '#9C27B0', '#4CAF50', '#2196F3', '#34495e', '#27ae60'];
 var classes = [];
 var colors = [];
+var dayElements = [];
 var currentDay = generateCurrentDate();
 
 updateVisibleViewIndicator();
@@ -32,7 +34,18 @@ $(function() {
     $('#className').text(selectedClass);
 
 	if (!$('#weekSelectNow').text()) {
-		$('#weekSelectNow').text(new Date().format('W'));
+        var week = new Date().format('W');
+
+        var d = new Date().getDay();
+
+        //Saturday or sunday
+        if (d == 0 || d == 6) {
+            week++;
+            if (week > 52) {
+                week = 1;
+            }
+        }
+		$('#weekSelectNow').text(week);
 	}
 
     fetchData(selectedClass, $('#weekSelectNow').text());
@@ -48,8 +61,7 @@ function handleData(data) {
 		$('#parseErrorMessageSmall').text('Fel vid inläsning');
 	} else {
 		$('#parseErrorMessage').text('');
-		$('#parseErrorMessageSmall').text('');
-
+        $('#parseErrorMessageSmall').text('');
 	}
 
 	//START preprocessing, do serverside later
@@ -83,6 +95,15 @@ function handleData(data) {
 		lesson.concurrentLessons = conLessons;
 	}
 
+    //Set data about being directly followed by another lesson
+    for (var i = 0; i < data.lessons.length; i++) {
+        for (var k = 0; k < lessonsDays[data.lessons[i].day].length; k++) {
+            if (data.lessons[i].endTime == lessonsDays[data.lessons[i].day][k].startTime) {
+                data.lessons[i].directlyFollowed = true;
+            }
+        }
+    }
+
 	//Go through all lessons and set their color
 	for (var i = 0; i < data.lessons.length; i++) {
 		data.lessons[i].color = getColor(data.lessons[i].rows[0])
@@ -95,82 +116,72 @@ function handleData(data) {
 	generateHtml();
 }
 
+//This method is called once per schedule to create all HTML elements and give
+//them their lessons. Then invalidateLayout() is used to determine which elements
+//remain visible
 function generateHtml() {
-	var data = lastData;
+
+    var lessons = lastData.lessons;
 
 	//Remove all HTML elements
-	$('.class').remove();
-	$('.day').remove();
+	$('.day-container').remove();
 
-	//Set up the day headers
-	var dayHeaderElement = $('#dayHeader');
-	var classNameElement = $('#className');
+    dayElements = [];
 
-	classNameElement.text(data.className);
+    //Iterate through all days and add columns for them
+    for (var i = 0; i < lastData.titles.length; i++) {
+        var dayElement = $('<div>');
 
-	if (getCurrentView() == VIEW_WEEK) {
-		for (var i = 0; i < data.titles.length; i++) {
-			var dayTitleElement = $('<div>');
-			dayTitleElement.attr('class', 'day');
-			dayTitleElement.text(data.titles[i]);
+        dayElement.css('height', '100%');
+        dayElement.css('position', 'absolute');
+        dayElement.css('top', '0');
 
-			dayHeaderElement.append(dayTitleElement);
-		}
-	} else {
-		var dayTitleElement = $('<div>');
-		dayTitleElement.attr('class', 'day');
-		dayTitleElement.text(data.titles[currentDay]);
-		dayTitleElement.css('width', '100%');
+        dayElement.attr('class', 'day-container');
 
-		dayHeaderElement.append(dayTitleElement);
-	}
+        dayElements.push(dayElement);
+    }
 
-	//Go through all lessons and create a HTMLelements for them
-	for (var i = 0; i < data.lessons.length; i++) {
-		var lesson = data.lessons[i];
-
-		lesson.width = getDayWidthPercent() / data.lessons[i].concurrentLessonsCount;
-
-		//Irrellevant
-		if (getCurrentView() == VIEW_DAY && currentDay != lesson.day) {
-			continue;
-		}
+	//Go through all lessons and create a HTML elements for them
+	for (var i = 0; i < lessons.length; i++) {
+		var lesson = lessons[i];
 
 		var yStart = getYStartPercent(lesson.startTime);
 		var lessonHeight = getLessonHeightPercent(lesson.startTime, lesson.endTime);
 
-		//We want to concurrent lessons so they don't interfere
-		//Check if a lesson takes place at the same time as another lesson
-		if (lesson.concurrentLessonsCount != 1) {
+        lesson.width = 100 / lessons[i].concurrentLessonsCount;
 
-			//We set up a array "busy" with all the offsets already offupied
-			var busy = [];
+        //We want to concurrent lessons so they don't interfere
+        //Check if a lesson takes place at the same time as another lesson
+        if (lesson.concurrentLessonsCount != 1) {
 
-			// We iterate through all possible offsets...
-			for (var k = 0; k < getDayWidthPercent(); k += lesson.width) {
-				for (var j = 0; j < lesson.concurrentLessonsCount; j++) {
-					//...and see if they're taken...
-					if (lesson.concurrentLessons[j].left === k) {
-						//...if so; we put them in busy
-						busy.push(k);
-					}
-				}
-			}
+            //We set up a array "busy" with all the offsets already occupied
+            var busy = [];
 
-			//We remove the duplicates of "busy"
-			busy = removeDuplicates(busy);
+            // We iterate through all possible offsets...
+            for (var k = 0; k < 100; k += lesson.width) {
+                for (var j = 0; j < lesson.concurrentLessonsCount; j++) {
+                    //...and see if they're taken...
+                    if (lesson.concurrentLessons[j].left === k) {
+                        //...if so; we put them in busy
+                        busy.push(k);
+                    }
+                }
+            }
 
-			//And test all possible offsets...
-			for (var k = 0; k < getDayWidthPercent(); k += lesson.width) {
-				//...until we find one that's not taken...
-				if (busy.indexOf(k) == -1) {
-					//...and use it ourselves
-					lesson.left = k;
-				}
-			}
-		} else {
-			lesson.left = 0;
-		}
+            //We remove the duplicates of "busy"
+            busy = removeDuplicates(busy);
+
+            //And test all possible offsets...
+            for (var k = 0; k < 100; k += lesson.width) {
+                //...until we find one that's not taken...
+                if (busy.indexOf(k) == -1) {
+                    //...and use it ourselves
+                    lesson.left = k;
+                }
+            }
+        } else {
+            lesson.left = 0;
+        }
 
 		var mainElement = $('<div>');
 		mainElement.attr('class', 'class');
@@ -178,35 +189,32 @@ function generateHtml() {
 		mainElement.css('top', yStart + '%');
 		mainElement.css('height', lessonHeight + '%');
 		mainElement.css('background', lesson.color);
-		mainElement.css('width', lesson.width + '%');
+        mainElement.css('width', lesson.width + '%');
 
-		if (getCurrentView() == VIEW_DAY) {
-			mainElement.css('left', lesson.left + '%');
-		} else {
-			mainElement.css('left', ((lesson.day * getMaxDayWidthPercent()) + lesson.left) + '%');
-		}
+        mainElement.css('left', lesson.left + '%');
 
 		var startTimeElement = $('<div>');
-		startTimeElement.attr('class', 'start');
-		startTimeElement.text(lesson.startTime);
 
+        startTimeElement.attr('class', 'start');
+        startTimeElement.text(lesson.startTime);
 		var endTimeElement = $('<div>');
-		endTimeElement.attr('class', 'end');
-		endTimeElement.text(lesson.endTime);
 
+        endTimeElement.attr('class', 'end');
+        endTimeElement.text(lesson.endTime);
 		var infoElement = $('<div>');
-		infoElement.attr('class', 'info');
 
+        infoElement.attr('class', 'info');
 		var centerElement = $('<div>');
-		centerElement.attr('class', 'center-holder');
 
-		if (lesson.rows.length > 4) {
-			//Skulle kunna vara individuellt val, rensa alla korta
-			//B51-SKRIVSALEN är även hårdkodad in, kanske går att förbättra
-			//sen
-			for (var k = 0; k < lesson.rows.length; k++) {
-				if (lesson.rows[k].length < 5 || lesson.rows[k].indexOf('B51-SKRIVSALEN') > -1) {
-					lesson.rows.splice(lesson.rows.indexOf(lesson.rows[k]), 1);
+        centerElement.attr('class', 'center-holder');
+
+        //Skulle kunna vara individuellt val, rensa alla korta
+        //B51-SKRIVSALEN är även hårdkodad in, kanske går att förbättra
+        //sen
+        if (lesson.rows.length > 4) {
+            for (var k = 0; k < lesson.rows.length; k++) {
+                if (lesson.rows[k].length < 5 || lesson.rows[k].indexOf('B51-SKRIVSALEN') > -1) {
+                    lesson.rows.splice(lesson.rows.indexOf(lesson.rows[k]), 1);
 					k--;
 				}
 			}
@@ -223,10 +231,12 @@ function generateHtml() {
 		} else {
 			//Check if the subjects array contains the first word of
 			//the scheduled class
-			if (subjects[lesson.rows[0].split(' ')[0]]) {
-				lesson.rows = lesson.rows.splice(0, 1);
-				lesson.rows[0] = subjects[lesson.rows[0].split(' ')[0]];
-			}
+            if (lesson.rows[0]) {
+                if (subjects[lesson.rows[0].split(' ')[0]]) {
+                    lesson.rows = lesson.rows.splice(0, 1);
+                    lesson.rows[0] = subjects[lesson.rows[0].split(' ')[0]];
+                }
+            }
 		}
 
 		for (var k = 0; k < lesson.rows.length; k++) {
@@ -240,169 +250,89 @@ function generateHtml() {
 		infoElement.append(centerElement);
 		mainElement.append(startTimeElement);
 		mainElement.append(infoElement);
-		mainElement.append(endTimeElement);
+        if (!lesson.directlyFollowed) {
+            mainElement.append(endTimeElement);
+        }
 
-		scheduleElement.append(mainElement);
+		dayElements[lesson.day].append(mainElement);
 	}
 
-	resizeEvent();
+    var hasLessons = [0, 1, 2, 3, 4]
+        .map(function(day) {
+            return {
+                day: day,
+                hasLesson: lessons.some(function(lesson) {
+                    return lesson.day == day;
+                })
+            }
+        })
+        .filter(function(dayItem) {
+            return !dayItem.hasLesson;
+        })
+        .map(function(dayItem) {
+            return dayItem.day;
+        })
+        .forEach(function(day) {
+            var emptyView = $('<div>');
+            emptyView.attr('class', 'empty-view');
+            //TODO kanske skriv något roligt här
+            emptyView.text('Inga lektioner');
+            dayElements[day].append(emptyView);
+        });
+
+    for (var k = 0; k < dayElements.length; k++) {
+        scheduleElement.append(dayElements[k]);
+    }
+
+    invalidateLayout();
 }
 
-function getColor(name) {
-	if (classes.indexOf(name) < 0) {
-		classes.push(name);
-		colors[classes.indexOf(name)] = nextColor();
-	}
-	return colors[classes.indexOf(name)];
-}
+function invalidateLayout() {
+    $('.day').remove();
 
-function nextColor() {
-	color++;
-	if (color >= palette.length) {
-		color = 0;
-	}
-	return palette[color];
-}
+    //Set up the day headers
+    var dayHeaderElement = $('#dayHeader');
 
-function getDayWidthPercent() {
-	if (getCurrentView() == VIEW_WEEK) {
-		return 18.6;
-	} else {
-		return 98.6;
-	}
-}
+    if (getCurrentView() == VIEW_WEEK) {
+        for (var i = 0; i < lastData.titles.length; i++) {
+            var dayTitleElement = $('<div>');
+            dayTitleElement.attr('class', 'day');
+            dayTitleElement.text(lastData.titles[i]);
 
-function getMaxDayWidthPercent() {
-	if (getCurrentView() == VIEW_WEEK) {
-		return 20;
-	} else {
-		return 100;
-	}
-}
+            dayHeaderElement.append(dayTitleElement);
+        }
+    } else {
+        var dayTitleElement = $('<div>');
+        dayTitleElement.attr('class', 'day');
+        dayTitleElement.text(lastData.titles[currentDay]);
+        dayTitleElement.css('width', '100%');
 
-function getLessonHeightPercent(start, end) {
-	var tot = getTimeSinceStart(end) - getTimeSinceStart(start);
-	return (tot / schoolEnd) * 100;
-}
+        dayHeaderElement.append(dayTitleElement);
+    }
 
-//This function says how far into the day the lesson is in percent
-function getYStartPercent(time) {
-	return (getTimeSinceStart(time) / schoolEnd) * 100;
-}
-//This function return the time in hours since 8 am
-function getTimeSinceStart(time) {
-	var h = parseFloat(time.substring(0, 2));
-	var m = parseFloat(time.substring(3, 5));
+    var soloWidth = (1 / lastData.titles.length) * 100;
 
-	h -= 8;
-	var tot = h;
-	tot += (m / 60);
+    for (var i = 0; i < dayElements.length; i++) {
 
-	return tot;
-}
+        if (getCurrentView() == VIEW_WEEK) {
+            dayElements[i].css('opacity', '1');
+            dayElements[i].css('width', soloWidth - 1.4 + '%');
+            dayElements[i].css('left', ((soloWidth * i) + 0.7) + '%')
+        } else {
 
-//Returns the maximum amount of lesson which take place at the same time as the current lesson
-function getConcurrentLessons(current, all) {
-	var cStart = getTimeSinceStart(current.startTime);
-	var cEnd = getTimeSinceStart(current.endTime);
+            if (currentDay == i) {
+                dayElements[i].css('opacity', '1');
+                dayElements[i].css('width', 100 - 1.4 + '%');
+                dayElements[i].css('left', 0 + '%')
+            } else {
+                dayElements[i].css('opacity', '0');
+                dayElements[i].css('width', soloWidth - 1.4 + '%');
+                dayElements[i].css('left', ((soloWidth * i) + 0.7) + '%')
+            }
+        }
+    }
 
-	var concurrentLessons = [];
-
-	for (var time = cStart; time < cEnd; time += 0.01) {
-
-		var concurrent = 1;
-		var lessons = [current];
-
-		for (var i = 0; i < all.length; i++) {
-			if (current != all[i]) {
-				var tStart = getTimeSinceStart(all[i].startTime);
-				var tEnd = getTimeSinceStart(all[i].endTime);
-
-				if (tStart < time && tEnd > time) {
-					concurrent++;
-					lessons.push(all[i]);
-				}
-			}
-		}
-
-		if (concurrent > concurrentLessons.length) {
-			concurrentLessons = lessons;
-		}
-	}
-
-	return concurrentLessons;
-}
-
-//Returns the amount of lessons that take place sometime in the timeframe of this lesson.
-//For example; half the class has biology and the other half have first physics then
-//chemistry. This function will return 3 even though there are a maximum of 2 concurrent lessons
-function getSimultaneousLessons(current, all, previous) {
-	var cStart = getTimeSinceStart(current.startTime);
-	var cEnd = getTimeSinceStart(current.endTime);
-
-	for (var i = 0; i < all.length; i++) {
-		if (current != all[i] && previous.indexOf(all[i]) == -1) {
-			var tStart = getTimeSinceStart(all[i].startTime);
-			var tEnd = getTimeSinceStart(all[i].endTime);
-
-			if (tStart < cStart) {
-				if (tEnd > cStart) {
-					previous.push(all[i]);
-					previous = previous.concat(getSimultaneousLessons(all[i], all, previous));
-				}
-			} else {
-				if (tStart < cEnd) {
-					previous.push(all[i]);
-					previous = previous.concat(getSimultaneousLessons(all[i], all, previous));
-				}
-			}
-		}
-	}
-
-	return previous;
-}
-
-$(window).resize(function() {
-	resizeEvent();
-});
-
-//This function makes sure text is readable regardless of window size
-function resizeEvent() {
-	var classes = $('.class');
-
-	var shrunkClasses = [];
-
-	for (var i = 0; i < classes.length; i++) {
-		var size = 15;
-
-		while (true) {
-			$(classes[i]).css('font-size', size + 'px');
-			if ($(classes[i]).find('.info').find('.center-holder').height() <
-				$(classes[i]).height() - ($(classes[i]).find('.start').height())) {
-				break;
-			} else {
-				if (size < 6) {
-					shrunkClasses.push($(classes[i]));
-					break;
-				} else {
-					shrunkClasses.push($(classes[i]));
-					size--;
-				}
-			}
-		}
-	}
-
-	for (var i = 0; i < shrunkClasses.length; i++) {
-		shrunkClasses[i].find('.info').find('center-holder').css('top', 'calc(50% +' + '10px);');
-	}
-
-}
-
-//This function is called by the spinner in the top panel to change
-//the active schedule
-function changeClass(classSelected) {
-    localStorage.setItem('class', classSelected);
- 	fetchData(classSelected);
+    resizeEvent();
 }
 
 //Might get to the bottom of this problem someday, not today though
@@ -414,55 +344,6 @@ function removeDuplicates(lessons) {
 		}
 	}
 	return newLessonList;
-}
-
-//TODO REDO
-function weekBack() {
-	var weekNum = parseFloat($('#weekSelectNow').text());
-	if (weekNum <= 1) {
-		weekNum = 52;
-	} else {
-		weekNum--;
-	}
-
-	$('#weekSelectNow').text(weekNum);
-	fetchData(localStorage.getItem('class') || '13TE', $('#weekSelectNow').text());
-}
-
-function weekForward() {
-	var weekNum = parseFloat($('#weekSelectNow').text());
-	if (weekNum >= 52) {
-		weekNum = 1;
-	} else {
-		weekNum++;
-	}
-
-	$('#weekSelectNow').text(weekNum);
-	fetchData(localStorage.getItem('class') || '13TE', $('#weekSelectNow').text());
-}
-
-function changeView() {
-	if (getCurrentView() == VIEW_WEEK) {
-		setCurrentView(VIEW_DAY);
-	} else {
-		setCurrentView(VIEW_WEEK);
-	}
-
-	generateHtml();
-}
-
-function changeClass(classSelected) {
-	localStorage.setItem('class', classSelected);
-	fetchData(classSelected);
-}
-
-function getCurrentView() {
-	return localStorage.getItem('view');
-}
-
-function setCurrentView(value) {
-	localStorage.setItem('view', value)
-	updateVisibleViewIndicator();
 }
 
 function updateVisibleViewIndicator() {
@@ -493,10 +374,12 @@ function updateVisibleViewIndicator() {
 
 function generateCurrentDate() {
 	var d = new Date().getDay();
-	d--;
-	if (d > 4) {
-		d = 0;
-	}
+    //Saturday or sunday
+    if (d == 0 || d == 6) {
+        d = 0;
+    } else {
+        d--;
+    }
 	return d;
 }
 
@@ -512,98 +395,6 @@ function changeDay(value) {
 	}
 
 	updateVisibleViewIndicator();
-	generateHtml();
+	invalidateLayout();
 }
 
-(function() {
-
-	Date.shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	Date.longMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-	Date.shortDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-	Date.longDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-	// defining patterns
-	var replaceChars = {
-		// Day
-		d: function() { return (this.getDate() < 10 ? '0' : '') + this.getDate(); },
-		D: function() { return Date.shortDays[this.getDay()]; },
-		j: function() { return this.getDate(); },
-		l: function() { return Date.longDays[this.getDay()]; },
-		N: function() { return (this.getDay() == 0 ? 7 : this.getDay()); },
-		S: function() { return (this.getDate() % 10 == 1 && this.getDate() != 11 ? 'st' : (this.getDate() % 10 == 2 && this.getDate() != 12 ? 'nd' : (this.getDate() % 10 == 3 && this.getDate() != 13 ? 'rd' : 'th'))); },
-		w: function() { return this.getDay(); },
-		z: function() { var d = new Date(this.getFullYear(),0,1); return Math.ceil((this - d) / 86400000); }, // Fixed now
-		// Week
-		W: function() {
-			var target = new Date(this.valueOf());
-			var dayNr = (this.getDay() + 6) % 7;
-			target.setDate(target.getDate() - dayNr + 3);
-			var firstThursday = target.valueOf();
-			target.setMonth(0, 1);
-			if (target.getDay() !== 4) {
-				target.setMonth(0, 1 + ((4 - target.getDay()) + 7) % 7);
-			}
-			return 1 + Math.ceil((firstThursday - target) / 604800000);
-		},
-		// Month
-		F: function() { return Date.longMonths[this.getMonth()]; },
-		m: function() { return (this.getMonth() < 9 ? '0' : '') + (this.getMonth() + 1); },
-		M: function() { return Date.shortMonths[this.getMonth()]; },
-		n: function() { return this.getMonth() + 1; },
-		t: function() {
-			var year = this.getFullYear(), nextMonth = this.getMonth() + 1;
-			if (nextMonth === 12) {
-				year = year++;
-				nextMonth = 0;
-			}
-			return new Date(year, nextMonth, 0).getDate();
-		},
-		// Year
-		L: function() { var year = this.getFullYear(); return (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)); },   // Fixed now
-		o: function() { var d  = new Date(this.valueOf());  d.setDate(d.getDate() - ((this.getDay() + 6) % 7) + 3); return d.getFullYear();}, //Fixed now
-		Y: function() { return this.getFullYear(); },
-		y: function() { return ('' + this.getFullYear()).substr(2); },
-		// Time
-		a: function() { return this.getHours() < 12 ? 'am' : 'pm'; },
-		A: function() { return this.getHours() < 12 ? 'AM' : 'PM'; },
-		B: function() { return Math.floor((((this.getUTCHours() + 1) % 24) + this.getUTCMinutes() / 60 + this.getUTCSeconds() / 3600) * 1000 / 24); }, // Fixed now
-		g: function() { return this.getHours() % 12 || 12; },
-		G: function() { return this.getHours(); },
-		h: function() { return ((this.getHours() % 12 || 12) < 10 ? '0' : '') + (this.getHours() % 12 || 12); },
-		H: function() { return (this.getHours() < 10 ? '0' : '') + this.getHours(); },
-		i: function() { return (this.getMinutes() < 10 ? '0' : '') + this.getMinutes(); },
-		s: function() { return (this.getSeconds() < 10 ? '0' : '') + this.getSeconds(); },
-		u: function() { var m = this.getMilliseconds(); return (m < 10 ? '00' : (m < 100 ?
-				'0' : '')) + m; },
-		// Timezone
-		e: function() { return /\((.*)\)/.exec(new Date().toString())[1]; },
-		I: function() {
-			var DST = null;
-			for (var i = 0; i < 12; ++i) {
-				var d = new Date(this.getFullYear(), i, 1);
-				var offset = d.getTimezoneOffset();
-
-				if (DST === null) DST = offset;
-				else if (offset < DST) { DST = offset; break; }                     else if (offset > DST) break;
-			}
-			return (this.getTimezoneOffset() == DST) | 0;
-		},
-		O: function() { return (-this.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(this.getTimezoneOffset() / 60) < 10 ? '0' : '') + (Math.abs(this.getTimezoneOffset() / 60)) + '00'; },
-		P: function() { return (-this.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(this.getTimezoneOffset() / 60) < 10 ? '0' : '') + (Math.abs(this.getTimezoneOffset() / 60)) + ':00'; }, // Fixed now
-		T: function() { return this.toTimeString().replace(/^.+ \(?([^\)]+)\)?$/, '$1'); },
-		Z: function() { return -this.getTimezoneOffset() * 60; },
-		// Full Date/Time
-		c: function() { return this.format("Y-m-d\\TH:i:sP"); }, // Fixed now
-		r: function() { return this.toString(); },
-		U: function() { return this.getTime() / 1000; }
-	};
-
-	// Simulates PHP's date function
-	Date.prototype.format = function(format) {
-		var date = this;
-		return format.replace(/(\\?)(.)/g, function(_, esc, chr) {
-			return (esc === '' && replaceChars[chr]) ? replaceChars[chr].call(date) : chr;
-		});
-	};
-
-}).call(this);

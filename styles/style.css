@@ -28,6 +28,10 @@ body, html {
 	height: 100%;
 }
 
+.day-container {
+
+}
+
 .day-changer {
 	flex-shrink: 0;
 	width: 40px;
@@ -86,6 +90,7 @@ body, html {
 }
 
 #changeView {
+    margin-right: 6px;
 	display: flex;
 	flex-shrink: 0;
 	cursor: pointer;
@@ -110,7 +115,12 @@ body, html {
 }
 
 #weekSelectNow {
-
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #dayHeader {
@@ -140,6 +150,7 @@ body, html {
 }
 
 .center-holder {
+    margin-top: 4px;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -178,6 +189,13 @@ body, html {
 	-moz-hyphens: auto;
 	-ms-hyphens: auto;
 	hyphens: auto;
+}
+
+.empty-view {
+    position: absolute;
+    top: calc(50% - 5px);
+    text-align: center;
+    width: 100%;
 }
 
 @media(max-width: 800px) {

@@ -33,7 +33,6 @@
 
 </head>
 <body>
-
 <header class="header">
     <div class="panel">
         <div id="className"></div>
@@ -86,6 +85,8 @@
 </div>
 
 <script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 
 </body>
