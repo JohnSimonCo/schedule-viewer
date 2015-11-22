@@ -1,3 +1,9 @@
+<?php
+
+$weeks = include("weeks.php");
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,12 +37,14 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#11171a">
 
+    <script>
+        var weeks = JSON.parse('<?php echo $weeks ?>');
+    </script>
 </head>
 <body>
 <header class="header">
     <div class="panel">
         <div id="className"></div>
-
         <select id="classSelect" onchange="changeClass(this.options[this.selectedIndex].value)">
             <?php
             $files = glob('schedules/*.json');
