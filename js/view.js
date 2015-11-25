@@ -14,7 +14,7 @@ function resizeEvent() {
         while (true) {
             $(classes[i]).css('font-size', size + 'px');
             if ($(classes[i]).find('.info').find('.center-holder').height() <
-                $(classes[i]).height() - ($(classes[i]).find('.start').height())) {
+                $(classes[i]).height() - 1.4 * ($(classes[i]).find('.start').height())) {
                 break;
             } else {
                 if (size < 6) {
