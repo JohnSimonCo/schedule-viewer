@@ -33,13 +33,22 @@ function resizeEvent() {
     }
 }
 
-//TODO REDO
 function weekBack() {
     var weekNum = parseFloat($('#weekSelectNow').text());
-    if (weekNum <= 1) {
-        weekNum = 52;
+    var i = weeks.indexOf(weekNum + '');
+
+    if (i == -1) {
+        if (weekNum <= 1) {
+            weekNum = Math.max.apply(Math, weeks);
+        } else {
+            weekNum--;
+        }
     } else {
-        weekNum--;
+        if (i >= 1) {
+            weekNum = weeks[i - 1];
+        } else {
+            weekNum = weeks[weeks.length - 1];
+        }
     }
 
     $('#weekSelectNow').text(weekNum);
@@ -48,10 +57,21 @@ function weekBack() {
 
 function weekForward() {
     var weekNum = parseFloat($('#weekSelectNow').text());
-    if (weekNum >= 52) {
-        weekNum = 1;
+
+    var i = weeks.indexOf(weekNum + '');
+
+    if (i == -1) {
+        if (weekNum >= 52) {
+            weekNum = Math.min.apply(Math, weeks);
+        } else {
+            weekNum++;
+        }
     } else {
-        weekNum++;
+        if (i < weeks.length - 1) {
+            weekNum = weeks[i + 1];
+        } else {
+            weekNum = weeks[0];
+        }
     }
 
     $('#weekSelectNow').text(weekNum);

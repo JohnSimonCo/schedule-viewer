@@ -41,8 +41,8 @@ $(function() {
         //Saturday or sunday
         if (d == 0 || d == 6) {
             week++;
-            if (week > 52) {
-                week = 1;
+            if (week > Math.max.apply(Math, weeks)) {
+                week = Math.min.apply(Math, weeks);
             }
         }
 		$('#weekSelectNow').text(week);

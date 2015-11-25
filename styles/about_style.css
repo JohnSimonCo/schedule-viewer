@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Roboto, helvetica, arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #263238;
+    color: #fff;
+}
