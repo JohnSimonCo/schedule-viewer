@@ -34,7 +34,7 @@ body, html {
 
 .day-changer {
 	flex-shrink: 0;
-	width: 40px;
+	width: 25%;
 	align-items: center;
 	display: none;
 	text-align: center;
@@ -92,7 +92,7 @@ body, html {
 #aboutButton {
     flex-shrink: 0;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 16px;
     width: 24px;
     height: 24px;
 }
@@ -110,6 +110,18 @@ body, html {
 	flex-shrink: 0;
 }
 
+.arrow {
+    margin-top: 6px;
+    width: 24px;
+    height: 24px;
+}
+
+.schedule-day-arrow {
+    width: 24px;
+    height: 24px;
+    margin: auto;
+}
+
 .weekSelectArrow {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -123,6 +135,7 @@ body, html {
 }
 
 #weekSelectNow {
+    margin-top: 5px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -206,7 +219,29 @@ body, html {
     width: 100%;
 }
 
+@media (max-width: 1500px) {
+    .day-changer {
+        width: 18%;
+    }
+}
+
+@media (max-width: 1500px) {
+    .day-changer {
+        width: 18%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .day-changer {
+        width: 15%;
+    }
+}
+
 @media(max-width: 800px) {
+
+    .day-changer {
+        width: 10%;
+    }
 
 	#dayHeader {
 		padding-left: 10px;
@@ -219,8 +254,8 @@ body, html {
 	}
 
 	.panel {
-		padding-left: calc(10px + 0.7%);
-		padding-right: calc(10px + 0.7%);
+		padding-left: 12px;
+		padding-right: 0;
 	}
 
 	.row {
@@ -273,6 +308,33 @@ body, html {
 }
 
 @media(max-width: 550px) {
+
+    .weekSelectArrow {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .panel {
+        padding-left: 10px;
+        padding-right: 4px;
+    }
+
+    #weekSelectNow {
+        margin-top: 7px;
+    }
+
+    #changeView {
+        margin-right: 0;
+    }
+
+    #aboutButton {
+        margin-right: 6px;
+    }
+
+    .day-changer {
+        width: 6%;
+    }
+
 	.day {
 		word-spacing: 1000px;
 	}
@@ -336,4 +398,16 @@ body, html {
 		font-size: 11px;
 		margin-left: 10px;
 	}
+}
+
+@media (max-width: 420px) {
+    .day-changer {
+        width: 30px;
+    }
+}
+
+@media (max-width: 370px) {
+    #className {
+        display: none;
+    }
 }

@@ -361,15 +361,15 @@ function updateVisibleViewIndicator() {
 		$('#dayChangeRight').css('display', 'table');
 
 		if (currentDay == 0) {
-			$('#dayChangeLeftText').text("");
+            $('#dayChangeLeftIcon').css('display', 'none');
 		} else {
-			$('#dayChangeLeftText').text("<");
+            $('#dayChangeLeftIcon').css('display', 'block');
 		}
 
 		if (currentDay == 4) {
-			$('#dayChangeRightText').text("");
+            $('#dayChangeRightIcon').css('display', 'none');
 		} else {
-			$('#dayChangeRightText').text(">");
+			$('#dayChangeRightIcon').css('display', 'block');
 		}
 	}
 }

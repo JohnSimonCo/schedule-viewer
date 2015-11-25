@@ -3,7 +3,6 @@
 $weeks = include("weeks.php");
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +41,7 @@ $weeks = include("weeks.php");
     </script>
 </head>
 <body>
+
 <header class="header">
     <div class="panel">
         <div id="className"></div>
@@ -79,9 +79,19 @@ $weeks = include("weeks.php");
         </div>
 
         <div class="weekSelect">
-            <div onclick="weekBack()" class="weekSelectArrow"><</div>
+            <div onclick="weekBack()" class="weekSelectArrow">
+                <svg class="arrow" fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
+                    <path d="M0-.5h24v24H0z" fill="none"/>
+                </svg>
+            </div>
             <div id="weekSelectNow"></div>
-            <div onclick="weekForward()" class="weekSelectArrow">></div>
+            <div onclick="weekForward()" class="weekSelectArrow">
+                <svg class="arrow" fill="#FFFFFF"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    <path d="M0-.25h24v24H0z" fill="none"/>
+                </svg>
+            </div>
         </div>
     </div>
 
@@ -90,11 +100,21 @@ $weeks = include("weeks.php");
 
 <div class="schedule-container">
     <div id="dayChangeLeft" class="day-changer" onclick="changeDay(0)">
-        <span id="dayChangeLeftText" class="day-changer-span"><</span>
+        <span class="day-changer-span">
+            <svg id="dayChangeLeftIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
+                <path d="M0-.5h24v24H0z" fill="none"/>
+            </svg>
+        </span>
     </div>
     <div id="schedule"></div>
     <div id="dayChangeRight" class="day-changer" onclick="changeDay(1)">
-        <span id="dayChangeRightText" class="day-changer-span">></span>
+        <span class="day-changer-span">
+            <svg id="dayChangeRightIcon" class="schedule-day-arrow" fill="#fff"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                <path d="M0-.25h24v24H0z" fill="none"/>
+            </svg>
+        </span>
     </div>
 </div>
 
