@@ -374,13 +374,28 @@ function updateVisibleViewIndicator() {
 	}
 }
 
+//Returns the day to focus the schedule on.
+//If it's saturday or sunday monday is shown and if it
+//is past 6 pm (18:00) the next day is shown
 function generateCurrentDate() {
 	var d = new Date().getDay();
-    //Saturday or sunday
+
+    //No matter the time if it's sunday or saturday, we'll show monday
     if (d == 0 || d == 6) {
         d = 0;
     } else {
-        d--;
+        //Check if it's after 6pm. If it's not decrease
+        //the day by one. This is because we start the week on
+        //monday instead of sunday meaning day = 0 => monday
+        if (!(Date.now() % 86400000) / (1000 * 60 * 24) > 18) {
+            d--;
+            //Now let's do the sunday/saturday check again
+            //This means that on friday at 7pm we show the
+            //next monday
+            if (d == 0 || d == 6) {
+                d = 0;
+            }
+        }
     }
 	return d;
 }
