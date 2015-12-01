@@ -29,13 +29,13 @@ function getLessonHeightPercent(start, end) {
 function getYStartPercent(time) {
     return (getTimeSinceStart(time) / schoolEnd) * 100;
 }
-//This function return the time in hours since 8 am
+//This function return the time in hours since 7:45 am
 function getTimeSinceStart(time) {
     var times = time.split(':').map(parseFloat);
     var h = times[0];
     var m = times[1];
 
-    h -= 8;
+    h -= 7.75;
     var tot = h;
     tot += (m / 60);
 

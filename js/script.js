@@ -18,8 +18,15 @@ var lastData;
 var VIEW_WEEK = 0;
 var VIEW_DAY = 1;
 
+var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+
 if (getCurrentView() == undefined) {
-	setCurrentView(VIEW_WEEK);
+    //Yes I know about tablets
+    if (supportsTouch) {
+        setCurrentView(VIEW_DAY)
+    } else {
+        setCurrentView(VIEW_WEEK);
+    }
 }
 
 var schoolEnd = getTimeSinceStart('17:30');
@@ -133,7 +140,6 @@ function handleData(data) {
 //them their lessons. Then invalidateLayout() is used to determine which elements
 //remain visible
 function generateHtml() {
-
     var lessons = lastData.lessons;
 
 	//Remove all HTML elements
@@ -198,6 +204,7 @@ function generateHtml() {
 
 		var mainElement = $('<div>');
 		mainElement.attr('class', 'class');
+        mainElement.click(lessonClickHandler(lesson));
 
 		mainElement.css('top', yStart + '%');
 		mainElement.css('height', lessonHeight + '%');
@@ -270,7 +277,7 @@ function generateHtml() {
 		dayElements[lesson.day].append(mainElement);
 	}
 
-    var hasLessons = [0, 1, 2, 3, 4]
+    [0, 1, 2, 3, 4]
         .map(function(day) {
             return {
                 day: day,
