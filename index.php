@@ -1,6 +1,6 @@
 <?php
 
-$weeks = include("weeks.php");
+//$weeks = include("weeks.php");
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +37,8 @@ $weeks = include("weeks.php");
     <meta name="theme-color" content="#11171a">
 
     <script>
-        var weeks = JSON.parse('<?php echo $weeks ?>');
+        //var weeks = JSON.parse('<?php //echo $weeks ?>');
+        var weeks = JSON.parse('[46,47,48,49,50,51,52]');
     </script>
 </head>
 <body>
