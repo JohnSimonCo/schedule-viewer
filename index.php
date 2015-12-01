@@ -43,79 +43,109 @@
 </head>
 <body>
 
-<header class="header">
-    <div class="panel">
-        <div id="className"></div>
-        <select id="classSelect" onchange="changeClass(this.options[this.selectedIndex].value)">
-            <?php
-            $files = glob('schedules/*.json');
-            $schedules = [];
-            foreach($files as $fileName) {
-                preg_match("/([\\w-]+)\\.json$/", $fileName, $matches);
-                array_push($schedules, $matches[1]);
-            }
+<div id="normal-layout">
 
-            foreach($schedules as $schedule) { ?>
-                <option value="<?php echo $schedule ?>"><?php echo $schedule ?></option>
-            <?php } ?>
-        </select>
+    <header class="header">
+        <div class="panel">
+            <div id="className"></div>
+            <select id="classSelect" onchange="changeClass(this.options[this.selectedIndex].value)">
+                <?php
+                $files = glob('schedules/*.json');
+                $schedules = [];
+                foreach($files as $fileName) {
+                    preg_match("/([\\w-]+)\\.json$/", $fileName, $matches);
+                    array_push($schedules, $matches[1]);
+                }
 
-        <div id="parseErrorMessage"></div>
-        <div id="parseErrorMessageSmall"></div>
+                foreach($schedules as $schedule) { ?>
+                    <option value="<?php echo $schedule ?>"><?php echo $schedule ?></option>
+                <?php } ?>
+            </select>
 
-        <a id="aboutButton" href="about.html">
-            <svg viewBox="0 0 24 24">
-                <path fill="#fff" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
-            </svg>
-        </a>
+            <div id="parseErrorMessage"></div>
+            <div id="parseErrorMessageSmall"></div>
 
-        <div id="changeView" onclick="changeView()">
-            <svg id="viewWeek" style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path fill="#fff" d="M16,5V18H21V5M4,18H9V5H4M10,18H15V5H10V18Z" />
-            </svg>
+            <a id="aboutButton" href="about.html">
+                <svg viewBox="0 0 24 24">
+                    <path fill="#fff" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+                </svg>
+            </a>
 
-            <svg id="viewDay" style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path fill="#fff" d="M20,3H3A1,1 0 0,0 2,4V10A1,1 0 0,0 3,11H20A1,1 0 0,0 21,10V4A1,1 0 0,0 20,3M20,13H3A1,1 0 0,0 2,14V20A1,1 0 0,0 3,21H20A1,1 0 0,0 21,20V14A1,1 0 0,0 20,13Z" />
-            </svg>
+            <div id="changeView" onclick="changeView()">
+                <svg id="viewWeek" style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M16,5V18H21V5M4,18H9V5H4M10,18H15V5H10V18Z" />
+                </svg>
+
+                <svg id="viewDay" style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M20,3H3A1,1 0 0,0 2,4V10A1,1 0 0,0 3,11H20A1,1 0 0,0 21,10V4A1,1 0 0,0 20,3M20,13H3A1,1 0 0,0 2,14V20A1,1 0 0,0 3,21H20A1,1 0 0,0 21,20V14A1,1 0 0,0 20,13Z" />
+                </svg>
+            </div>
+
+            <div class="weekSelect">
+                <div onclick="weekBack()" class="weekSelectArrow">
+                    <svg class="arrow" fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
+                        <path d="M0-.5h24v24H0z" fill="none"/>
+                    </svg>
+                </div>
+                <div id="weekSelectNow"></div>
+                <div onclick="weekForward()" class="weekSelectArrow">
+                    <svg class="arrow" fill="#FFFFFF"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                        <path d="M0-.25h24v24H0z" fill="none"/>
+                    </svg>
+                </div>
+            </div>
         </div>
 
-        <div class="weekSelect">
-            <div onclick="weekBack()" class="weekSelectArrow">
-                <svg class="arrow" fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <div id="dayHeader"></div>
+    </header>
+
+    <div class="schedule-container">
+        <div id="dayChangeLeft" class="day-changer" onclick="changeDay(0)">
+            <span class="day-changer-span">
+                <svg id="dayChangeLeftIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
                     <path d="M0-.5h24v24H0z" fill="none"/>
                 </svg>
-            </div>
-            <div id="weekSelectNow"></div>
-            <div onclick="weekForward()" class="weekSelectArrow">
-                <svg class="arrow" fill="#FFFFFF"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            </span>
+        </div>
+        <div id="schedule">
+
+        </div>
+        <div id="dayChangeRight" class="day-changer" onclick="changeDay(1)">
+            <span class="day-changer-span">
+                <svg id="dayChangeRightIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
                     <path d="M0-.25h24v24H0z" fill="none"/>
                 </svg>
-            </div>
+            </span>
         </div>
     </div>
-
-    <div id="dayHeader"></div>
-</header>
-
-<div class="schedule-container">
-    <div id="dayChangeLeft" class="day-changer" onclick="changeDay(0)">
-        <span class="day-changer-span">
-            <svg id="dayChangeLeftIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
-                <path d="M0-.5h24v24H0z" fill="none"/>
-            </svg>
-        </span>
-    </div>
-    <div id="schedule"></div>
-    <div id="dayChangeRight" class="day-changer" onclick="changeDay(1)">
-        <span class="day-changer-span">
-            <svg id="dayChangeRightIcon" class="schedule-day-arrow" fill="#fff"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                <path d="M0-.25h24v24H0z" fill="none"/>
-            </svg>
-        </span>
+</div>
+<div id="overlay-layout" onclick="setModalVisibility(false)">
+    <div class="flex-full-center">
+        <div id="modal">
+            <div id="modalTitle"></div>
+            <table>
+                <tr>
+                    <td>Från:</td>
+                    <td id="modalTimeStart"></td>
+                </tr>
+                <tr>
+                    <td>Till:</td>
+                    <td id="modalTimeEnd"></td>
+                </tr>
+                <tr>
+                    <td>Dag:</td>
+                    <td id="modalDay"></td>
+                </tr>
+                <tr>
+                    <td>Sal:</td>
+                    <td id="modalLocation"></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 

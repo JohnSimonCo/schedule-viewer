@@ -94,3 +94,30 @@ function changeView() {
 
     invalidateLayout();
 }
+
+function lessonClickHandler(lesson) {
+    return function() {
+        var res = '';
+        for (var i = 0; i < lesson.rows.length; i++) {
+            if (i != 0) {
+                res += '<br>';
+            }
+            res += lesson.rows[i];
+        }
+        $('#modalTitle').html(res);
+        $('#modalTimeStart').text(lesson.startTime);
+        $('#modalTimeEnd').text(lesson.endTime);
+        $('#modalDay').text(lastData.titles[lesson.day].split(' ')[0]);
+        $('#modalLocation').text(lesson.location);
+        $('#modal').css('background', lesson.color);
+        setModalVisibility(true);
+    }
+}
+
+function setModalVisibility(visible) {
+    if (visible) {
+        $('#overlay-layout').css('display', 'block');
+    } else {
+        $('#overlay-layout').css('display', 'none');
+    }
+}
