@@ -1,3 +1,5 @@
+"use strict";
+
 function getColor(name) {
     if (classes.indexOf(name) < 0) {
         classes.push(name);

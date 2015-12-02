@@ -1,3 +1,5 @@
+"use strict";
+
 /*
 *
 * Todo:
@@ -5,6 +7,10 @@
 * that start at the same time and hide
 * leftmost endtime for lessons that start
 * at the same time
+*
+* Todo:
+* Save class name in localstorage so
+* select doesn't jump on page refresh
 *
 * */
 
@@ -167,7 +173,7 @@ function generateHtml() {
 		var yStart = getYStartPercent(lesson.startTime);
 		var lessonHeight = getLessonHeightPercent(lesson.startTime, lesson.endTime);
 
-        lesson.width = 100 / lessons[i].concurrentLessonsCount;
+        lesson.width = 100 / lesson.concurrentLessonsCount;
 
         //We want to concurrent lessons so they don't interfere
         //Check if a lesson takes place at the same time as another lesson
@@ -214,18 +220,17 @@ function generateHtml() {
         mainElement.css('left', lesson.left + '%');
 
 		var startTimeElement = $('<div>');
-
         startTimeElement.attr('class', 'start');
         startTimeElement.text(lesson.startTime);
-		var endTimeElement = $('<div>');
 
+		var endTimeElement = $('<div>');
         endTimeElement.attr('class', 'end');
         endTimeElement.text(lesson.endTime);
+
 		var infoElement = $('<div>');
-
         infoElement.attr('class', 'info');
-		var centerElement = $('<div>');
 
+		var centerElement = $('<div>');
         centerElement.attr('class', 'center-holder');
 
         //Skulle kunna vara individuellt val, rensa alla korta
@@ -268,11 +273,15 @@ function generateHtml() {
 		}
 
 		infoElement.append(centerElement);
-		mainElement.append(startTimeElement);
 		mainElement.append(infoElement);
+
+        mainElement.append(startTimeElement);
+
         if (!lesson.directlyFollowed) {
             mainElement.append(endTimeElement);
         }
+
+        lesson.element = mainElement;
 
 		dayElements[lesson.day].append(mainElement);
 	}
@@ -303,6 +312,64 @@ function generateHtml() {
     for (var k = 0; k < dayElements.length; k++) {
         scheduleElement.append(dayElements[k]);
     }
+
+    //Set up arrays of all lessons that end simultaneously
+    //and those start start simultaneously
+    var startTimes = {};
+    var endTimes = {};
+    lastData.lessons.forEach(function(lesson) {
+
+        lesson.showStart = true;
+        lesson.showEnd = true;
+
+        var startKey = lesson.day + lesson.startTime;
+        if (!startTimes[startKey]) {
+            startTimes[startKey] = [lesson];
+        } else {
+            startTimes[startKey].push(lesson);
+        }
+
+        var endKey = lesson.day + lesson.endTime;
+        if (!endTimes[endKey]) {
+            endTimes[endKey] = [lesson];
+        } else {
+            endTimes[endKey].push(lesson);
+        }
+    });
+
+    //We've got left and width set, now we see if we share
+    //start or end time with any other lesson
+
+    var startKeys = Object.keys(startTimes);
+    for (var k = 0; k < startKeys.length; k++) {
+        startTimes[startKeys[k]].sort(function(a, b) {
+            return a.left - b.left;
+        });
+    }
+
+    var endKeys = Object.keys(endTimes);
+    for (var k = 0; k < endKeys.length; k++) {
+        endTimes[endKeys[k]].sort(function(a, b) {
+            return a.left - b.left;
+        });
+        endTimes[endKeys[k]].reverse();
+    }
+    
+    lastData.lessons.forEach(function (lesson) {
+        var sharedStart = startTimes[lesson.day + lesson.startTime];
+        if (sharedStart.length > 1) {
+            if (sharedStart[0] != lesson) {
+                lesson.element.find('.start').remove();
+            }
+        }
+
+        var sharedEnd = endTimes[lesson.day + lesson.endTime];
+        if (sharedEnd.length > 1) {
+            if (sharedEnd[0] != lesson) {
+                lesson.element.find('.end').remove();
+            }
+        }
+    });
 
     invalidateLayout();
 }
@@ -405,7 +472,7 @@ function generateCurrentDate() {
         //Check if it's after 6pm. If it's not decrease
         //the day by one. This is because we start the week on
         //monday instead of sunday meaning day = 0 => monday
-        if (!(Date.now() % 86400000) / (1000 * 60 * 24) > 18) {
+        if ((Date.now() % 86400000) / (1000 * 60 * 24) > 18) {
             d--;
             //Now let's do the sunday/saturday check again
             //This means that on friday at 7pm we show the

@@ -1,3 +1,5 @@
+"use strict";
+
 $(window).resize(function() {
     resizeEvent();
 });
@@ -116,8 +118,8 @@ function lessonClickHandler(lesson) {
 
 function setModalVisibility(visible) {
     if (visible) {
-        $('#overlay-layout').css('display', 'block');
+        $('#overlay-layout').fadeIn('fast');//css('display', 'block');
     } else {
-        $('#overlay-layout').css('display', 'none');
+        $('#overlay-layout').fadeOut('fast');//css('display', 'none');
     }
 }
