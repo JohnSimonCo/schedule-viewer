@@ -83,6 +83,8 @@ function weekForward() {
 //This function is called by the spinner in the top panel to change
 //the active schedule
 function changeClass(classSelected) {
+    setClass(classSelected);
+
     localStorage.setItem('class', classSelected);
     fetchData(classSelected, $('#weekSelectNow').text());
 }
