@@ -12,8 +12,11 @@
             cache[hashKey].then(callback);
         } else {
             var deferred = $.Deferred();
-            cache[hashKey] = deferred.promise();
             $.getJSON(buildUrl(week, className), deferred.resolve);
+
+            var promise = deferred.promise();
+            promise.then(callback);
+            cache[hashKey] = promise;
         }
     };
 
