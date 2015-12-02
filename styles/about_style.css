@@ -9,3 +9,11 @@ body, html {
     background-color: #263238;
     color: #fff;
 }
+
+.container {
+
+}
+
+.title {
+    font-size: 20px;
+}

@@ -21,19 +21,8 @@ var subjects = {"DAODAO":"Datakunskap","MENTORSRÅD":"Mentorsråd","GYARTE":"Gym
 var scheduleElement = $('#schedule');
 var lastData;
 
-var VIEW_WEEK = 0;
-var VIEW_DAY = 1;
-
-var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-
-if (getCurrentView() == undefined) {
-    //Yes I know about tablets
-    if (supportsTouch) {
-        setCurrentView(VIEW_DAY)
-    } else {
-        setCurrentView(VIEW_WEEK);
-    }
-}
+var VIEW_WEEK = 'week';
+var VIEW_DAY = 'day';
 
 var schoolEnd = getTimeSinceStart('17:30');
 var lastLessonTime = getTimeSinceStart('17:00');
@@ -53,31 +42,13 @@ $.ajaxSetup ({
 });
 
 $(function() {
-    var selectedClass = localStorage.getItem('class') || '13TE';
-    $('#classSelect').val(selectedClass);
-    $('#className').text(selectedClass);
-
-	if (!$('#weekSelectNow').text()) {
-        var week = new Date().format('W');
-
-        var d = new Date().getDay();
-
-        //Saturday or sunday
-        if (d == 0 || d == 6) {
-            week++;
-            if (week > Math.max.apply(Math, weeks)) {
-                week = Math.min.apply(Math, weeks);
-            }
-        }
-		$('#weekSelectNow').text(week);
-	}
-
-    fetchData(selectedClass, $('#weekSelectNow').text());
+    var response = getInitial();
+    handleData(response.schedule);
+    setCurrentView(response.view);
 });
 
 function fetchData(className, week) {
     getSchedule(week, className, handleData);
-   // $.getJSON('http://vgy.rocks/johnrs/schedule/get_schedule.php?className=' + className + "&week=" + week, handleData);
 }
 
 function handleData(data) {
