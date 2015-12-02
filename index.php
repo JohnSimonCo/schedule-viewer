@@ -144,6 +144,7 @@ $metadata = include("metadata.php");
 
 <script type="text/javascript" src="js/lib.js"></script>
 <script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/schedule.js"></script>
 <script type="text/javascript" src="js/view.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 
