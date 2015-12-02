@@ -49,7 +49,7 @@ function getCurrentView() {
 }
 
 function setCurrentView(value) {
-    setCurrentView(value);
+    setView(value);
     localStorage.setItem('view', value)
     updateVisibleViewIndicator();
 }
