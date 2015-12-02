@@ -1,6 +1,6 @@
 <?php
 
-//$weeks = include("weeks.php");
+$metadata = include("metadata.php");
 
 ?>
 <!DOCTYPE html>
@@ -37,8 +37,8 @@
     <meta name="theme-color" content="#11171a">
 
     <script>
-        //var weeks = JSON.parse('<?php //echo $weeks ?>');
-        var weeks = JSON.parse('[46,47,48,49,50,51,52]');
+        var weeks = JSON.parse('<?php echo json_encode($metadata["weeks"]) ?>');
+        var classNames = JSON.parse('<?php echo json_encode($metadata["classNames"]) ?>');
     </script>
 </head>
 <body>
@@ -50,15 +50,8 @@
             <div id="className"></div>
             <select id="classSelect" onchange="changeClass(this.options[this.selectedIndex].value)">
                 <?php
-                $files = glob('schedules/*.json');
-                $schedules = [];
-                foreach($files as $fileName) {
-                    preg_match("/([\\w-]+)\\.json$/", $fileName, $matches);
-                    array_push($schedules, $matches[1]);
-                }
-
-                foreach($schedules as $schedule) { ?>
-                    <option value="<?php echo $schedule ?>"><?php echo $schedule ?></option>
+                foreach($metadata["classNames"] as $className) { ?>
+                    <option value="<?php echo $className ?>"><?php echo $className ?></option>
                 <?php } ?>
             </select>
 
