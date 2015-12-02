@@ -1,6 +1,7 @@
 <?php
 
 $metadata = include("metadata.php");
+$initial = include("initial.php");
 
 ?>
 <!DOCTYPE html>
@@ -39,6 +40,7 @@ $metadata = include("metadata.php");
     <script>
         var weeks = JSON.parse('<?php echo json_encode($metadata["weeks"]) ?>');
         var classNames = JSON.parse('<?php echo json_encode($metadata["classNames"]) ?>');
+        var initial = JSON.parse('<?php echo json_encode($initial) ?>');
     </script>
 </head>
 <body>
@@ -47,11 +49,13 @@ $metadata = include("metadata.php");
 
     <header class="header">
         <div class="panel">
-            <div id="className"></div>
+            <div id="className"><?php echo $initial["className"] ?></div>
             <select id="classSelect" onchange="changeClass(this.options[this.selectedIndex].value)">
                 <?php
                 foreach($metadata["classNames"] as $className) { ?>
-                    <option value="<?php echo $className ?>"><?php echo $className ?></option>
+                    <option value="<?php echo $className ?>" <?php if($className == $initial["className"]) echo 'selected="true"' ?>>
+                        <?php echo $className ?>
+                    </option>
                 <?php } ?>
             </select>
 
@@ -81,7 +85,7 @@ $metadata = include("metadata.php");
                         <path d="M0-.5h24v24H0z" fill="none"/>
                     </svg>
                 </div>
-                <div id="weekSelectNow"></div>
+                <div id="weekSelectNow"><?php echo $initial["week"] ?></div>
                 <div onclick="weekForward()" class="weekSelectArrow">
                     <svg class="arrow" fill="#FFFFFF"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>

@@ -24,6 +24,10 @@
         //Five years
         cookie.set('className', className, 1825);
     };
+
+    window.getInitial = function() {
+        return window.initial;
+    }
 })();
 
 (function() {
