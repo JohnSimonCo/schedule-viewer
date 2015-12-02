@@ -69,11 +69,11 @@ $initial = include("initial.php");
             </a>
 
             <div id="changeView" onclick="changeView()">
-                <svg id="viewWeek" style="width:24px;height:24px" viewBox="0 0 24 24">
+                <svg id="viewWeek" style="width:24px;height:24px" viewBox="0 0 24 24" <?php if($initial["view"] == "week") echo 'class="hidden"' ?>>
                     <path fill="#fff" d="M16,5V18H21V5M4,18H9V5H4M10,18H15V5H10V18Z" />
                 </svg>
 
-                <svg id="viewDay" style="width:24px;height:24px" viewBox="0 0 24 24">
+                <svg id="viewDay" style="width:24px;height:24px" viewBox="0 0 24 24" <?php if($initial["view"] == "day") echo 'class="hidden"' ?>>
                     <path fill="#fff" d="M20,3H3A1,1 0 0,0 2,4V10A1,1 0 0,0 3,11H20A1,1 0 0,0 21,10V4A1,1 0 0,0 20,3M20,13H3A1,1 0 0,0 2,14V20A1,1 0 0,0 3,21H20A1,1 0 0,0 21,20V14A1,1 0 0,0 20,13Z" />
                 </svg>
             </div>
