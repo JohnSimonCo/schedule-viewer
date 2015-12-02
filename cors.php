@@ -9,5 +9,6 @@ header('Access-Control-Allow-Headers', 'Content-Type,Accept,X-Requested-With');
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     //Respond to preflight request https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Preflighted_requests
+    http_response_code(204);
     exit(204);
 }

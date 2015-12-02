@@ -1,5 +1,14 @@
 <?php
 
+$password = $_POST["password"];
+$correct_password = include("password.php");
+if($password != $correct_password) {
+    http_response_code(401);
+    die(401);
+}
+
+echo "password worked";
+
 $scheduleJson = $_POST["schedules"];
 
 $schedules = json_decode($scheduleJson, true);

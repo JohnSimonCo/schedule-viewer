@@ -12,6 +12,7 @@ if(file_exists("schedules/$week")) {
         exit();
     } else {
         echo "Schedule not found";
+        http_response_code(400);
         die(400);
     }
 }
