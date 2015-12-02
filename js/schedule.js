@@ -32,7 +32,10 @@
 
     window.getInitial = function() {
         return window.initial;
-    }
+    };
+
+    var initial = getInitial();
+    cache[initial.week + initial.className] = $.Deferred().resolve(initial.schedule).promise();
 })();
 
 (function() {
