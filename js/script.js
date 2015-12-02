@@ -76,7 +76,8 @@ $(function() {
 });
 
 function fetchData(className, week) {
-    $.getJSON('http://vgy.rocks/johnrs/schedule/get_schedule.php?className=' + className + "&week=" + week, handleData);
+    getSchedule(week, className, handleData);
+   // $.getJSON('http://vgy.rocks/johnrs/schedule/get_schedule.php?className=' + className + "&week=" + week, handleData);
 }
 
 function handleData(data) {
