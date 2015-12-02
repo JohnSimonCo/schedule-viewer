@@ -1,7 +1,7 @@
 (function() {
     var cache = {};
 
-    var url = 'http://vgy.rocks/johnrs/schedule/get_schedule.php';
+    var url = 'http://vgy.rocks/schema/get_schedule.php';
     function buildUrl(week, className) {
         return url +  '?week=' + week + "&className=" + className;
     }
