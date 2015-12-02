@@ -9,7 +9,22 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="vgy.rocks/johnrs">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/schema" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="vgy.rocks/schema">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
     </serverData>
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
+
