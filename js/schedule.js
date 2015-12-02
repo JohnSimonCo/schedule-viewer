@@ -25,6 +25,11 @@
         cookie.set('className', className, 1825);
     };
 
+    window.setView = function(view) {
+        //Five years
+        cookie.set('view', view, 1825);
+    };
+
     window.getInitial = function() {
         return window.initial;
     }
