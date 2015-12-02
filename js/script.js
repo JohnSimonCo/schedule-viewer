@@ -43,8 +43,8 @@ $.ajaxSetup ({
 
 $(function() {
     var response = getInitial();
-    handleData(response.schedule);
     setCurrentView(response.view);
+    handleData(response.schedule);
 });
 
 function fetchData(className, week) {
@@ -52,6 +52,7 @@ function fetchData(className, week) {
 }
 
 function handleData(data) {
+
 	if (data.parseError) {
 		$('#parseErrorMessage').text('Ett fel uppstod vid inläsning av schemat, viss data kan vara felaktig');
 		$('#parseErrorMessageSmall').text('Fel vid inläsning');
@@ -118,6 +119,7 @@ function handleData(data) {
 //them their lessons. Then invalidateLayout() is used to determine which elements
 //remain visible
 function generateHtml() {
+
     var lessons = lastData.lessons;
 
 	//Remove all HTML elements
@@ -370,6 +372,8 @@ function invalidateLayout() {
     }
 
     var soloWidth = (1 / lastData.titles.length) * 100;
+
+
 
     for (var i = 0; i < dayElements.length; i++) {
 
