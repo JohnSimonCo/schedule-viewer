@@ -3,10 +3,7 @@
 /*
 *
 * Todo:
-* Hide rightmost starttime for lessons
-* that start at the same time and hide
-* leftmost endtime for lessons that start
-* at the same time
+* 
 *
 * Todo:
 * Save class name in localstorage so
