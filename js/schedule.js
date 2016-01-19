@@ -1,13 +1,17 @@
 (function() {
     var cache = {};
 
-    var url = 'http://vgy.rocks/schema/get_schedule.php';
+    //var url = 'http://vgy.rocks/schema/get_schedule.php';
+    var url = 'http://localhost/schema/get_schedule.php';
     function buildUrl(week, className) {
         return url +  '?week=' + week + "&className=" + className;
     }
+    function hash(week, className) {
+        return week + className;
+    }
 
     window.getSchedule = function(week, className, callback) {
-        var hashKey = week + className;
+        var hashKey = hash(week, className);
         if(cache[hashKey]) {
             cache[hashKey].then(callback);
         } else {
@@ -21,12 +25,12 @@
     };
 
     window.setClass = function(className) {
-        //Five years
+        //Five years expiration
         cookie.set('className', className, 1825);
     };
 
     window.setView = function(view) {
-        //Five years
+        //Five years expiration
         cookie.set('view', view, 1825);
     };
 
@@ -35,7 +39,8 @@
     };
 
     var initial = getInitial();
-    cache[initial.week + initial.className] = $.Deferred().resolve(initial.schedule).promise();
+    var initialHash = hash(initial.week, initial.className);
+    cache[initialHash] = $.Deferred().resolve(initial.schedule).promise();
 })();
 
 (function() {

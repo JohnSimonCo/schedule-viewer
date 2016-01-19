@@ -45,6 +45,8 @@ $initial = include("initial.php");
 </head>
 <body>
 
+<h1><?php echo $initial["week"] ?></h1>
+
 <div id="normal-layout">
 
     <header class="header">

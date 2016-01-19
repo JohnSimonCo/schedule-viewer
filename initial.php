@@ -29,9 +29,9 @@ return [
 
 function getCurrentWeek() {
     $date = new DateTime("NOW");
-    $week = $date->format("W");
+    $week = intval($date->format("W"));
 
-    $day = $date->format("N");
+    $day = intval($date->format("N"));
 
     if($day > 5) {
         $week++;
