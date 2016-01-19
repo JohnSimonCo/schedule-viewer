@@ -11,7 +11,9 @@ var subjects = {
 'GYARES'	: 'Gymnasiearbete',
 'GYARNA'	: 'Gymnasiearbete',
 'GYARSA'	: 'Gymnasiearbete',
-'TISDAG'	: 'Tisdagslektion'
+'TISDAG'	: 'Tisdagslektion',
+'MUSINS01'  : 'Instrument/Sång 1',
+'MUSINS02'  : 'Instrument/Sång 2'
 };
 
 var languages = [

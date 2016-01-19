@@ -108,11 +108,19 @@ function lessonClickHandler(lesson) {
             }
             res += lesson.rows[i];
         }
+        if (!res) {
+            res = 'Okänt'
+        }
+        if (!lesson.location) {
+            $('#modalLocation').text('Okänt');
+        } else {
+            $('#modalLocation').text(lesson.location);
+        }
+
         $('#modalTitle').html(res);
         $('#modalTimeStart').text(lesson.startTime);
         $('#modalTimeEnd').text(lesson.endTime);
         $('#modalDay').text(lastData.titles[lesson.day].split(' ')[0]);
-        $('#modalLocation').text(lesson.location);
         $('#modal').css('background', lesson.color);
         setModalVisibility(true);
     }
