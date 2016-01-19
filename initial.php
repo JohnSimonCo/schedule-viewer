@@ -3,7 +3,7 @@
 $week = getCurrentWeek();
 $weeks = $metadata["weeks"];
 if(!in_array($week, $weeks)) {
-    $week = $weeks[0];
+    $week = $weeks[count($weeks) - 1];
 }
 
 $classNames = $metadata["classNames"];

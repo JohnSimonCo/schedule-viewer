@@ -3,11 +3,7 @@
 /*
 *
 * Todo:
-* 
 *
-* Todo:
-* Save class name in localstorage so
-* select doesn't jump on page refresh
 *
 * */
 
@@ -60,7 +56,7 @@ function handleData(data) {
 
     $('#className').text(data.className);
 
-	//START preprocessing, do serverside later
+	//START preprocessing, do serverside later?
 	var lessonsDays = [];
 
 	//Add all lesson days
