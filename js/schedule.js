@@ -1,8 +1,8 @@
 (function() {
     var cache = {};
 
-    //var url = 'http://vgy.rocks/schema/get_schedule.php';
-    var url = 'http://localhost/schema/get_schedule.php';
+    var url = 'http://vgy.rocks/schema/get_schedule.php';
+    //var url = 'http://localhost/schema/get_schedule.php';
     function buildUrl(week, className) {
         return url +  '?week=' + week + "&className=" + className;
     }
@@ -11,6 +11,9 @@
     }
 
     window.getSchedule = function(week, className, callback) {
+
+        ga('send', 'event', 'Get new schedule', className);
+
         var hashKey = hash(week, className);
         if(cache[hashKey]) {
             cache[hashKey].then(callback);
@@ -35,6 +38,7 @@
     };
 
     window.getInitial = function() {
+        ga('send', 'event', 'Get initial schedule', window.initial.className);
         return window.initial;
     };
 

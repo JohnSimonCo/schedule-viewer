@@ -45,6 +45,17 @@ $initial = include("initial.php");
 </head>
 <body>
 
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-58689643-2', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
 <div id="normal-layout">
 
     <header class="header">
@@ -145,9 +156,6 @@ $initial = include("initial.php");
             </table>
         </div>
     </div>
-   <!-- <div class="flex-full-center">
-
-    </div>-->
 </div>
 
 <script type="text/javascript" src="js/lib.js"></script>
@@ -155,17 +163,6 @@ $initial = include("initial.php");
 <script type="text/javascript" src="js/schedule.js"></script>
 <script type="text/javascript" src="js/view.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-58689643-2', 'auto');
-    ga('send', 'pageview');
-
-</script>
 
 </body>
 </html>
