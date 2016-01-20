@@ -128,8 +128,8 @@ function lessonClickHandler(lesson) {
 
 function setModalVisibility(visible) {
     if (visible) {
-        $('#overlay-layout').fadeIn('fast');//css('display', 'block');
+        $('#overlay-layout').css('display', 'block');
     } else {
-        $('#overlay-layout').fadeOut('fast');//css('display', 'none');
+        $('#overlay-layout').css('display', 'none');
     }
 }

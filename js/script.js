@@ -371,17 +371,17 @@ function invalidateLayout() {
     for (var i = 0; i < dayElements.length; i++) {
 
         if (getCurrentView() == VIEW_WEEK) {
-            dayElements[i].css('opacity', '1');
+            dayElements[i].css('display', 'block');
             dayElements[i].css('width', soloWidth - 1.4 + '%');
             dayElements[i].css('left', ((soloWidth * i) + 0.7) + '%')
         } else {
 
             if (currentDay == i) {
-                dayElements[i].css('opacity', '1');
+                dayElements[i].css('display', 'block');
                 dayElements[i].css('width', 100 - 1.4 + '%');
                 dayElements[i].css('left', 0 + '%')
             } else {
-                dayElements[i].css('opacity', '0');
+                dayElements[i].css('display', 'none');
                 dayElements[i].css('width', soloWidth - 1.4 + '%');
                 dayElements[i].css('left', ((soloWidth * i) + 0.7) + '%')
             }

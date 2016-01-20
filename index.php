@@ -122,8 +122,9 @@ $initial = include("initial.php");
         </div>
     </div>
 </div>
-<div id="overlay-layout" onclick="setModalVisibility(false)">
-    <div class="flex-full-center">
+<div id="overlay-layout">
+    <div>
+        <div class="full-center" onclick="setModalVisibility(false)"></div>
         <div id="modal">
             <div id="modalTitle"></div>
             <table>
@@ -146,6 +147,9 @@ $initial = include("initial.php");
             </table>
         </div>
     </div>
+   <!-- <div class="flex-full-center">
+
+    </div>-->
 </div>
 
 <script type="text/javascript" src="js/lib.js"></script>
