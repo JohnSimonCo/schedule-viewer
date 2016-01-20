@@ -10,7 +10,7 @@ $initial = include("initial.php");
     <title>Värmdö Gymnasium Schema</title>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
 
     <meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
     <meta http-equiv="pragma" content="no-cache" />

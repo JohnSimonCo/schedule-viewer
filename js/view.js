@@ -90,13 +90,14 @@ function changeClass(classSelected) {
 }
 
 function changeView() {
-    if (getCurrentView() == VIEW_WEEK) {
+    var prev = getCurrentView();
+    if (prev == VIEW_WEEK) {
         setCurrentView(VIEW_DAY);
     } else {
         setCurrentView(VIEW_WEEK);
     }
 
-    invalidateLayout();
+    invalidateLayout(prev);
 }
 
 function lessonClickHandler(lesson) {

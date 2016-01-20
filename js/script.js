@@ -44,6 +44,28 @@ function fetchData(className, week) {
     getSchedule(week, className, handleData);
 }
 
+var hammertime = new Hammer(document.querySelector('.schedule-container'), {});
+hammertime.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+hammertime.on('swipeleft', function() {
+    if (getCurrentView() == VIEW_DAY) {
+        changeDay(1);
+    }
+});
+hammertime.on('swiperight', function() {
+    if (getCurrentView() == VIEW_DAY) {
+        changeDay(0);
+    }
+});
+
+var hammertimeOverlay = new Hammer(document.querySelector('#overlay-layout'), {});
+hammertimeOverlay.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+hammertimeOverlay.on('swipedown', function() {
+    setModalVisibility(false);
+});
+hammertimeOverlay.on('swipeup', function() {
+    setModalVisibility(false);
+});
+
 function handleData(data) {
 
 	if (data.parseError) {
@@ -127,6 +149,7 @@ function generateHtml() {
         dayElement.css('height', '100%');
         dayElement.css('position', 'absolute');
         dayElement.css('top', '0');
+        dayElement.css('transition', 'transform 400ms');
 
         dayElement.attr('class', 'day-container');
 
@@ -341,7 +364,7 @@ function generateHtml() {
     invalidateLayout();
 }
 
-function invalidateLayout() {
+function invalidateLayout(prev) {
     $('.day').remove();
 
     //Set up the day headers
@@ -366,25 +389,23 @@ function invalidateLayout() {
 
     var soloWidth = (1 / lastData.titles.length) * 100;
 
-
-
     for (var i = 0; i < dayElements.length; i++) {
 
         if (getCurrentView() == VIEW_WEEK) {
             dayElements[i].css('display', 'block');
             dayElements[i].css('width', soloWidth - 1.4 + '%');
-            dayElements[i].css('left', ((soloWidth * i) + 0.7) + '%')
+            dayElements[i].css('left', ((soloWidth * i) + 0.7) + '%');
+            dayElements[i].css('transform', 'none');
+            dayElements[i].css('transition', 'transform 400ms');
         } else {
-
-            if (currentDay == i) {
-                dayElements[i].css('display', 'block');
-                dayElements[i].css('width', 100 - 1.4 + '%');
-                dayElements[i].css('left', 0 + '%')
+            if (prev == VIEW_WEEK) {
+                dayElements[i].css('transition', 'none');
             } else {
-                dayElements[i].css('display', 'none');
-                dayElements[i].css('width', soloWidth - 1.4 + '%');
-                dayElements[i].css('left', ((soloWidth * i) + 0.7) + '%')
+                dayElements[i].css('transition', 'transform 400ms');
             }
+            dayElements[i].css('transform', 'translate(' + ((i - currentDay) * 100) + 'vw' + ')');
+            dayElements[i].css('width', (100 - 1.4) + '%');
+            dayElements[i].css('left', '0');
         }
     }
 
@@ -449,17 +470,17 @@ function generateCurrentDate() {
 }
 
 function changeDay(value) {
-	if (value == 0) {
-		if (currentDay > 0) {
-			currentDay--;
-		}
-	} else if (value == 1) {
-		if (currentDay < 4) {
-			currentDay++;
-		}
-	}
+    if (value == 0) {
+        if (currentDay > 0) {
+            currentDay--;
+        }
+    } else if (value == 1) {
+        if (currentDay < 4) {
+            currentDay++;
+        }
+    }
 
-	updateVisibleViewIndicator();
-	invalidateLayout();
+    updateVisibleViewIndicator();
+    invalidateLayout();
 }
 
