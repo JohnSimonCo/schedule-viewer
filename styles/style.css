@@ -492,6 +492,9 @@ body, html {
         color: #444;
         box-shadow: none;
     }
+    .empty-view {
+        color: #bbb;
+    }
 }
 
 ::selection {
