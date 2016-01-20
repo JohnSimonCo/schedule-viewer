@@ -5,11 +5,13 @@ function getColor(name) {
         classes.push(name);
         colors[classes.indexOf(name)] = nextColor();
     }
+    console.table(classes);
     return colors[classes.indexOf(name)];
 }
 
 function nextColor() {
     color++;
+    console.log('Color request; color: ' + color);
     if (color >= palette.length) {
         color = 0;
     }

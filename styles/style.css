@@ -259,7 +259,7 @@ body, html {
 	background-color: #455b66;
 	position: absolute;
 	padding: 2px;
-	bottom: -6px;
+	bottom: -8px;
 	right: 5px;
 	z-index: 2;
 }
@@ -472,6 +472,36 @@ body, html {
 @media (max-width: 370px) {
     #className {
         display: none;
+    }
+}
+
+@media print {
+    body {
+        border: 2px solid #000;
+        -webkit-print-color-adjust: exact;
+    }
+    #normal-layout {
+        /*box-shadow: inset 0 5px #000;*/
+    }
+    #dayHeader {
+        background: #777;
+        box-shadow: none;
+    }
+    .panel {
+        display: none;
+    }
+    .start {
+        box-shadow: none;
+        background: #aaa !important;
+    }
+    .end {
+        box-shadow: none;
+        background: #aaa !important;
+    }
+    .class {
+        background: #ccc !important;
+        color: #444;
+        box-shadow: none;
     }
 }
 
