@@ -25,7 +25,7 @@ foreach($schedules as $item) {
         $file = "schedules/$week/$className.json";
         $json = json_encode($classSchedule);
 
-        echo "made file: "."schedules_test/$week/$className.json";
+        echo "made file: "."schedules/$week/$className.json";
         file_put_contents($file, $json);
     }
 }
