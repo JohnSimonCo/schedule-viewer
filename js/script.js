@@ -458,7 +458,7 @@ function invalidateLayout(prev) {
             }
             dayElements[i].css('transform', 'translate(' + ((i - currentDay) * 100) + 'vw' + ')');
             dayElements[i].css('width', (100 - 1.4) + '%');
-            dayElements[i].css('left', '0');
+            dayElements[i].css('left', '0.7%');
         }
     }
 
