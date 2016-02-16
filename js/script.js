@@ -57,6 +57,11 @@ function handleData(data) {
 
     resetColor();
 
+    for (var i = 0; i < data.lessons.length; i++) {
+        data.lessons[i].startTime = data.lessons[i].startTime.replace(/^0+/, '');
+        data.lessons[i].endTime = data.lessons[i].endTime.replace(/^0+/, '');
+    }
+
     data.break = data.lessons.length == 0;
 
     //Preprocessing för sublessons
@@ -257,11 +262,11 @@ function generateHtml() {
 
 		var startTimeElement = $('<div>');
         startTimeElement.attr('class', 'start');
-        startTimeElement.text(lesson.startTime.replace(/^0+/, ''));
+        startTimeElement.text(lesson.startTime);
 
 		var endTimeElement = $('<div>');
         endTimeElement.attr('class', 'end');
-        endTimeElement.text(lesson.endTime.replace(/^0+/, ''));
+        endTimeElement.text(lesson.endTime);
 
 		var infoElement = $('<div>');
         infoElement.attr('class', 'info');
@@ -327,7 +332,6 @@ function generateHtml() {
 
     //Skriv bara "inga lektioner" om det det är
     //relevant i.e. inte lov
-    //TODO Kolla så allt funkar
     if (!lastData.break) {
         [0, 1, 2, 3, 4]
             .map(function(day) {
