@@ -221,6 +221,11 @@ body, html {
 	margin-right: 0.7%;
 	position: absolute;
 	box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6);
+    transition: box-shadow 200ms;
+}
+
+.class:hover {
+    box-shadow: 0 20px 30px -10px rgba(0,0,0,0.45);
 }
 
 .center-holder {
