@@ -519,18 +519,6 @@ function updateVisibleViewIndicator() {
 		$('#viewWeek').css('display', 'block');
 		$('#dayChangeLeft').css('display', 'table');
 		$('#dayChangeRight').css('display', 'table');
-
-		if (currentDay == 0) {
-            $('#dayChangeLeftIcon').css('display', 'none');
-		} else {
-            $('#dayChangeLeftIcon').css('display', 'block');
-		}
-
-		if (currentDay == 4) {
-            $('#dayChangeRightIcon').css('display', 'none');
-		} else {
-			$('#dayChangeRightIcon').css('display', 'block');
-		}
 	}
 }
 
@@ -558,10 +546,18 @@ function changeDay(value) {
     if (value == 0) {
         if (currentDay > 0) {
             currentDay--;
+        } else {
+            //Go to last week and set day to last
+            weekBack();
+            currentDay = 4;
         }
     } else if (value == 1) {
         if (currentDay < 4) {
             currentDay++;
+        } else {
+            //Go to nex week and set day to first
+            weekForward();
+            currentDay = 0;
         }
     }
 

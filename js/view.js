@@ -1,7 +1,5 @@
 "use strict";
 
-var lastModal = -1;
-
 $(window).resize(function() {
     resizeEvent();
 });
