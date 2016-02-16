@@ -82,3 +82,5 @@
         remove: eraseCookie
     };
 })();
+
+$('#test').text('15');

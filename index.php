@@ -3,6 +3,8 @@
 $metadata = include("metadata.php");
 $initial = include("initial.php");
 
+include_once("include-script.php");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -158,11 +160,23 @@ $initial = include("initial.php");
     </div>
 </div>
 
+<h1 style="position: absolute; left: 300px; z-index: 10000; color: white"><?php echo date('H:i:s'); ?></h1>
+<h1 style="position: absolute; left: 600px; z-index: 10000; color: white" id="test"></h1>
+
+<?php
+
+include_script("js/lib.js");
+include_script("js/util.js");
+include_script("js/schedule.js");
+include_script("js/view.js");
+include_script("js/script.js");
+?>
+<!--
 <script type="text/javascript" src="js/lib.js"></script>
 <script type="text/javascript" src="js/util.js"></script>
 <script type="text/javascript" src="js/schedule.js"></script>
 <script type="text/javascript" src="js/view.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-
+-->
 </body>
 </html>
