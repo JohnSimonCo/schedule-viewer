@@ -15,7 +15,7 @@
     <link href="../styles/about_style.css" rel="stylesheet" type="text/css">
 
     <?php
-    include_once("includer.php");
+    include_once("../includer.php");
 
     include_style("styles/about_style.css");
     ?>
@@ -51,7 +51,7 @@
 
         <p>Vår smutsiga kod gömmer sig i två Github projekt; <a style="text-decoration: none; cursor: default;" href="https://en.wikipedia.org/wiki/Dirty_Jobs">känsliga tittare varnas</a>.
             <a href="https://github.com/JohnSimonCo/schedule-viewer">Front end</a>,
-            <a href="https://github.com/JohnSimonCo/schedule-viewer">Back end</a></p>
+            <a href="https://github.com/johnrapp/novasoftware-schedule-parser">Back end</a></p>
         <p><a href="https://play.google.com/store/apps/details?id=com.johnsimon.payback">Ladda ner vår app!</a><br></p>
         <p>Några frågor eller bara sugen på att hänga i FC chatten?<br>
             FC: simonhan@vgy.se och johnrs@vgy.se<br></p>
