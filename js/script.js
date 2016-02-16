@@ -125,6 +125,7 @@ function handleData(data) {
             }
         }
     }
+
 	if (data.parseError) {
 		$('#parseErrorMessage').text('Ett fel uppstod vid inläsning av schemat, viss data kan vara felaktig');
 		$('#parseErrorMessageSmall').text('Fel vid inläsning');
@@ -174,7 +175,10 @@ function handleData(data) {
 
     //Go through all lessons and set their color
 	for (var i = 0; i < data.lessons.length; i++) {
-		data.lessons[i].color = getColor(data.lessons[i].rows[0])
+		data.lessons[i].color = getColor(data.lessons[i].info[0].text);
+        for (var j = 0; j < data.lessons[i].info.length; j++) {
+            data.lessons[i].info[j].color = getColor(data.lessons[i].info[j].text);
+        }
 	}
 
 	lastData = data;

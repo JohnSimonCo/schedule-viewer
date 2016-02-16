@@ -284,6 +284,7 @@ body, html {
     top: 50%;
     text-align: center;
     width: 100%;
+    font-size: 18px;
 }
 
 .empty-view-lov {
@@ -531,6 +532,11 @@ body, html {
     }
     .empty-view {
         color: #bbb;
+    }
+
+    .class:hover {
+        box-shadow: none;
+        -webkit-filter: none;
     }
 }
 
