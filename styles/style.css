@@ -281,9 +281,17 @@ body, html {
 
 .empty-view {
     position: absolute;
-    top: calc(50% - 5px);
+    top: 50%;
     text-align: center;
     width: 100%;
+}
+
+.empty-view-lov {
+    position: absolute;
+    top: 47%;
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
 }
 
 @media (max-width: 1500px) {

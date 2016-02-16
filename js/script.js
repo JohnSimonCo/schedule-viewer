@@ -461,15 +461,37 @@ function invalidateLayout(prev) {
             dayElements[i].css('transform', 'translate(' + ((i - currentDay) * 100) + 'vw' + ')');
             dayElements[i].css('width', (100 - 1.4) + '%');
             dayElements[i].css('left', '0.7%');
+
+            if (lastData.break) {
+                var emptyView = $('<div>');
+                emptyView.attr('class', 'empty-view-lov');
+                emptyView.text('Lov!');
+                dayElements[i].append(emptyView);
+            }
         }
     }
 
-    //Handle break display
     if (lastData.break) {
-        var emptyView = $('<div>');
-        emptyView.attr('class', 'empty-view');
-        emptyView.text('Lov!');
-        dayElements[2].append(emptyView);
+        //We're on break so no valuable data, clear everything
+        for (var i = 0; i < dayElements.length; i++) {
+            dayElements[i].empty();
+        }
+
+        if (getCurrentView() == VIEW_WEEK) {
+            //Add "lov" in the middle
+            var emptyView = $('<div>');
+            emptyView.attr('class', 'empty-view-lov');
+            emptyView.text('Lov!');
+            dayElements[2].append(emptyView);
+        } else {
+            //Add "lov" to all days
+            for (var i = 0; i < dayElements.length; i++) {
+                var emptyView = $('<div>');
+                emptyView.attr('class', 'empty-view-lov');
+                emptyView.text('Lov!');
+                dayElements[i].append(emptyView);
+            }
+        }
     }
 
     resizeEvent();
