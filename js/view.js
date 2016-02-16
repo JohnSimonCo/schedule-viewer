@@ -102,13 +102,13 @@ function changeView() {
 
 function lessonClickHandler(lesson) {
     return function() {
-        var res = '';
-        for (var i = 0; i < lesson.rows.length; i++) {
+        var res = lessons.join('<br>');
+        /*for (var i = 0; i < lesson.rows.length; i++) {
             if (i != 0) {
                 res += '<br>';
             }
             res += lesson.rows[i];
-        }
+        }*/
         if (!res) {
             res = 'Okänt'
         }

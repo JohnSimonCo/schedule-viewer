@@ -68,6 +68,8 @@ hammertimeOverlay.on('swipeup', function() {
 
 function handleData(data) {
 
+    resetColor();
+
 	if (data.parseError) {
 		$('#parseErrorMessage').text('Ett fel uppstod vid inläsning av schemat, viss data kan vara felaktig');
 		$('#parseErrorMessageSmall').text('Fel vid inläsning');

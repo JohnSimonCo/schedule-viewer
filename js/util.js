@@ -16,6 +16,11 @@ function nextColor() {
     return palette[color];
 }
 
+function resetColor() {
+    color = -1;
+    classes = [];
+}
+
 function getLessonHeightPercent(start, end) {
     var startTime = getTimeSinceStart(start);
     var endTime = getTimeSinceStart(end);
