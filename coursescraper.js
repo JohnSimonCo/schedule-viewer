@@ -13,7 +13,8 @@ var subjects = {
 'GYARSA'	: 'Gymnasiearbete',
 'TISDAG'	: 'Tisdagslektion',
 'MUSINS01'  : 'Instrument/Sång 1',
-'MUSINS02'  : 'Instrument/Sång 2'
+'MUSINS02'  : 'Instrument/Sång 2',
+'MUSENS02'  : 'Ensemble 2'
 };
 
 var languages = [
