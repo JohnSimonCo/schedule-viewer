@@ -1,0 +1,60 @@
+{
+    "className":"13TE",
+    "parseError":false,
+    "titles":[
+        "Måndag 22\/2",
+        "Tisdag 23\/2",
+        "Onsdag 24\/2",
+        "Torsdag 25\/2",
+        "Fredag 26\/2"
+    ],
+    "lessons":[
+        {
+            "id": 0,
+            "startTime":"08:30",
+            "endTime":"10:00",
+            "day":0,
+            "text": "Religionskunskap 1",
+            "details": [
+                {
+                    "text":"Religionskunskap 1",
+                    "location":"C22"
+                }
+            ],
+
+            "showEnd": true,
+            "showStart": true,
+            "concurrentLessons": [
+                1
+            ],
+            "simultaneousLessons": [
+                1,
+                2
+            ]
+        },
+        {
+            "id": 1,
+            "startTime":"08:30",
+            "endTime":"10:00",
+            "day":0,
+            "text": "Engelska 7\nMatematik 5",
+            "details": [
+                {
+                    "text":"Engelska 7",
+                    "location":"B35"
+                },
+                {
+                    "text":"Matematik 5",
+                    "location":"B23"
+                }
+            ],
+
+            "showEnd": false,
+            "showStart": false,
+            "concurrentLessons": [],
+            "simultaneousLessons": [
+                0
+            ]
+        }
+    ]
+}

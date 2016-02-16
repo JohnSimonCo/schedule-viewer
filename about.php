@@ -3,14 +3,22 @@
 <head>
     <title>Om oss</title>
 
+    <base target="_blank">
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
 
     <meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
     <meta http-equiv="pragma" content="no-cache" />
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <link href="styles/about_style.css" rel="stylesheet" type="text/css">
+
+    <?php
+    include_once("includer.php");
+
+    include_style("styles/about_style.css");
+    ?>
 
     <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
@@ -31,8 +39,6 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#11171a">
 
-    <base target="_blank">
-
 </head>
 <body>
 
@@ -44,13 +50,13 @@
         <p>Vill du följa vår framgångsrika rappkarriär kan du göra det <a href="https://soundcloud.com/johnsimonrapp">här</a>.</p>
 
         <p>Vår smutsiga kod gömmer sig i två Github projekt; <a style="text-decoration: none; cursor: default;" href="https://en.wikipedia.org/wiki/Dirty_Jobs">känsliga tittare varnas</a>.
-        <a href="https://github.com/JohnSimonCo/schedule-viewer">Front end</a>,
-        <a href="https://github.com/JohnSimonCo/schedule-viewer">Back end</a></p>
+            <a href="https://github.com/JohnSimonCo/schedule-viewer">Front end</a>,
+            <a href="https://github.com/JohnSimonCo/schedule-viewer">Back end</a></p>
         <p><a href="https://play.google.com/store/apps/details?id=com.johnsimon.payback">Ladda ner vår app!</a><br></p>
         <p>Några frågor eller bara sugen på att hänga i FC chatten?<br>
-        FC: simonhan@vgy.se och johnrs@vgy.se<br></p>
+            FC: simonhan@vgy.se och johnrs@vgy.se<br></p>
 
-        <small>Denna sida är inte på något sätt associerad med Värmdö Gymnasium och vi reserverar oss för eventuell felaktig data; det är inte vårt fel om du missar en tisdagslektion.</small><br>
+        <small>Denna sida är inte på något sätt associerad med Värmdö Gymnasium och vi reserverar oss för eventuell felaktig data; det är inte vårt fel om du missar en lektion.</small><br>
         <br>
         <a target="_self" href=".">Tillbaka</a>
     </div>
@@ -60,7 +66,7 @@
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     ga('create', 'UA-58689643-2', 'auto');

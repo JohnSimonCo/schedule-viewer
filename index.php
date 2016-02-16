@@ -3,7 +3,7 @@
 $metadata = include("metadata.php");
 $initial = include("initial.php");
 
-include_once("include-script.php");
+include_once("includer.php");
 
 ?>
 <!DOCTYPE html>
@@ -19,6 +19,10 @@ include_once("include-script.php");
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <?php
+    include_style("styles/style.css");
+    ?>
+    <!--<link href="styles/style.css" rel="stylesheet" type="text/css">-->
 
     <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
@@ -75,7 +79,7 @@ include_once("include-script.php");
             <div id="parseErrorMessage"></div>
             <div id="parseErrorMessageSmall"></div>
 
-            <a id="aboutButton" href="about.html">
+            <a id="aboutButton" href="about.php">
                 <svg viewBox="0 0 24 24">
                     <path fill="#fff" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
                 </svg>
@@ -160,9 +164,6 @@ include_once("include-script.php");
     </div>
 </div>
 
-<h1 style="position: absolute; left: 300px; z-index: 10000; color: white"><?php echo date('H:i:s'); ?></h1>
-<h1 style="position: absolute; left: 600px; z-index: 10000; color: white" id="test"></h1>
-
 <?php
 
 include_script("js/lib.js");
@@ -170,6 +171,7 @@ include_script("js/util.js");
 include_script("js/schedule.js");
 include_script("js/view.js");
 include_script("js/script.js");
+
 ?>
 <!--
 <script type="text/javascript" src="js/lib.js"></script>
