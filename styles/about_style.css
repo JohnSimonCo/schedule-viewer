@@ -16,8 +16,9 @@ body, html {
     background: #11171a;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
-    padding: 36px;
+    margin-top: 48px;
+    padding-bottom: 36px;
+    box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.6);
 }
 
 .title {
@@ -28,13 +29,34 @@ body, html {
 .image {
     display: inline-block;
     width: 100%;
-    margin-top: 14px;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.6);
+}
+
+.inset {
+    padding-left: 170px;
+    padding-right: 170px;
+}
+
+p {
+    -webkit-margin-before: 0.7em;
+    -webkit-margin-after: 0.7em;
 }
 
 a {
     color: #fff;
 }
 
-.text {
+@media (max-width: 900px){
+    .inset {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+@media (max-width: 600px){
+    .inset {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 }
