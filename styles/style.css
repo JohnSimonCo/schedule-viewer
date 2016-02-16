@@ -44,29 +44,36 @@ body, html {
     left: 0;
     right: 0;
 }
-#modal {
+
+#modalContainer {
     position: absolute;
     top: 50%;
     left: 50%;
+    height: 100%;
+    width: 100%;
+    padding-top: 40vh;
+    padding-bottom: calc(40vh - 70px);
     transform: translate(-50%, -50%);
-
-	padding: 24px;
-	background: rgb(52, 73, 94);
-	width: 80%;
-	max-width: 500px;
-	box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.6);
-	overflow-y: auto;
-	max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1;
 }
 
-#modalTitle {
+.modal {
+    margin: 20px auto;
+    padding: 24px;
+    width: 500px;
+    max-width: 90%;
+	box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.6);
+}
+
+.modalTitle {
 	font-weight: 100;
 	font-size: 30px;
 	margin-bottom: 10px;
 	word-wrap: break-word;
 }
 
-#modal tr td:first-child {
+.modal tr td:first-child {
 	padding-right: 20px;
 }
 
@@ -222,11 +229,12 @@ body, html {
 	margin-right: 0.7%;
 	position: absolute;
 	box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6);
-    transition: box-shadow 200ms;
+    transition: box-shadow 200ms, -webkit-filter 200ms;
 }
 
 .class:hover {
     box-shadow: 0 20px 30px -10px rgba(0,0,0,0.45);
+    -webkit-filter: brightness(110%);
 }
 
 .center-holder {
@@ -468,6 +476,20 @@ body, html {
 @media (max-width: 370px) {
     #className {
         display: none;
+    }
+}
+
+@media (max-height: 1000px) {
+    #modalContainer {
+        padding-top: 35vh;
+        padding-bottom: calc(35vh - 80px);
+    }
+}
+
+@media (max-height: 630px) {
+    #modalContainer {
+        padding-top: 40vh;
+        padding-bottom: 40vh;
     }
 }
 

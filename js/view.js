@@ -1,5 +1,7 @@
 "use strict";
 
+var lastModal = -1;
+
 $(window).resize(function() {
     resizeEvent();
 });
@@ -100,23 +102,19 @@ function changeView() {
     invalidateLayout(prev);
 }
 
+var modalContainer = $('#modalContainer');
+
 function lessonClickHandler(lesson) {
     return function() {
-        var res = lesson.rows.join('<br>');
-        if (!res) {
-            res = 'Okänt'
-        }
-        if (!lesson.location) {
-            $('#modalLocation').text('Okänt');
-        } else {
-            $('#modalLocation').text(lesson.location);
+        $('#modalMasterHolder').append(modalContainer);
+
+        modalContainer.empty();
+
+        for (var i = 0; i < lesson.info.length; i++) {
+            var sublesson = lesson.info[i];
+            $('#modalContainer').append('<div onclick="event.stopPropagation()" style="background: '  + lesson.color + '" class="modal"><div class="modalTitle">' + sublesson.text + '</div><table><tr><td>Från:</td><td>' + lesson.startTime + '</td></tr>   <tr><td>Till:</td><td>' + lesson.endTime + '</td></tr>     <tr><td>Dag:</td><td>' + lastData.titles[lesson.day].split(' ')[0] + '</td></tr>    <tr><td>Sal:</td><td>' + sublesson.location + '</td></tr></table></div>');
         }
 
-        $('#modalTitle').html(res);
-        $('#modalTimeStart').text(lesson.startTime);
-        $('#modalTimeEnd').text(lesson.endTime);
-        $('#modalDay').text(lastData.titles[lesson.day].split(' ')[0]);
-        $('#modal').css('background', lesson.color);
         setModalVisibility(true);
     }
 }
@@ -126,5 +124,6 @@ function setModalVisibility(visible) {
         $('#overlay-layout').css('display', 'block');
     } else {
         $('#overlay-layout').css('display', 'none');
+        modalContainer.remove();
     }
 }

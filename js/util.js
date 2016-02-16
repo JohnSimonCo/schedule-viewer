@@ -59,6 +59,19 @@ function setCurrentView(value) {
     updateVisibleViewIndicator();
 }
 
+function containsNumbers(text) {
+    for (var i = 0; i < text.length - 1; i++) {
+        if (isNumeric(text.substring(i, i + 1))) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 //Returns the maximum amount of lesson which take place at the same time as the current lesson
 function getConcurrentLessons(current, all) {
     var cStart = getTimeSinceStart(current.startTime);

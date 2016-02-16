@@ -138,29 +138,9 @@ include_once("includer.php");
     </div>
 </div>
 <div id="overlay-layout">
-    <div>
-        <div class="full-center" onclick="setModalVisibility(false)"></div>
-        <div id="modal">
-            <div id="modalTitle"></div>
-            <table>
-                <tr>
-                    <td>Från:</td>
-                    <td id="modalTimeStart"></td>
-                </tr>
-                <tr>
-                    <td>Till:</td>
-                    <td id="modalTimeEnd"></td>
-                </tr>
-                <tr>
-                    <td>Dag:</td>
-                    <td id="modalDay"></td>
-                </tr>
-                <tr>
-                    <td>Sal:</td>
-                    <td id="modalLocation"></td>
-                </tr>
-            </table>
-        </div>
+    <div id="modalMasterHolder">
+        <div class="full-center" "></div>
+        <div onclick="setModalVisibility(false)" id="modalContainer"></div>
     </div>
 </div>
 
