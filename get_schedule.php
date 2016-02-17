@@ -6,8 +6,9 @@ $week = $_GET["week"];
 $className = $_GET["className"];
 
 $week_regex = "/^\\d{1,2}$/";
-$className_regex = "/^[\\w\\d\\s]{2, 20}$/";
+$className_regex = "/^[\\w\\d\\s]{2,20}$/";
 if(!preg_match($week_regex, $week) || !preg_match($className_regex, $className)) {
+    echo "Invalid week or class name";
     http_response_code(400);
     die(400);
 }

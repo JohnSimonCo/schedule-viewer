@@ -53,7 +53,7 @@
             <a href="https://github.com/JohnSimonCo/schedule-viewer">Front end</a>,
             <a href="https://github.com/johnrapp/novasoftware-schedule-parser">Back end</a></p>
         <p><a href="https://play.google.com/store/apps/details?id=com.johnsimon.payback">Ladda ner vår app!</a><br></p>
-        <p>Några frågor eller bara sugen på att hänga i FC chatten?<br>
+        <p>Några frågor eller bara sugen på att hänga i FC-chatten?<br>
             FC: simonhan@vgy.se och johnrs@vgy.se<br></p>
 
         <small>Denna sida är inte på något sätt associerad med Värmdö Gymnasium och vi reserverar oss för eventuell felaktig data; det är inte vårt fel om du missar en lektion.</small><br>
