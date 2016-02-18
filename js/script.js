@@ -107,7 +107,15 @@ function handleData(data) {
                     if (row.indexOf('  ') != -1 || row.indexOf('B51-SKRIVSALEN') != -1) {
                         var rowParts = row.split('  ');
                         //Filter out stupid things, we now assume it's the location
-                        subles[sublesindex].location = rowParts[1];
+                        //Unless we have B51 on indval where it'll be alone.
+                        if (row.indexOf('B51-SKRIVSALEN') != -1 && rowParts.length == 1) {
+                            subles[sublesindex].location = rowParts[0];
+                        } else {
+                            if (rowParts[1]) {
+                                subles[sublesindex].location = rowParts[1];
+                            }
+                        }
+
                     } else if (row.length) {
                         //Else we try for indval
                         if (row.length < 5) {
