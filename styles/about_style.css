@@ -166,6 +166,9 @@ a {
         padding-left: 80px;
         padding-right: 80px;
     }
+    .container {
+        margin-top: 18px;
+    }
 }
 
 @media (max-width: 600px){
