@@ -10,6 +10,11 @@
         return week + className;
     }
 
+    function getLocalJSON(url) {
+        return JSON.parse(document.getElementById(url).innerHTML);
+    }
+    window.getLocalJSON = getLocalJSON;
+
     window.getSchedule = function(week, className, callback) {
 
         ga('send', 'event', 'Get new schedule', className);
@@ -38,13 +43,17 @@
     };
 
     window.getInitial = function() {
-        ga('send', 'event', 'Get initial schedule', window.initial.className);
-        return window.initial;
+        var initial = getLocalJSON('initial.json');
+        ga('send', 'event', 'Get initial schedule', initial.className);
+        return initial;
     };
 
     var initial = getInitial();
     var initialHash = hash(initial.week, initial.className);
     cache[initialHash] = $.Deferred().resolve(initial.schedule).promise();
+
+    window.weeks = getLocalJSON('weeks.json');
+    window.classNames = getLocalJSON('classNames.json');
 })();
 
 (function() {

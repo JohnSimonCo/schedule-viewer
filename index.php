@@ -41,10 +41,14 @@ include_once("includer.php");
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#11171a">
 
-    <script>
-        var weeks = JSON.parse('<?php echo json_encode($metadata["weeks"]) ?>');
-        var classNames = JSON.parse('<?php echo json_encode($metadata["classNames"]) ?>');
-        var initial = JSON.parse('<?php echo json_encode($initial) ?>');
+    <script type="text/json" id="weeks.json">
+        <?php echo json_encode($metadata["weeks"]) ?>
+    </script>
+    <script type="text/json" id="classNames.json">
+        <?php echo json_encode($metadata["classNames"]) ?>
+    </script>
+    <script type="text/json" id="initial.json">
+        <?php echo json_encode($initial) ?>
     </script>
 </head>
 <body>
