@@ -11,7 +11,6 @@
     <meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
     <meta http-equiv="pragma" content="no-cache" />
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <link href="../styles/about_style.css" rel="stylesheet" type="text/css">
 
     <?php

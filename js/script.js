@@ -9,6 +9,8 @@ var lastData;
 
 var VIEW_WEEK = 'week';
 var VIEW_DAY = 'day';
+var DAY_PREVIOUS = 0;
+var DAY_NEXT = 1;
 
 var schoolEnd = getTimeSinceStart('17:30');
 var lastLessonTime = getTimeSinceStart('17:00');
@@ -41,12 +43,12 @@ var hammertime = new Hammer(document.querySelector('.schedule-container'), {});
 hammertime.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
 hammertime.on('swipeleft', function() {
     if (getCurrentView() == VIEW_DAY) {
-        changeDay(1);
+        changeDay(DAY_NEXT);
     }
 });
 hammertime.on('swiperight', function() {
     if (getCurrentView() == VIEW_DAY) {
-        changeDay(0);
+        changeDay(DAY_PREVIOUS);
     }
 });
 
@@ -559,7 +561,7 @@ function generateCurrentDate() {
 }
 
 function changeDay(value) {
-    if (value == 0) {
+    if (value == DAY_PREVIOUS) {
         if (currentDay > 0) {
             currentDay--;
         } else {
@@ -567,7 +569,7 @@ function changeDay(value) {
             weekBack();
             currentDay = 4;
         }
-    } else if (value == 1) {
+    } else if (value == DAY_NEXT) {
         if (currentDay < 4) {
             currentDay++;
         } else {

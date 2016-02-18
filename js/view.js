@@ -110,7 +110,12 @@ function lessonClickHandler(lesson) {
 
         for (var i = 0; i < lesson.info.length; i++) {
             var sublesson = lesson.info[i];
-            $('#modalContainer').append('<div onclick="event.stopPropagation()" style="background: '  + sublesson.color + '" class="modal"><div class="modalTitle">' + sublesson.text + '</div><table><tr><td>Från:</td><td>' + lesson.startTime + '</td></tr>   <tr><td>Till:</td><td>' + lesson.endTime + '</td></tr>     <tr><td>Dag:</td><td>' + lastData.titles[lesson.day].split(' ')[0] + '</td></tr>    <tr><td>Sal:</td><td>' + sublesson.location + '</td></tr></table></div>');
+            //TODO switch to false when we have new lärare info
+            if (false) {
+                $('#modalContainer').append('<div onclick="event.stopPropagation()" style="background: '  + sublesson.color + '" class="modal"><div class="modalTitle">' + sublesson.text + '</div><table><tr><td>Från:</td><td>' + lesson.startTime + '</td></tr>   <tr><td>Till:</td><td>' + lesson.endTime + '</td></tr>     <tr><td>Dag:</td><td>' + lastData.titles[lesson.day].split(' ')[0] + '</td></tr>    <tr><td>Sal:</td><td>' + sublesson.location + '</td></tr>    <tr><td>Lärare:</td><td>' + sublesson.teacher + '</td></tr>     </table></div>');
+            } else {
+                $('#modalContainer').append('<div onclick="event.stopPropagation()" style="background: '  + sublesson.color + '" class="modal"><div class="modalTitle">' + sublesson.text + '</div><table><tr><td>Från:</td><td>' + lesson.startTime + '</td></tr>   <tr><td>Till:</td><td>' + lesson.endTime + '</td></tr>     <tr><td>Dag:</td><td>' + lastData.titles[lesson.day].split(' ')[0] + '</td></tr>    <tr><td>Sal:</td><td>' + sublesson.location + '</td></tr>   </table></div>');
+            }
         }
 
         setModalVisibility(true);
