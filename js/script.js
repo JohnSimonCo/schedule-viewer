@@ -17,7 +17,7 @@ var lastLessonTime = getTimeSinceStart('17:00');
 
 var color = -1;
 
-var palette = ['#F44336', '#3F51B5', '#009688', '#607D8B', '#FF5722', '#9C27B0', '#4CAF50', '#2196F3', '#34495e', '#27ae60'];
+var palette = ['#F44336', '#3F51B5', '#009688', '#607D8B', '#FF5722', '#9C27B0', '#4CAF50', '#2196F3', '#34495e', '#27ae60', '#046380', '#01A2A6', '#F77A52', '#EA2E49'];
 var classes = [];
 var colors = [];
 var dayElements = [];
