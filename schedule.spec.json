@@ -17,7 +17,8 @@
             "details": [
                 {
                     "text":"Religionskunskap 1",
-                    "location":"C22"
+                    "location":"C22",
+                    "teacher": "Åsa Betts"
                 }
             ]
         },
@@ -29,11 +30,13 @@
             "details": [
                 {
                     "text":"Engelska 7",
-                    "location":"B35"
+                    "location":"B35",
+                    "teacher": "Anki"
                 },
                 {
                     "text":"Matematik 5",
-                    "location":"B23"
+                    "location":"B23",
+                    "teacher": "Annika Båkman"
                 }
             ]
         }
