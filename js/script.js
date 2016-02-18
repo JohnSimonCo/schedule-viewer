@@ -68,7 +68,9 @@ function handleData(data) {
     for (var i = 0 ; i < data.lessons.length; i++) {
         //Special treatment for tuesdays
         if (data.lessons[i].day == 1) {
-            data.lessons[i].info = [{text: data.lessons[i].rows.join('<br>'), location: 'Okänt'}];
+            var locRegExArray = data.lessons[i].rows.join(' ').match(/(^|\s)([abcd]\d{1,3})([\s,-]|$)/i);
+            var loc = locRegExArray ? locRegExArray[2] : 'Okänt';
+            data.lessons[i].info = [{text: data.lessons[i].rows.join('<br>'), location: loc}];
         } else {
             var les = data.lessons[i];
 
@@ -116,12 +118,10 @@ function handleData(data) {
                             }
                         }
 
-                    } else if (row.length) {
-                        //Else we try for indval
-                        if (row.length < 5) {
-                            //Let's assume it's a location
-                            subles[sublesindex].location = row;
-                        }
+                    //Else we try for indval
+                    } else if (row.length < 5) {
+                        //Let's assume it's a location
+                        subles[sublesindex].location = row;
                     }
                 }
             }
