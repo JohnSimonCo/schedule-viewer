@@ -124,9 +124,16 @@ function lessonClickHandler(lesson) {
 
 function setModalVisibility(visible) {
     if (visible) {
-        $('#overlay-layout').css('display', 'block');
+        $('#overlay-layout').css('visibility', 'visible');
+        $('#overlay-layout').css('opacity', '1');
     } else {
-        $('#overlay-layout').css('display', 'none');
-        modalContainer.remove();
+
+        $('#overlay-layout').css('opacity', '0');
+        setTimeout(function() {
+            $('#overlay-layout').css('visibility', 'hidden');
+            modalContainer.remove();
+       }, 200);
+
+
     }
 }

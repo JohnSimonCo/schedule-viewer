@@ -142,13 +142,15 @@ body, html {
 }
 
 #overlay-layout {
-	display: none;
+    visibility: hidden;
 	position: absolute;
 	width: 100%;
 	height: 100vh;
 	left: 0;
-	top: 0;
-	z-index: 2;
+    top: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.2s;
 }
 
 .full-center {
