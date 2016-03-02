@@ -118,6 +118,22 @@ function lessonClickHandler(lesson) {
             }
         }
 
+        //Let's set appropriate padding-top and padding-bottom
+        //for modalContainer
+
+        //Top should be calc(50vh - (half top card height))
+        //Bottom should be calc(50vh - (half bottom card height))
+
+
+        //First we get a list of all children
+        var children = $('#modalContainer').children();
+
+        var topHeight = $(children[0]).innerHeight();
+        var bottomHeight = $(children[children.length - 1]).innerHeight();
+
+        $('#modalContainer').css('padding-top', 'calc(50vh - ' + (topHeight/2 + 20) + 'px)');
+        $('#modalContainer').css('padding-bottom', 'calc(50vh - ' + (bottomHeight/2 + 20) + 'px)');
+
         setModalVisibility(true);
     }
 }
@@ -133,7 +149,5 @@ function setModalVisibility(visible) {
             $('#overlay-layout').css('visibility', 'hidden');
             modalContainer.remove();
        }, 200);
-
-
     }
 }

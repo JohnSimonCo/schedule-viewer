@@ -604,20 +604,6 @@ body, html {
     }
 }
 
-@media (max-height: 1000px) {
-    #modalContainer {
-        padding-top: 35vh;
-        padding-bottom: calc(35vh - 80px);
-    }
-}
-
-@media (max-height: 630px) {
-    #modalContainer {
-        padding-top: 40vh;
-        padding-bottom: 40vh;
-    }
-}
-
 @media print {
     body {
         border: 2px solid #000;
