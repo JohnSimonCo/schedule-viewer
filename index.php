@@ -65,7 +65,6 @@ include_once("includer.php");
 </script>
 
 <div id="normal-layout">
-
     <header class="header">
         <div class="panel">
 

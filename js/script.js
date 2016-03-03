@@ -41,6 +41,8 @@ function fetchData(className, week) {
     getSchedule(week, className, handleData);
 }
 
+new Hammer(document.querySelector('.header'), {});
+
 var hammertime = new Hammer(document.querySelector('.schedule-container'), {});
 hammertime.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
 hammertime.on('swipeleft', function() {
