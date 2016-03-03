@@ -121,12 +121,9 @@ body, html {
 	margin: 0;
     background-color: #263238;
 	color: #fff;
-    width: 100%;
-    max-width: 100%;
-}
-
-#wrapper {
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%
 }
 
 .hidden {
