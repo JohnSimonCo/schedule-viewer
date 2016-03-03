@@ -68,15 +68,24 @@ include_once("includer.php");
 
     <header class="header">
         <div class="panel">
-            <div id="className"><?php echo $initial["className"] ?></div>
-            <select id="classSelect" onchange="changeClass(this.options[this.selectedIndex].value)">
-                <?php
-                foreach($metadata["classNames"] as $className) { ?>
-                    <option value="<?php echo $className ?>" <?php if($className == $initial["className"]) echo 'selected="true"' ?>>
-                        <?php echo $className ?>
-                    </option>
-                <?php } ?>
-            </select>
+
+            <div class="classPanelContainer noselect">
+
+                <div onclick="toggleDropdown()" id="className"><?php echo $initial["className"] ?></div>
+
+                <div id="dropdown-overlay-layout" onclick="toggleDropdown()"></div>
+
+                <div id="classDropdown">
+
+                    <?php
+                    foreach($metadata["classNames"] as $className) { ?>
+                        <li id="<?php echo $className ?>classDropdown" onclick="toggleDropdown(); changeClass('<?php echo $className ?>')" class="classListItem<?php if($className == $initial["className"]) echo ' selectedClass'?>">
+                            <?php echo $className ?>
+                        </li>
+                    <?php } ?>
+
+                </div>
+            </div>
 
             <div id="parseErrorMessage"></div>
             <div id="parseErrorMessageSmall"></div>
@@ -98,14 +107,14 @@ include_once("includer.php");
             </div>
 
             <div class="weekSelect">
-                <div onclick="weekBack()" class="weekSelectArrow">
+                <div onclick="weekBack()" class="weekSelectArrow noselect">
                     <svg class="arrow" fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
                         <path d="M0-.5h24v24H0z" fill="none"/>
                     </svg>
                 </div>
-                <div id="weekSelectNow"><?php echo $initial["week"] ?></div>
-                <div onclick="weekForward()" class="weekSelectArrow">
+                <div id="weekSelectNow" class="noselect"><?php echo $initial["week"] ?></div>
+                <div onclick="weekForward()" class="weekSelectArrow noselect">
                     <svg class="arrow" fill="#FFFFFF"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
                         <path d="M0-.25h24v24H0z" fill="none"/>
@@ -118,7 +127,7 @@ include_once("includer.php");
     </header>
 
     <div class="schedule-container">
-        <div id="dayChangeLeft" class="day-changer" onclick="changeDay(0)">
+        <div id="dayChangeLeft" class="day-changer noselect" onclick="changeDay(0)">
             <span class="day-changer-span">
                 <svg id="dayChangeLeftIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
@@ -129,7 +138,7 @@ include_once("includer.php");
         <div id="schedule">
 
         </div>
-        <div id="dayChangeRight" class="day-changer" onclick="changeDay(1)">
+        <div id="dayChangeRight" class="day-changer noselect" onclick="changeDay(1)">
             <span class="day-changer-span">
                 <svg id="dayChangeRightIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>

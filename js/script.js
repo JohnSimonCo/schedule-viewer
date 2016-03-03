@@ -23,6 +23,8 @@ var colors = [];
 var dayElements = [];
 var currentDay = generateCurrentDate();
 
+var dropdownVisible = false;
+
 updateVisibleViewIndicator();
 
 $.ajaxSetup ({

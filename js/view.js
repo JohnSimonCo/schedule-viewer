@@ -80,9 +80,25 @@ function weekForward() {
     fetchData(localStorage.getItem('class') || '13TE', $('#weekSelectNow').text());
 }
 
+function toggleDropdown() {
+    if (dropdownVisible) {
+        $('#classDropdown').css('display', 'none');
+        $('#dropdown-overlay-layout').css('display', 'none')
+    } else {
+        $('#classDropdown').css('display', 'block');
+        $('#dropdown-overlay-layout').css('display', 'block ')
+    }
+
+    dropdownVisible = !dropdownVisible;
+}
+
 //This function is called by the spinner in the top panel to change
 //the active schedule
 function changeClass(classSelected) {
+
+    $('.selectedClass').removeClass('selectedClass');
+    $('#' + classSelected +  'classDropdown').addClass('selectedClass');
+
     setClass(classSelected);
 
     localStorage.setItem('class', classSelected);
