@@ -221,11 +221,12 @@ body, html {
     margin-right: 30px;
     flex-grow: 1;
     height: 100%;
-    padding-top: 200px;
     font-size: 40px;
     opacity: 0;
     display: none;
     transition: opacity 1000ms;
+    align-items: center;
+    justify-content: center;
 }
 
 .day-changer {
@@ -765,9 +766,9 @@ body, html {
 .spinner {
     width: 40px;
     height: 40px;
-
     position: relative;
-    margin: 100px auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .double-bounce1, .double-bounce2 {

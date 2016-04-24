@@ -214,7 +214,7 @@ function showLoadingIndicator() {
     setTimeout(function() {
         $('#schedule').css('display', 'none');
 
-        $('#loadingIndicator').css('display', 'block');
+        $('#loadingIndicator').css('display', 'flex');
         $('#loadingIndicator').css('opacity', '1');
 
     }, 120);
