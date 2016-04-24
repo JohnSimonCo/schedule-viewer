@@ -81,6 +81,10 @@ function weekForward() {
 }
 function changeWeek(week) {
     $('#weekSelectNow').text(week);
+    
+    $('.dropdownWeekSelected').removeClass('dropdownWeekSelected');
+    $('#' + week +  'weekDropdown').addClass('dropdownWeekSelected');
+    
     fetchData(localStorage.getItem('class') || '13TE', $('#weekSelectNow').text());
 }
 
@@ -92,6 +96,8 @@ function toggleClassDropdown() {
         $('#classDropdown').css('display', 'block');
         $('#class-dropdown-overlay-layout').css('display', 'block ')
     }
+
+    $()
 
     classDropdownVisible = !classDropdownVisible;
 }
@@ -115,8 +121,8 @@ function changeClass(classSelected) {
 
     $('#className').text(classSelected);
 
-    $('.selectedClass').removeClass('selectedClass');
-    $('#' + classSelected +  'classDropdown').addClass('selectedClass');
+    $('.dropdownClassSelected').removeClass('dropdownClassSelected');
+    $('#' + classSelected +  'classDropdown').addClass('dropdownClassSelected');
 
     setClass(classSelected);
 

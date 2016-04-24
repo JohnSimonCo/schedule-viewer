@@ -84,7 +84,7 @@ include_once("includer.php");
 
                     <?php
                     foreach($metadata["classNames"] as $className) { ?>
-                        <li onclick="toggleClassDropdown(); changeClass('<?php echo $className ?>')" class="dropdownListItem<?php if($className == $initial["className"]) echo ' selectedClass'?>">
+                        <li id="<?php echo $className ?>classDropdown" onclick="toggleClassDropdown(); changeClass('<?php echo $className ?>')" class="dropdownListItem<?php if($className == $initial["className"]) echo ' dropdownClassSelected'?>">
                             <?php echo $className ?>
                         </li>
                     <?php } ?>
@@ -128,7 +128,7 @@ include_once("includer.php");
 
                         <?php
                         foreach($metadata["weeks"] as $week) { ?>
-                            <li onclick="toggleWeekDropdown(); changeWeek('<?php echo $week ?>')" class="dropdownListItem<?php if($week == $initial["week"]) echo ' selectedWeek'?>">
+                            <li id="<?php echo $week ?>weekDropdown" onclick="toggleWeekDropdown(); changeWeek('<?php echo $week ?>')" class="dropdownListItem<?php if($week == $initial["week"]) echo ' dropdownWeekSelected'?>">
                                 <?php echo $week ?>
                             </li>
                         <?php } ?>

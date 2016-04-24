@@ -329,15 +329,21 @@ body, html {
     background: #ddd;
 }
 
-.dropdownSelected {
+.dropdownClassSelected {
     background: #ccc;
 }
 
-.selectedSelected:hover {
+.dropdownClassSelected:hover {
     background: #bbb;
 }
 
+.dropdownWeekSelected {
+    background: #ccc;
+}
 
+.dropdownWeekSelected:hover {
+    background: #bbb;
+}
 
 
 
