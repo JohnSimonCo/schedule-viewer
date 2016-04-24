@@ -151,17 +151,7 @@ body, html {
     transition: opacity 0.2s;
 }
 
-#class-dropdown-overlay-layout {
-    width: 100vw;
-    height: 100vh;
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-}
-
-#week-dropdown-overlay-layout {
+.overlay {
     width: 100vw;
     height: 100vh;
     z-index: 2;
@@ -692,10 +682,10 @@ body, html {
     }
 }
 
-@media (max-width: 370px) {
-    /*#className {
-        display: none;
-    }*/
+@media (max-width: 400px) {
+    .empty-view {
+        font-size: 16px;
+    }
 }
 
 @media print {

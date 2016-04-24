@@ -65,15 +65,16 @@ include_once("includer.php");
 </script>
 
 <div id="normal-layout">
+
+    <div id="class-dropdown-overlay-layout" class="overlay" onclick="toggleClassDropdown()"></div>
+    <div id="week-dropdown-overlay-layout" class="overlay" onclick="toggleWeekDropdown()"></div>
+
     <header class="header">
         <div class="panel">
 
             <div class="classPanelContainer noselect">
 
                 <div onclick="toggleClassDropdown()" id="className"><?php echo $initial["className"] ?></div>
-
-                <div id="class-dropdown-overlay-layout" onclick="toggleClassDropdown()"></div>
-                <div id="week-dropdown-overlay-layout" onclick="toggleWeekDropdown()"></div>
 
                 <div id="classDropdown">
 
