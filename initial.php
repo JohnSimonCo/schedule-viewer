@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Europe/Stockholm');
 
 $week = getCurrentWeek();
 $weeks = $metadata["weeks"];
@@ -25,7 +26,6 @@ return [
     "view" => $view,
     "schedule" => $schedule
 ];
-
 
 function getCurrentWeek() {
     $date = new DateTime("NOW");
