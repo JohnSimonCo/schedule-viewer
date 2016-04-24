@@ -151,7 +151,17 @@ body, html {
     transition: opacity 0.2s;
 }
 
-#dropdown-overlay-layout {
+#class-dropdown-overlay-layout {
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#week-dropdown-overlay-layout {
     width: 100vw;
     height: 100vh;
     z-index: 2;
@@ -257,6 +267,29 @@ body, html {
     content: url('data:image/svg+xml;utf8,<svg fill="#FFFFFF" height="22" viewBox="0 0 24 22" width="24" xmlns="http://www.w3.org/2000/svg"> <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/> <path d="M0-.75h24v24H0z" fill="none"/> </svg>');
 }
 
+
+
+.weekPanelContainer {
+    position: relative;
+    height: 0;
+}
+
+#weekDropdown {
+    position: absolute;
+    background: #fff;
+    top: 38px;
+    color: #000;
+    left: 0;
+    max-height: 70vh;
+    height: 410px;
+    overflow-y: auto;
+    z-index: 3;
+    overflow-x: hidden;
+    display: none;
+}
+
+
+
 .classPanelContainer {
     flex-shrink: 0;
     position: relative;
@@ -277,7 +310,7 @@ body, html {
     display: none;
 }
 
-.classListItem {
+.dropdownListItem {
     padding-left: 14px;
     padding-right: 14px;
     padding-top: 12px;
@@ -285,17 +318,18 @@ body, html {
     list-style-type: none;
     transition: all 300ms;
     cursor: pointer;
+    min-width: 65px;
 }
 
-.classListItem:hover {
+.dropdownListItem:hover {
     background: #ddd;
 }
 
-.selectedClass {
+.dropdownSelected {
     background: #ccc;
 }
 
-.selectedClass:hover {
+.selectedSelected:hover {
     background: #bbb;
 }
 
@@ -352,13 +386,16 @@ body, html {
 }
 
 .weekSelectArrow {
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 6px;
+	padding-right: 6px;
 	cursor: pointer;
 }
 
 #weekSelectNow {
     margin-top: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+    cursor: pointer;
 }
 
 #dayHeader {

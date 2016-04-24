@@ -70,15 +70,16 @@ include_once("includer.php");
 
             <div class="classPanelContainer noselect">
 
-                <div onclick="toggleDropdown()" id="className"><?php echo $initial["className"] ?></div>
+                <div onclick="toggleClassDropdown()" id="className"><?php echo $initial["className"] ?></div>
 
-                <div id="dropdown-overlay-layout" onclick="toggleDropdown()"></div>
+                <div id="class-dropdown-overlay-layout" onclick="toggleClassDropdown()"></div>
+                <div id="week-dropdown-overlay-layout" onclick="toggleWeekDropdown()"></div>
 
                 <div id="classDropdown">
 
                     <?php
                     foreach($metadata["classNames"] as $className) { ?>
-                        <li id="<?php echo $className ?>classDropdown" onclick="toggleDropdown(); changeClass('<?php echo $className ?>')" class="classListItem<?php if($className == $initial["className"]) echo ' selectedClass'?>">
+                        <li onclick="toggleClassDropdown(); changeClass('<?php echo $className ?>')" class="dropdownListItem<?php if($className == $initial["className"]) echo ' selectedClass'?>">
                             <?php echo $className ?>
                         </li>
                     <?php } ?>
@@ -112,7 +113,25 @@ include_once("includer.php");
                         <path d="M0-.5h24v24H0z" fill="none"/>
                     </svg>
                 </div>
-                <div id="weekSelectNow" class="noselect"><?php echo $initial["week"] ?></div>
+
+
+                <div class="weekPanelContainer noselect">
+
+                    <div onclick="toggleWeekDropdown()" id="weekSelectNow"><?php echo $initial["week"] ?></div>
+
+                    <div id="weekDropdown">
+
+                        <?php
+                        foreach($metadata["weeks"] as $week) { ?>
+                            <li onclick="toggleWeekDropdown(); changeWeek('<?php echo $week ?>')" class="dropdownListItem<?php if($week == $initial["week"]) echo ' selectedWeek'?>">
+                                <?php echo $week ?>
+                            </li>
+                        <?php } ?>
+
+                    </div>
+                </div>
+
+
                 <div onclick="weekForward()" class="weekSelectArrow noselect">
                     <svg class="arrow" fill="#FFFFFF"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>

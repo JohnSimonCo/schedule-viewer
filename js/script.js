@@ -23,7 +23,8 @@ var colors = [];
 var dayElements = [];
 var currentDay = generateCurrentDate();
 
-var dropdownVisible = false;
+var classDropdownVisible = false;
+var weekDropdownVisible = false;
 
 updateVisibleViewIndicator();
 

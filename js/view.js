@@ -79,18 +79,35 @@ function weekForward() {
     $('#weekSelectNow').text(weekNum);
     fetchData(localStorage.getItem('class') || '13TE', $('#weekSelectNow').text());
 }
+function changeWeek(week) {
+    $('#weekSelectNow').text(week);
+    fetchData(localStorage.getItem('class') || '13TE', $('#weekSelectNow').text());
+}
 
-function toggleDropdown() {
-    if (dropdownVisible) {
+function toggleClassDropdown() {
+    if (classDropdownVisible) {
         $('#classDropdown').css('display', 'none');
-        $('#dropdown-overlay-layout').css('display', 'none')
+        $('#class-dropdown-overlay-layout').css('display', 'none')
     } else {
         $('#classDropdown').css('display', 'block');
-        $('#dropdown-overlay-layout').css('display', 'block ')
+        $('#class-dropdown-overlay-layout').css('display', 'block ')
     }
 
-    dropdownVisible = !dropdownVisible;
+    classDropdownVisible = !classDropdownVisible;
 }
+
+function toggleWeekDropdown() {
+    if (weekDropdownVisible) {
+        $('#weekDropdown').css('display', 'none');
+        $('#week-dropdown-overlay-layout').css('display', 'none')
+    } else {
+        $('#weekDropdown').css('display', 'block');
+        $('#week-dropdown-overlay-layout').css('display', 'block ')
+    }
+
+    weekDropdownVisible = !weekDropdownVisible;
+}
+
 
 //This function is called by the spinner in the top panel to change
 //the active schedule
