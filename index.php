@@ -158,7 +158,13 @@ include_once("includer.php");
                 </svg>
             </span>
         </div>
-        <div id="schedule">
+        <div id="schedule"></div>
+        <div id="loadingIndicator">
+
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
 
         </div>
         <div id="dayChangeRight" class="day-changer noselect" onclick="changeDay(1)">

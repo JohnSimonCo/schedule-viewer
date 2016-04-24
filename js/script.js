@@ -39,7 +39,17 @@ $(function() {
 });
 
 function fetchData(className, week) {
-    getSchedule(week, className, handleData);
+    showLoadingIndicator();
+    //getScheduleWithTimeout(week, className, 120, handleData);
+    $.when(getSchedule(week, className), $timeout(120)).then(function(response) {
+        handleData(response[0]);
+    });
+}
+
+function $timeout(delay) {
+    var deferred = $.Deferred();
+    setTimeout(deferred.resolve, delay);
+    return deferred.promise();
 }
 
 new Hammer(document.querySelector('.header'), {});
@@ -61,7 +71,6 @@ var hammertimeOverlay = new Hammer(document.querySelector('#overlay-layout'), {}
 hammertimeOverlay.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
 
 function handleData(data) {
-
     resetColor();
 
     for (var i = 0; i < data.lessons.length; i++) {
@@ -198,7 +207,36 @@ function handleData(data) {
 
 	lastData = data;
 
-	generateHtml();
+    hideLoadingIndicator().then(function () {
+        generateHtml();
+        var uiElements = $('.day');
+        var classes = $('.class');
+        var empties = $('.empty-view');
+        var emptiesLov = $('.empty-view-lov');
+
+        for (var i = 0; i < classes.length; i++) {
+            uiElements.push(classes[i]);
+        }
+
+        for (var i = 0; i < empties.length; i++) {
+            uiElements.push(empties[i]);
+        }
+
+        for (var i = 0; i < emptiesLov.length; i++) {
+            uiElements.push(emptiesLov[i]);
+        }
+
+        for (var i = 0; i < uiElements.length; i++) {
+            $(uiElements[i]).css('opacity', '0');
+        }
+        setTimeout(function () {
+            for (var i = 0; i < uiElements.length; i++) {
+                $(uiElements[i]).css('transition', 'opacity 120ms');
+                $(uiElements[i]).css('opacity', '1');
+            }
+        }, 5)
+
+    });
 }
 
 //This method is called once per schedule to create all HTML elements and give

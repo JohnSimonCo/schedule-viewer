@@ -113,6 +113,8 @@ function toggleWeekDropdown() {
 //the active schedule
 function changeClass(classSelected) {
 
+    $('#className').text(classSelected);
+
     $('.selectedClass').removeClass('selectedClass');
     $('#' + classSelected +  'classDropdown').addClass('selectedClass');
 
@@ -176,11 +178,63 @@ function setModalVisibility(visible) {
         $('#overlay-layout').css('visibility', 'visible');
         $('#overlay-layout').css('opacity', '1');
     } else {
-
         $('#overlay-layout').css('opacity', '0');
         setTimeout(function() {
             $('#overlay-layout').css('visibility', 'hidden');
             modalContainer.remove();
        }, 200);
     }
+}
+
+function showLoadingIndicator() {
+    var uiElements = $('.day');
+    var classes = $('.class');
+    var empties = $('.empty-view');
+    var emptiesLov = $('.empty-view-lov');
+
+    for (var i = 0; i < classes.length; i++) {
+        uiElements.push(classes[i]);
+    }
+
+    for (var i = 0; i < empties.length; i++) {
+        uiElements.push(empties[i]);
+    }
+
+    for (var i = 0; i < emptiesLov.length; i++) {
+        uiElements.push(emptiesLov[i]);
+    }
+
+    uiElements.push()
+
+    for (var i = 0; i  < uiElements.length; i++) {
+        $(uiElements[i]).css('transition', 'opacity 120ms');
+        $(uiElements[i]).css('opacity', '0');
+    }
+
+    setTimeout(function() {
+        $('#schedule').css('display', 'none');
+
+        $('#loadingIndicator').css('display', 'block');
+        $('#loadingIndicator').css('opacity', '1');
+
+    }, 120);
+}
+
+function hideLoadingIndicator() {
+    var deferred = $.Deferred();
+    var promise = deferred.promise();
+
+    $('#loadingIndicator').css('opacity', '0');
+
+    setTimeout(function() {
+
+        $('#schedule').css('display', 'block');
+
+        $('#loadingIndicator').css('display', 'none');
+
+        deferred.resolve();
+
+    }, 120);
+
+    return promise;
 }

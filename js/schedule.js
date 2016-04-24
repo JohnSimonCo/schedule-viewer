@@ -17,20 +17,20 @@
     }
     window.getLocalJSON = getLocalJSON;
 
-    window.getSchedule = function(week, className, callback) {
+    window.getSchedule = function(week, className) {
 
         ga('send', 'event', 'Get new schedule', className);
 
         var hashKey = hash(week, className);
         if(cache[hashKey]) {
-            cache[hashKey].then(callback);
+            return cache[hashKey];
         } else {
             var deferred = $.Deferred();
             $.getJSON(buildUrl(week, className), deferred.resolve);
 
             var promise = deferred.promise();
-            promise.then(callback);
             cache[hashKey] = promise;
+            return promise;
         }
     };
 
