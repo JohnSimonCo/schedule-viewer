@@ -41,16 +41,7 @@ $(function() {
 
 function fetchData(className, week) {
     showLoadingIndicator();
-    //getScheduleWithTimeout(week, className, 120, handleData);
-    $.when(getSchedule(week, className), $timeout(120)).then(function(response) {
-        handleData(response[0]);
-    });
-}
-
-function $timeout(delay) {
-    var deferred = $.Deferred();
-    setTimeout(deferred.resolve, delay);
-    return deferred.promise();
+    getScheduleWithTimeout(week, className, 120, handleData);
 }
 
 new Hammer(document.querySelector('.header'), {});

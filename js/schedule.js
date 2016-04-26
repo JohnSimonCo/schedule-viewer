@@ -1,9 +1,9 @@
 (function() {
     var cache = {};
 
-    var url = 'http://schema.vgy.se/get_schedule.php';
+    //var url = 'http://schema.vgy.se/get_schedule.php';
     //var url = 'http://vgy.rocks/schema/get_schedule.php';
-    //var url = 'http://localhost/schema/get_schedule.php';
+    var url = 'http://localhost/schema/get_schedule.php';
 
     function buildUrl(week, className) {
         return url +  '?week=' + week + "&className=" + className;
@@ -11,6 +11,14 @@
     function hash(week, className) {
         return week + className;
     }
+
+    function $timeout(delay) {
+        var deferred = $.Deferred();
+        setTimeout(deferred.resolve, delay);
+        return deferred.promise();
+    }
+
+    function identity(a) { return a; }
 
     function getLocalJSON(url) {
         return JSON.parse(document.getElementById(url).innerHTML);
@@ -28,10 +36,21 @@
             var deferred = $.Deferred();
             $.getJSON(buildUrl(week, className), deferred.resolve);
 
-            var promise = deferred.promise();
+            //.then(identity) to circumvent weird bug
+            var promise = deferred.promise().then(identity);
             cache[hashKey] = promise;
             return promise;
         }
+    };
+
+    var currentLoaded = null;
+    window.getScheduleWithTimeout = function(week, className, delay, callback) {
+        currentLoaded = hash(week, className);
+        $.when(window.getSchedule(week, className), $timeout(delay)).then(function(schedule) {
+            if(currentLoaded == hash(week, className)) {
+                callback(schedule);
+            }
+        });
     };
 
     window.setClass = function(className) {
