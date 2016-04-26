@@ -68,120 +68,186 @@ include_once("includer.php");
 
 </script>
 
-<div id="normal-layout">
+<div id="main-layout">
 
-    <div id="class-dropdown-overlay-layout" class="overlay" onclick="toggleClassDropdown()"></div>
-    <div id="week-dropdown-overlay-layout" class="overlay" onclick="toggleWeekDropdown()"></div>
+    <div id="normal-layout">
 
-    <header class="header">
-        <div class="panel">
+        <div id="class-dropdown-overlay-layout" class="overlay" onclick="toggleClassDropdown()"></div>
+        <div id="week-dropdown-overlay-layout" class="overlay" onclick="toggleWeekDropdown()"></div>
 
-            <div class="classPanelContainer noselect">
+        <header class="header">
+            <div class="panel">
 
-                <div onclick="toggleClassDropdown()" id="className"><?php echo $initial["className"] ?></div>
+                <div class="classPanelContainer noselect">
 
-                <div id="classDropdown">
+                    <div onclick="toggleClassDropdown()" id="className"><?php echo $initial["className"] ?></div>
 
-                    <?php
-                    foreach($metadata["classNames"] as $className) { ?>
-                        <li id="<?php echo $className ?>classDropdown" onclick="toggleClassDropdown(); changeClass('<?php echo $className ?>')" class="dropdownListItem<?php if($className == $initial["className"]) echo ' dropdownClassSelected'?>">
-                            <?php echo $className ?>
-                        </li>
-                    <?php } ?>
-
-                </div>
-            </div>
-
-            <div id="parseErrorMessage"></div>
-            <div id="parseErrorMessageSmall"></div>
-
-            <a id="aboutButton" href="about/">
-                <svg viewBox="0 0 24 24">
-                    <path fill="#fff" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
-                </svg>
-            </a>
-
-            <div id="changeView" onclick="changeView()">
-                <svg id="viewWeek" style="width:24px;height:24px" viewBox="0 0 24 24" <?php if($initial["view"] == "week") echo 'class="hidden"' ?>>
-                    <path fill="#fff" d="M16,5V18H21V5M4,18H9V5H4M10,18H15V5H10V18Z" />
-                </svg>
-
-                <svg id="viewDay" style="width:24px;height:24px" viewBox="0 0 24 24" <?php if($initial["view"] == "day") echo 'class="hidden"' ?>>
-                    <path fill="#fff" d="M20,3H3A1,1 0 0,0 2,4V10A1,1 0 0,0 3,11H20A1,1 0 0,0 21,10V4A1,1 0 0,0 20,3M20,13H3A1,1 0 0,0 2,14V20A1,1 0 0,0 3,21H20A1,1 0 0,0 21,20V14A1,1 0 0,0 20,13Z" />
-                </svg>
-            </div>
-
-            <div class="weekSelect">
-                <div onclick="weekBack()" class="weekSelectArrow noselect">
-                    <svg class="arrow" fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
-                        <path d="M0-.5h24v24H0z" fill="none"/>
-                    </svg>
-                </div>
-
-
-                <div class="weekPanelContainer noselect">
-
-                    <div onclick="toggleWeekDropdown()" id="weekSelectNow"><?php echo $initial["week"] ?></div>
-
-                    <div id="weekDropdown">
+                    <div id="classDropdown">
 
                         <?php
-                        foreach($metadata["weeks"] as $week) { ?>
-                            <li id="<?php echo $week ?>weekDropdown" onclick="toggleWeekDropdown(); changeWeek('<?php echo $week ?>')" class="dropdownListItem<?php if($week == $initial["week"]) echo ' dropdownWeekSelected'?>">
-                                <?php echo $week ?>
+                        foreach($metadata["classNames"] as $className) { ?>
+                            <li id="<?php echo $className ?>classDropdown" onclick="toggleClassDropdown(); changeClass('<?php echo $className ?>')" class="dropdownListItem<?php if($className == $initial["className"]) echo ' dropdownClassSelected'?>">
+                                <?php echo $className ?>
                             </li>
                         <?php } ?>
 
                     </div>
                 </div>
 
+                <div id="parseErrorMessage"></div>
+                <div id="parseErrorMessageSmall"></div>
 
-                <div onclick="weekForward()" class="weekSelectArrow noselect">
-                    <svg class="arrow" fill="#FFFFFF"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                        <path d="M0-.25h24v24H0z" fill="none"/>
+                <a id="aboutButton" href="about/">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#fff" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+                    </svg>
+                </a>
+
+                <div id="changeView" onclick="changeView()">
+                    <svg id="viewWeek" style="width:24px;height:24px" viewBox="0 0 24 24" <?php if($initial["view"] == "week") echo 'class="hidden"' ?>>
+                        <path fill="#fff" d="M16,5V18H21V5M4,18H9V5H4M10,18H15V5H10V18Z" />
+                    </svg>
+
+                    <svg id="viewDay" style="width:24px;height:24px" viewBox="0 0 24 24" <?php if($initial["view"] == "day") echo 'class="hidden"' ?>>
+                        <path fill="#fff" d="M20,3H3A1,1 0 0,0 2,4V10A1,1 0 0,0 3,11H20A1,1 0 0,0 21,10V4A1,1 0 0,0 20,3M20,13H3A1,1 0 0,0 2,14V20A1,1 0 0,0 3,21H20A1,1 0 0,0 21,20V14A1,1 0 0,0 20,13Z" />
                     </svg>
                 </div>
+
+                <div class="weekSelect">
+                    <div onclick="weekBack()" class="weekSelectArrow noselect">
+                        <svg class="arrow" fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
+                            <path d="M0-.5h24v24H0z" fill="none"/>
+                        </svg>
+                    </div>
+
+
+                    <div class="weekPanelContainer noselect">
+
+                        <div onclick="toggleWeekDropdown()" id="weekSelectNow"><?php echo $initial["week"] ?></div>
+
+                        <div id="weekDropdown">
+
+                            <?php
+                            foreach($metadata["weeks"] as $week) { ?>
+                                <li id="<?php echo $week ?>weekDropdown" onclick="toggleWeekDropdown(); changeWeek('<?php echo $week ?>')" class="dropdownListItem<?php if($week == $initial["week"]) echo ' dropdownWeekSelected'?>">
+                                    <?php echo $week ?>
+                                </li>
+                            <?php } ?>
+
+                        </div>
+                    </div>
+
+
+                    <div onclick="weekForward()" class="weekSelectArrow noselect">
+                        <svg class="arrow" fill="#FFFFFF"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                            <path d="M0-.25h24v24H0z" fill="none"/>
+                        </svg>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div id="dayHeader"></div>
-    </header>
+            <div id="dayHeader"></div>
+        </header>
 
-    <div class="schedule-container">
-        <div id="dayChangeLeft" class="day-changer noselect" onclick="changeDay(0)">
+        <div class="schedule-container">
+            <div id="dayChangeLeft" class="day-changer noselect" onclick="changeDay(0)">
             <span class="day-changer-span">
                 <svg id="dayChangeLeftIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
                     <path d="M0-.5h24v24H0z" fill="none"/>
                 </svg>
             </span>
-        </div>
-        <div id="schedule"></div>
-        <div id="loadingIndicator">
-
-            <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
             </div>
+            <div id="schedule"></div>
+            <div id="loadingIndicator">
 
-        </div>
-        <div id="dayChangeRight" class="day-changer noselect" onclick="changeDay(1)">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+
+            </div>
+            <div id="dayChangeRight" class="day-changer noselect" onclick="changeDay(1)">
             <span class="day-changer-span">
                 <svg id="dayChangeRightIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
                     <path d="M0-.25h24v24H0z" fill="none"/>
                 </svg>
             </span>
+            </div>
         </div>
     </div>
-</div>
-<div id="overlay-layout">
-    <div id="modalMasterHolder">
-        <div class="full-center" "></div>
+    <div id="overlay-layout">
+        <div id="modalMasterHolder">
+            <div class="full-center" "></div>
         <div onclick="setModalVisibility(false)" id="modalContainer"></div>
     </div>
+
+</div>
+</div>
+
+<div id="now-layout">
+
+    <div id="nowTop" class="now-top">
+        <div class="now-header">NUVARANDE LEKTION:</div>
+        <div id="nowTime" class="now-time">9:54</div>
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div style="text-align: center; padding-bottom: 12px; font-size: 18px;">1 tim 6 min återstår av:</div>
+
+    <div id="nowCurrentLessonContainer" class="now-lesson-container">
+
+        <div class="now-lesson-info">
+            <div class="now-lesson-info-title">Svenska 3</div>
+            <div class="now-lesson-info-subtitle">C111<br>Anna Häll</div>
+        </div>
+
+        <div class="now-lesson-times">
+            <div class="now-lesson-time now-lesson-start">9:30</div>
+            <div class="now-lesson-time now-lesson-end">11:00</div>
+        </div>
+
+    </div>
+
+    <div class="now-header now-next">NÄSTA LEKTION:</div>
+    <div class="clearfix"></div>
+
+    <div id="nowNextLessonContainer" class="now-lesson-container">
+
+        <div class="now-lesson-info">
+
+            <div class="now-lesson-info-title">Matematik 5</div>
+            <div class="now-lesson-info-subtitle">A22<br>Andreas Engström</div>
+        </div>
+
+        <div class="now-lesson-times">
+            <div class="now-lesson-time now-lesson-start">13:30</div>
+            <div class="now-lesson-time now-lesson-end">14:00</div>
+        </div>
+
+    </div>
+
+    <div class="now-nextbig-layout">
+
+        <div class="now-nextbig-container" id="nextBigLunch">
+            <div class="now-nextbig-text">Lunch om 2 lektioner</div>
+            <div class="now-nextbig-time">12:10</div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="now-nextbig-container" id="nextBigEnd">
+            <div class="now-nextbig-text">3 lektioner kvar på dagen</div>
+            <div class="now-nextbig-time">14:30</div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+
 </div>
 
 <?php
@@ -191,6 +257,7 @@ include_script("js/util.js");
 include_script("js/schedule.js");
 include_script("js/view.js");
 include_script("js/script.js");
+include_script("js/now.js");
 
 ?>
 <!--
@@ -199,6 +266,7 @@ include_script("js/script.js");
 <script type="text/javascript" src="js/schedule.js"></script>
 <script type="text/javascript" src="js/view.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/now.js"></script>
 -->
 </body>
 </html>

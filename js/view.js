@@ -213,7 +213,7 @@ function showLoadingIndicator() {
     uiElements.push()
 
     for (var i = 0; i  < uiElements.length; i++) {
-        $(uiElements[i]).css('transition', 'opacity 120ms');
+        $(uiElements[i]).css('transition', 'opacity 120ms, box-shadow 200ms, -webkit-filter 200ms');
         $(uiElements[i]).css('opacity', '0');
     }
 

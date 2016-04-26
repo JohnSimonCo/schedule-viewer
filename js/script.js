@@ -72,6 +72,7 @@ hammertimeOverlay.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
 
 function handleData(data) {
     resetColor();
+    setupNow(data);
 
     for (var i = 0; i < data.lessons.length; i++) {
         data.lessons[i].startTime = data.lessons[i].startTime.replace(/^0+/, '');
@@ -231,7 +232,7 @@ function handleData(data) {
         }
         setTimeout(function () {
             for (var i = 0; i < uiElements.length; i++) {
-                $(uiElements[i]).css('transition', 'opacity 120ms');
+                $(uiElements[i]).css('transition', 'opacity 120ms, box-shadow 200ms, -webkit-filter 200ms');
                 $(uiElements[i]).css('opacity', '1');
             }
         }, 5)
