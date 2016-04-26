@@ -27,6 +27,7 @@ var classDropdownVisible = false;
 var weekDropdownVisible = false;
 
 updateVisibleViewIndicator();
+updateNowTime();
 
 $.ajaxSetup ({
     cache: false

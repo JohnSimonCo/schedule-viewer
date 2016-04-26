@@ -20,9 +20,15 @@ function setupNow(data) {
 function refreshFocused() {
 
     //First remove all non-essential elements
-    /*$('#nowTop').chilren().forEach(function(element) {
-       element.remove();
-    });*/
+    var topChildren = $('#nowTop').children();
+    for (var i = 0; i < topChildren.length; i++) {
+       topChildren[i].remove();
+    }
+
+    //Add essential to top
+    var topClock = $('<div>');
+    topClock.attr('class', 'now-time');
+    $('#nowTop').append(topClock);
 
     var masterLesson = getMasterLessonFromDetailIndex(nowLessons);
 
@@ -33,13 +39,13 @@ function refreshFocused() {
 
     }
 
-    updateTime();
+    updateNowTime();
 
 }
 
-function updateTime() {
+function updateNowTime() {
     var now = new Date();
-    $('#nowTime').text();
+    $('.now-time').text(now.getHours() + ':' + now.getMinutes());
 }
 
 function getMasterLessonFromDetailIndex(allNow) {
