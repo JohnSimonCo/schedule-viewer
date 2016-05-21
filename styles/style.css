@@ -578,20 +578,18 @@ body, html {
     font-size: 30px;
 }
 
-.now-top {
-    font-weight: 500;
-
-    padding-bottom: 22px;
-}
-
 .now-header {
-    float: left;
     padding-top: 7px;
     font-size: 19px;
+    font-weight: 500;
+    padding-bottom: 22px;
+    text-transform: uppercase;
 }
 
 .now-time {
-    float: right;
+    position: absolute;
+    top: 32px;
+    right: 32px;
     font-size: 31px;
 }
 
@@ -605,6 +603,7 @@ body, html {
 
 
 
+
 .now-multiple-lessons-container {
     display: flex;
 }
@@ -614,7 +613,11 @@ body, html {
     height:24px;
 }
 
-
+.now-time-remaining {
+    text-align: center;
+    padding-bottom: 12px;
+    font-size: 18px;
+}
 
 .now-lesson-container {
     position: relative;

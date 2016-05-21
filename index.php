@@ -190,80 +190,85 @@ include_once("includer.php");
 
 <div id="now-layout">
 
-    <div id="nowTop" class="now-top">
+    <div id="nowTime" class="now-time"></div>
+
+    <div id="nowSectionHolder">
+
+
+
+
+<!--
+
         <div class="now-header">NUVARANDE LEKTION:</div>
-        <div id="nowTime" class="now-time"></div>
-        <div class="clearfix"></div>
-    </div>
 
+        <div id="nowTimeRemaining">1 tim 6 min återstår av:</div>
 
-    <div style="text-align: center; padding-bottom: 12px; font-size: 18px;">1 tim 6 min återstår av:</div>
+        <div class="now-multiple-lessons-container">
+            <div class="now-arrow-left now-arrow">
+                <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
+                    <path d="M0-.5h24v24H0z" fill="none"/>
+                </svg>
+            </div>
 
+            <div class="now-lesson-container">
+                <div class="now-lesson-info">
+                    <div class="now-lesson-info-title">Svenska 3</div>
+                    <div class="now-lesson-info-subtitle">C111<br>Anna Häll</div>
+                </div>
 
+                <div class="now-lesson-times">
+                    <div class="now-lesson-time now-lesson-start">9:30</div>
+                    <div class="now-lesson-time now-lesson-end">11:00</div>
+                </div>
+            </div>
 
-    <div class="now-multiple-lessons-container">
-        <div class="now-arrow-left now-arrow">
-            <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
-                <path d="M0-.5h24v24H0z" fill="none"/>
-            </svg>
+            <div class="now-arrow-right now-arrow">
+                <svg id="dayChangeRightIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    <path d="M0-.25h24v24H0z" fill="none"/>
+                </svg>
+            </div>
         </div>
 
-        <div class="now-lesson-container">
+
+        <div class="now-header now-next">NÄSTA LEKTION:</div>
+        <div class="clearfix"></div>
+
+        <div class="now-multiple-lessons-container">
+            <div class="now-arrow-left">
+                <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
+                    <path d="M0-.5h24v24H0z" fill="none"/>
+                </svg>
+            </div>
+            <div class="now-arrow-right">
+                <svg id="dayChangeRightIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    <path d="M0-.25h24v24H0z" fill="none"/>
+                </svg>
+            </div>
+        </div>
+
+        <div id="nowNextLessonContainer" class="now-lesson-container">
+
             <div class="now-lesson-info">
-                <div class="now-lesson-info-title">Svenska 3</div>
-                <div class="now-lesson-info-subtitle">C111<br>Anna Häll</div>
+
+                <div class="now-lesson-info-title">Matematik 5</div>
+                <div class="now-lesson-info-subtitle">A22<br>Andreas Engström</div>
             </div>
 
             <div class="now-lesson-times">
-                <div class="now-lesson-time now-lesson-start">9:30</div>
-                <div class="now-lesson-time now-lesson-end">11:00</div>
+                <div class="now-lesson-time now-lesson-start">13:30</div>
+                <div class="now-lesson-time now-lesson-end">14:00</div>
             </div>
+
         </div>
 
-        <div class="now-arrow-right now-arrow">
-            <svg id="dayChangeRightIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                <path d="M0-.25h24v24H0z" fill="none"/>
-            </svg>
-        </div>
-    </div>
+
+-->
 
 
-
-
-
-
-    <div class="now-header now-next">NÄSTA LEKTION:</div>
-    <div class="clearfix"></div>
-
-    <div class="now-multiple-lessons-container">
-        <div class="now-arrow-left">
-            <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
-                <path d="M0-.5h24v24H0z" fill="none"/>
-            </svg>
-        </div>
-        <div class="now-arrow-right">
-            <svg id="dayChangeRightIcon" class="schedule-day-arrow" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                <path d="M0-.25h24v24H0z" fill="none"/>
-            </svg>
-        </div>
-    </div>
-
-    <div id="nowNextLessonContainer" class="now-lesson-container">
-
-        <div class="now-lesson-info">
-
-            <div class="now-lesson-info-title">Matematik 5</div>
-            <div class="now-lesson-info-subtitle">A22<br>Andreas Engström</div>
-        </div>
-
-        <div class="now-lesson-times">
-            <div class="now-lesson-time now-lesson-start">13:30</div>
-            <div class="now-lesson-time now-lesson-end">14:00</div>
-        </div>
 
     </div>
 

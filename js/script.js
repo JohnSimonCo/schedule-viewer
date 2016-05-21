@@ -64,7 +64,65 @@ hammertimeOverlay.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
 
 function handleData(data) {
     resetColor();
-    setupNow(data);
+
+    //TODO REMOVE, ONLY FOR TESTING NOW
+    data.lessons.push({
+        'startTime': '22:00',
+        'endTime':  '23:00',
+        'info': [
+            {
+                'text': 'Test',
+                'teacher': 'Annika Båkman'
+            },
+            {
+                'text': 'Test2',
+                'teacher': 'An2nika Båkman'
+            },
+        ],
+        'rows': [
+            'MATMAT04',
+            'Matematik 4',
+            'Annika'
+        ],
+        'day': 4
+
+    });
+
+    data.lessons.push({
+        'startTime': '23:10',
+        'endTime':  '23:30',
+        'info': [
+            {
+                'text': 'Test',
+                'teacher': 'Annika Båkman'
+            }
+        ],
+        'rows': [
+            'MATMAT05',
+            'Sen Matematik 4',
+            'Annika'
+        ],
+        'day': 4
+
+    });
+
+    data.lessons.push({
+        'startTime': '23:40',
+        'endTime':  '23:50',
+        'info': [
+            {
+                'text': 'Test',
+                'teacher': 'Annika Båkman'
+            }
+        ],
+        'rows': [
+            'SVESVE03',
+            'Sen Matematik 4',
+            'Annika'
+        ],
+        'day': 4
+
+    });
 
     for (var i = 0; i < data.lessons.length; i++) {
         data.lessons[i].startTime = data.lessons[i].startTime.replace(/^0+/, '');
@@ -230,6 +288,8 @@ function handleData(data) {
         }, 5)
 
     });
+
+    setupNow(data);
 }
 
 //This method is called once per schedule to create all HTML elements and give
@@ -580,6 +640,9 @@ function updateVisibleViewIndicator() {
 //If it's saturday or sunday monday is shown and if it
 //is past 6 pm (18:00) the next day is shown
 function generateCurrentDate() {
+
+    return 4;//TODO REMOVE
+
 	var d = (new Date().getDay() + 6) % 7;
 
     if (d >= 5) {
