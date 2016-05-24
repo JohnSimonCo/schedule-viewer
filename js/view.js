@@ -244,3 +244,7 @@ function hideLoadingIndicator() {
 
     return promise;
 }
+
+function closeWelcome() {
+    $('#redirect-welcome-layout').remove();
+}

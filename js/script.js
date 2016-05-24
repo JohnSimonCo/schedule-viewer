@@ -27,7 +27,7 @@ var classDropdownVisible = false;
 var weekDropdownVisible = false;
 
 updateVisibleViewIndicator();
-updateNowTime();
+//NWO updateNowTime();
 
 $.ajaxSetup ({
     cache: false
@@ -66,7 +66,7 @@ function handleData(data) {
     resetColor();
 
     //TODO REMOVE, ONLY FOR TESTING NOW
-    data.lessons.push({
+    /*data.lessons.push({
         'startTime': '22:00',
         'endTime':  '23:00',
         'info': [
@@ -122,7 +122,7 @@ function handleData(data) {
         ],
         'day': 4
 
-    });
+    });*/
 
     for (var i = 0; i < data.lessons.length; i++) {
         data.lessons[i].startTime = data.lessons[i].startTime.replace(/^0+/, '');
@@ -289,7 +289,7 @@ function handleData(data) {
 
     });
 
-    setupNow(data);
+    //NOWsetupNow(data);
 }
 
 //This method is called once per schedule to create all HTML elements and give

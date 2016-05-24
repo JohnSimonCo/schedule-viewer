@@ -183,10 +183,34 @@ include_once("includer.php");
         <div id="modalMasterHolder">
             <div class="full-center" "></div>
         <div onclick="setModalVisibility(false)" id="modalContainer"></div>
+    </div></div>
+<?php if ($_GET['show-welcome'] == 'true' || true) { ?>
+    <div id="redirect-welcome-layout" onclick="closeWelcome()">
+        <div class="welcome-container" onclick="event.stopPropagation()">
+            <div class="welcome-title">Välkommen till schema.vgy.se!</div>
+            <a target="_blank" href="https://www.youtube.com/watch?v=uAWubRM14iY" class="welcome-gif">
+                <video poster="http://i.imgur.com/xesp51xh.jpg" preload="auto" autoplay="autoplay" muted="muted"
+                       loop="loop" webkit-playsinline="" style="width: 333px; height: 333px;">
+                    <source src="http://i.imgur.com/xesp51x.webm" type="video/webm">
+                    <source src="http://i.imgur.com/xesp51x.mp4" type="video/mp4">
+                </video>
+            </a>
+
+            <div class="welcome-text">Schemavisaren har flyttat från vgy.rocks till den lite mer officiella
+                schema.vgy.se! Glöm inte att byta ut alla eventuella bokmärken eftersom den gamla sidan kommer att
+                stängas ned under de kommande månaderna. För att fira flytten har John poppat en Cava(?systemetlänk
+                här?) vilket ni kan se på viden till höger.
+            </div>
+            <div class="clearfix"></div>
+            <div class="welcome-close" onclick="closeWelcome()">Jag förstår men bryr mig inte</div>
+        </div>
     </div>
 
+<?php } ?>
+
 </div>
-</div>
+
+<!--NOW
 
 <div id="now-layout">
 
@@ -197,7 +221,6 @@ include_once("includer.php");
 
 
 
-<!--
 
         <div class="now-header">NUVARANDE LEKTION:</div>
 
@@ -266,7 +289,7 @@ include_once("includer.php");
         </div>
 
 
--->
+
 
 
 
@@ -291,13 +314,15 @@ include_once("includer.php");
 
 </div>
 
+-->
+
 <?php
 
 include_script("js/lib.js");
 include_script("js/util.js");
 include_script("js/schedule.js");
 include_script("js/view.js");
-include_script("js/now.js");
+//NOW include_script("js/now.js");
 include_script("js/script.js");
 
 ?>

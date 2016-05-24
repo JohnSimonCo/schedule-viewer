@@ -199,7 +199,8 @@ body, html {
 #main-layout {
     position: relative;
     height: 100vh;
-    width: calc(100vw - 450px);
+    /*NOWwidth: calc(100vw - 450px);*/
+    width: 100vw;
 }
 
 #now-layout {
@@ -692,6 +693,83 @@ body, html {
 #nextBigEnd {
     background: #576b75;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Welcome redirect*/
+#redirect-welcome-layout {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.welcome-container {
+    display: block;
+    max-width: 90%;
+    width: 750px;
+    background: #263238;
+    padding: 32px;
+    box-shadow: 0px 7px 30px 3px rgba(0,0,0,0.4);
+}
+
+.welcome-title {
+    font-size: 36px;
+    padding-bottom: 22px;
+    font-weight: 100;
+}
+
+.welcome-text {
+    display: inline;
+    font-size: 17px;
+    margin-top: 40px;
+}
+
+.welcome-gif {
+    display: inline;
+    float: right;
+    height: 333px;
+    width: 333px;
+    max-width: calc(100% - 64px);
+    margin-left: 20px;
+}
+
+.welcome-close {
+    margin-top: 28px;
+    padding: 8px;
+    float: right;
+    text-transform: uppercase;
+    background: rgb(1, 162, 166);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0px 7px 30px 3px rgba(0,0,0,0.4);
+}
+
+.welcome-close:hover {
+    box-shadow: 0px 13px 30px 3px rgba(0,0,0,0.5);
+    background: #81d1d3;
+}
+
+
+
 
 
 
