@@ -746,9 +746,15 @@ body, html {
     display: inline;
     float: right;
     height: 333px;
-    width: 333px;
-    max-width: calc(100% - 64px);
+    width: 100%;
+    max-width: 333px;
     margin-left: 20px;
+}
+
+.welcome-gif video {
+    height: 333px;
+    width: 100%;
+    max-width: 333px;
 }
 
 .welcome-close {
@@ -874,6 +880,17 @@ body, html {
 		margin-left: 5px;
 		margin-right: 5px;
 	}
+
+    .welcome-gif {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .welcome-text {
+        display: block;
+    }
 }
 
 @media(max-width: 550px) {

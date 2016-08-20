@@ -8,7 +8,7 @@ if(!in_array($week, $weeks)) {
 }
 
 $classNames = $metadata["classNames"];
-$className = isset($_COOKIE["className"]) ? $_COOKIE["className"] : "13TE";
+$className = isset($_COOKIE["className"]) ? $_COOKIE["className"] : "14TE";
 if(!in_array($className, $classNames)) {
     $className = $classNames[0];
 }

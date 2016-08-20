@@ -187,13 +187,18 @@ include_once("includer.php");
             <div class="full-center" "></div>
         <div onclick="setModalVisibility(false)" id="modalContainer"></div>
     </div></div>
-<?php if ($_GET['show-welcome'] == 'true' || true) { ?>
+<?php if ($_GET['show-welcome'] == 'true') { ?>
+    <script>
+        // Remove query string
+        var url = location.origin + location.pathname;
+        history.pushState({ path: url }, '', url);
+    </script>
     <div id="redirect-welcome-layout" onclick="closeWelcome()">
         <div class="welcome-container" onclick="event.stopPropagation()">
             <div class="welcome-title">Välkommen till schema.vgy.se!</div>
             <a target="_blank" href="https://www.youtube.com/watch?v=uAWubRM14iY" class="welcome-gif">
                 <video poster="http://i.imgur.com/xesp51xh.jpg" preload="auto" autoplay="autoplay" muted="muted"
-                       loop="loop" webkit-playsinline="" style="width: 333px; height: 333px;">
+                       loop="loop" webkit-playsinline="">
                     <source src="http://i.imgur.com/xesp51x.webm" type="video/webm">
                     <source src="http://i.imgur.com/xesp51x.mp4" type="video/mp4">
                 </video>
@@ -201,8 +206,7 @@ include_once("includer.php");
 
             <div class="welcome-text">Schemavisaren har flyttat från vgy.rocks till den lite mer officiella
                 schema.vgy.se! Glöm inte att byta ut alla eventuella bokmärken eftersom den gamla sidan kommer att
-                stängas ned under de kommande månaderna. För att fira flytten har John poppat en Cava(?systemetlänk
-                här?) vilket ni kan se på viden till höger.
+                stängas ned under de kommande månaderna. För att fira flytten har John poppat en Cava vilket ni kan se på videon.
             </div>
             <div class="clearfix"></div>
             <div class="welcome-close" onclick="closeWelcome()">Jag förstår men bryr mig inte</div>
