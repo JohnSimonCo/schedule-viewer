@@ -716,7 +716,7 @@ body, html {
     display: flex;
     top: 0;
     left: 0;
-    align-items: center;
+    /*align-items: center;*/
     justify-content: center;
     z-index: 3;
 }
@@ -725,6 +725,8 @@ body, html {
     display: block;
     max-width: 90%;
     width: 750px;
+    max-height: 95%;
+    overflow-y: auto;
     background: #263238;
     padding: 32px;
     box-shadow: 0px 7px 30px 3px rgba(0,0,0,0.4);
@@ -751,7 +753,7 @@ body, html {
     margin-left: 20px;
 }
 
-.welcome-gif video {
+.welcome-gif video, .welcome-gif img {
     height: 333px;
     width: 100%;
     max-width: 333px;
@@ -886,10 +888,23 @@ body, html {
         display: block;
         margin-left: auto;
         margin-right: auto;
+        height: auto;
+    }
+
+    .welcome-title {
+        font-size: 28px;
     }
 
     .welcome-text {
         display: block;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+
+    .welcome-gif video, .welcome-gif img {
+        height: 250px;
+        width: 100%;
+        max-width: 250px;
     }
 }
 

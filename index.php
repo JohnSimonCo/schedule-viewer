@@ -197,11 +197,15 @@ include_once("includer.php");
         <div class="welcome-container" onclick="event.stopPropagation()">
             <div class="welcome-title">Välkommen till schema.vgy.se!</div>
             <a target="_blank" href="https://www.youtube.com/watch?v=uAWubRM14iY" class="welcome-gif">
+            <?php if ($isMobile) { ?>
+                <img src="http://i.imgur.com/xesp51x.gif">
+            <?php } else { ?>
                 <video poster="http://i.imgur.com/xesp51xh.jpg" preload="auto" autoplay="autoplay" muted="muted"
                        loop="loop" webkit-playsinline="">
                     <source src="http://i.imgur.com/xesp51x.webm" type="video/webm">
                     <source src="http://i.imgur.com/xesp51x.mp4" type="video/mp4">
                 </video>
+            <?php } ?>
             </a>
 
             <div class="welcome-text">Schemavisaren har flyttat från vgy.rocks till den lite mer officiella
