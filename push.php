@@ -39,9 +39,10 @@ foreach($schedules[0]["schedules"] as $classSchedule) {
 
 $metadata = [
     "weeks" => $weeks,
-    "classNames" => $classNames
+    "classNames" => $classNames,
+    "lastUpdate" => time()
 ];
 
 file_put_contents("metadata.json", json_encode($metadata));
 
-echo "got it";
+echo "got it v2";

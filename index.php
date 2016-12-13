@@ -219,6 +219,10 @@ include_once("includer.php");
 
 <?php } ?>
 
+<div class="last-schedule-update">
+    Uppdaterad <?php echo date('j/n', $metadata["lastUpdate"])?>
+</div>
+
 </div>
 
 <!--NOW

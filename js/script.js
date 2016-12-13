@@ -418,6 +418,15 @@ function generateHtml() {
             }
 		}
 
+        //array for all lesson displayrows which has been added. We don't need to see Engelska 7 \n Engelska 7
+        //this is after all preprocessing so wont mess up matching
+        var alreadyDisplayed = [];
+        lesson.displayRows = lesson.displayRows.filter(function(row) {
+            var duplicate = alreadyDisplayed[row] != undefined;
+            alreadyDisplayed[row] = 1;
+            return !duplicate;
+        });
+
 		for (var k = 0; k < lesson.displayRows.length; k++) {
 			var rowElement = $('<div>');
 			rowElement.attr('class', 'row');
